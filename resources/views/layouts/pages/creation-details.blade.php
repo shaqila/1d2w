@@ -27,7 +27,7 @@ Karya | One Day To Write
                   <img src="assets/img/workshop/poster-01.jpg" alt="">
                 </div>
                 <div class="workshop-info" >
-              <button type="button" class="btn btn-outline-primary btn-lg btn-block">Download</button>
+              <a href="{{url('download/'.$karya->pdf)}}" class="btn btn-outline-primary btn-lg btn-block">Download</a>
             </div>
             </div>
           </div>
