@@ -24,7 +24,7 @@ Karya | One Day To Write
           <div class="col-lg-4">
             <div class="workshop-details-slider ">
                 <div class="poster">
-                  <img src="assets/img/workshop/poster-01.jpg" alt="">
+                  <img src="{{$karya->getCover()}}" alt="">
                 </div>
                 <div class="workshop-info" >
               <a href="{{url('download/'.$karya->pdf)}}" class="btn btn-outline-primary btn-lg btn-block">Download</a>

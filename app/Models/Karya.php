@@ -21,8 +21,8 @@ class Karya extends Model
     public function getCover()
     {
         if (!$this->cover) {
-            return asset('cover-workshop/workshop.jpg');
+            return asset('cover-karya/cover.jpg');
         }
-        return asset('cover-workshop/' . $this->poster);
+        return asset('cover-karya/' . $this->cover);
     }
 }

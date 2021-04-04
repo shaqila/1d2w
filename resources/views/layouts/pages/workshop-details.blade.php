@@ -20,22 +20,21 @@ Karya | One Day To Write
       <div class="container">
 
         <div class="row gy-4">
-
+        
           <div class="col-lg-4">
             <div class="workshop-details-slider ">
                 <div class="poster">
-                  <img src="assets/img/workshop/poster-01.jpg" alt="">
+                  <img src="{{$workshop->getPoster()}}" alt="">
                 </div>
             </div>
             <div class="workshop-info">
-              <h3>Rp. 100.000</h3>
+              <h3>{{$workshop->harga}}</h3>
               <button type="button" class="btn btn-outline-primary btn-lg btn-block">Daftar Sekarang</button>
             </div>
           </div>
-
           <div class="col-lg-8">
             <div class="workshop-info">
-              <h3>AL-AZHAR WRITING COMPETITION</h3>
+              <h3>{{$workshop->nama}}</h3>
               <ul>
                 <li><strong>Level</strong>: </br> Kids, Teens, Adults</li>
                 <li><strong>Tanggal Pelaksanaan</strong>: </br>24 April 2021 | 09:00 - 11:00</li>
@@ -45,12 +44,10 @@ Karya | One Day To Write
             </div>
             <div class="workshop-description">
               <h4>Tentang Workshop</h4>
-              <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
-              </p>
+              <p>{{$workshop->deskripsi}}</p>
             </div>
           </div>
-
+        
         </div>
 
       </div>

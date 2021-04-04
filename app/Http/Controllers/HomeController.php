@@ -11,17 +11,21 @@ class HomeController extends Controller
     public function index()
     {
         $workshop = Workshop::all();
-        
         return view('layouts.pages.home', compact("workshop"));
     }
-   public function detail_creation($id)
+    public function detail_workshop($id)
+    {
+        $workshop = Workshop::where('id', $id)->first();
+        return view('layouts.pages.workshop-details', compact("workshop")); 
+    }
+    public function detail_creation($id)
     {
         $karya = Karya::where('id',$id)->first();
-       
         return view('layouts.pages.creation-details', compact("karya"));
     }
 
-    public function getDownload(){
+    public function getDownload()
+    {
         $file = public_path()."/pdf-workshop/karya01.pdf";
         $headers = array(
             'Content-type : application/pdf',

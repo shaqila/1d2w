@@ -23,22 +23,17 @@ class WorkshopController extends Controller
                 'tanggal_pelaksanaan' => 'required',
                 'jumlah_peserta' => 'required',
                 'poster' => 'mimes:jpg,png'
-
             ]
         );
         //Insert ke Table Workshop
         $workshop = \App\Models\Workshop::create($request->all());
-            // if ($request->hasFile('poster')) {
-            //     $request->file('poster')->move('images/', $request->file('poster')->getClientOriginalName());
-            //     $peserta->poster = $request->file('poster')->getClientOriginalName();
-            //     $peserta->save();
-            // }
+            if ($request->hasFile('poster')) {
+                $request->file('poster')->move('img-workshop/', $request->file('poster')->getClientOriginalName());
+                $workshop->poster = $request->file('poster')->getClientOriginalName();
+                $workshop->save();
+            }
         // \Session::flash('flash_message', 'A new course has been created!');
         return redirect('/workshop')->with('sukses', 'Data berhasil diupdate');
     }
-    public function readon()
-    {
-        
-        return view('layouts.pages.workshop-details',['workshop' => $workshop]); 
-    }
+    
 }
