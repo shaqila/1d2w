@@ -266,6 +266,17 @@
       </section>
       <!-- /.content -->
     </div>
+<<<<<<< HEAD
+  </footer>
+	@yield('footer')
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+=======
     <!-- /.content-wrapper -->
     <footer class="main-footer">
       <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
@@ -282,6 +293,7 @@
     <!-- /.control-sidebar -->
   </div>
   <!-- ./wrapper -->
+>>>>>>> d2f9c5176feca7cc705dc5f685afe822dc7b690b
 
   <!-- jQuery -->
   <script src="{{asset('admin/plugins/jquery/jquery.min.js')}}"></script>

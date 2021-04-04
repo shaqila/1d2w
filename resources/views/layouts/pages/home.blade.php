@@ -267,7 +267,7 @@ ODTW | One Day To Write
 			<p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
 			</div>
 
-			<div class="row">
+			<!-- <div class="row">
 			<div class="col-lg-12 d-flex justify-content-center">
 				<ul id="workshop-flters">
 				<li data-filter="*" class="filter-active">All</li>
@@ -276,97 +276,21 @@ ODTW | One Day To Write
 				<li data-filter=".filter-adults">Adults</li>
 				</ul>
 			</div>
-			</div>
+			</div> -->
 
-			<div class="row workshop-container">
+			<div class="row workshop-container" >
+				@foreach($workshop as $workshops) 
 				<a class="col-lg-3 col-md-4 col-sm-6 col-12 workshop-item filter-kids" data-aos="fade-up" data-aos-delay="300" href="#">
 					<figure>
-						<img src="img/poster-ws.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+						<img src="{{$workshops->getPoster()}}" alt="Image" class="img-fluid tm-gallery-img" />
 							<figcaption>
-								<h4 class="tm-gallery-title">Fusce dictum finibus</h4>
-								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>
-								<p class="tm-gallery-price">$45 / $55</p>
+								<h4 class="tm-gallery-title">{{$workshops->nama}}</h4>
+								<p class="tm-gallery-description">{{$workshops->deskripsi}}</p>
+								<p class="tm-gallery-price">{{$workshops->harga}}</p>
 							</figcaption>
 					</figure>
 				</a>
-
-				<a class="col-lg-3 col-md-4 col-sm-6 col-12 workshop-item filter-teens" data-aos="fade-up" data-aos-delay="300" href="#">
-					<figure>
-						<img src="img/poster-ws3.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-							<figcaption>
-								<h4 class="tm-gallery-title">Fusce dictum finibus</h4>
-								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>
-								<p class="tm-gallery-price">$45 / $55</p>
-							</figcaption>
-					</figure>
-				</a>
-
-				<a class="col-lg-3 col-md-4 col-sm-6 col-12 workshop-item filter-kids" data-aos="fade-up" data-aos-delay="300" href="#">
-					<figure>
-						<img src="img/poster-ws.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-							<figcaption>
-								<h4 class="tm-gallery-title">Fusce dictum finibus</h4>
-								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>
-								<p class="tm-gallery-price">$45 / $55</p>
-							</figcaption>
-					</figure>
-				</a>
-
-				<a class="col-lg-3 col-md-4 col-sm-6 col-12 workshop-item filter-adults" data-aos="fade-up" data-aos-delay="300" href="#">
-					<figure>
-						<img src="img/poster-ws2.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-							<figcaption>
-								<h4 class="tm-gallery-title">Fusce dictum finibus</h4>
-								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>
-								<p class="tm-gallery-price">$45 / $55</p>
-							</figcaption>
-					</figure>
-				</a>
-
-				<a class="col-lg-3 col-md-4 col-sm-6 col-12 workshop-item filter-teens" data-aos="fade-up" data-aos-delay="300" href="#">
-					<figure>
-						<img src="img/poster-ws2.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-							<figcaption>
-								<h4 class="tm-gallery-title">Fusce dictum finibus</h4>
-								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>
-								<p class="tm-gallery-price">$45 / $55</p>
-							</figcaption>
-					</figure>
-				</a>
-
-				<a class="col-lg-3 col-md-4 col-sm-6 col-12 workshop-item filter-kids" data-aos="fade-up" data-aos-delay="300" href="#">
-					<figure>
-						<img src="img/poster-ws.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-							<figcaption>
-								<h4 class="tm-gallery-title">Fusce dictum finibus</h4>
-								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>
-								<p class="tm-gallery-price">$45 / $55</p>
-							</figcaption>
-					</figure>
-				</a>
-
-				<a class="col-lg-3 col-md-4 col-sm-6 col-12 workshop-item filter-adults" data-aos="fade-up" data-aos-delay="300" href="#">
-					<figure>
-						<img src="img/poster-ws3.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-							<figcaption>
-								<h4 class="tm-gallery-title">Fusce dictum finibus</h4>
-								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>
-								<p class="tm-gallery-price">$45 / $55</p>
-							</figcaption>
-					</figure>
-				</a>
-
-				<a class="col-lg-3 col-md-4 col-sm-6 col-12 workshop-item filter-kids" data-aos="fade-up" data-aos-delay="300" href="#">
-					<figure>
-						<img src="img/poster-ws2.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-							<figcaption>
-								<h4 class="tm-gallery-title">Fusce dictum finibus</h4>
-								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>
-								<p class="tm-gallery-price">$45 / $55</p>
-							</figcaption>
-					</figure>
-				</a>
-
+				@endforeach
 			</div>
 
 		</div>

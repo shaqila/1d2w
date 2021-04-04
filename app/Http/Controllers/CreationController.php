@@ -26,8 +26,5 @@ class CreationController extends Controller
     {
         # code...
     }
-    public function readon()
-    {
-        return view('layouts.pages.creation-details');
-    }
+    
 }
