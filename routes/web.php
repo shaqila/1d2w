@@ -22,4 +22,7 @@ Route::get('/creation', [CreationController::class, 'index'])->name('creation');
 Route::get('/creation-details', [CreationController::class, 'readon'])->name('creation-details'); 
 Route::get('/workshop-details', [WorkshopController::class, 'readon'])->name('workshop-details');
 Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin-dashboard');
+Route::get('/workshop', [WorkshopController::class,'index'])->name('workshop');
+Route::post('/workshop/create', [WorkshopController::class, 'create'])->name('workshop-create');
+Route::get('/workshop/{workshop}/details', [WorkshopController::class, 'readon'])->name('workshop-readon');
 

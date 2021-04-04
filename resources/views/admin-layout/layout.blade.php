@@ -264,7 +264,7 @@
       <b>Version</b> 3.1.0-pre
     </div>
   </footer>
-
+	@yield('footer')
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
