@@ -280,7 +280,7 @@ ODTW | One Day To Write
 
 			<div class="row workshop-container" >
 				@foreach($workshop as $workshops) 
-				<a class="col-lg-3 col-md-4 col-sm-6 col-12 workshop-item filter-kids" data-aos="fade-up" data-aos-delay="300" href="#">
+				<a class="col-lg-3 col-md-4 col-sm-6 col-12 workshop-item filter-kids" data-aos="fade-up" data-aos-delay="300" href="/workshop-details/{$workshops->id}">
 					<figure>
 						<img src="{{$workshops->getPoster()}}" alt="Image" class="img-fluid tm-gallery-img" />
 							<figcaption>
