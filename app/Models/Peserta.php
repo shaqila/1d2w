@@ -9,13 +9,18 @@ class Peserta extends Model
 {
     use HasFactory;
     protected $table = 'peserta';
-    protected $fillable = ['nama_lengkap', 'jenis_kelamin', 'profesi', 'domisili', 'no_hp', 'avatar'];
+    protected $fillable = [
+        'user_id',
+        'nama_lengkap', 
+        'jenis_kelamin', 
+        'profesi', 
+        'domisili', 
+        'no_hp'
+    ];
 
-    public function getAvatar()
+    public function workshop()
     {
-        if (!$this->avatar) {
-            return asset('img-avatar/avatar.jpg');
-        }
-        return asset('img-avatar/' . $this->poster);
+        return $this->belongsToMany(Workshop::class);
+            
     }
 }

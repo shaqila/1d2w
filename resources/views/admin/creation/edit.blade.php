@@ -9,7 +9,6 @@
                 {{session('sukses')}}
             </div>
             @endif
-            <div class="row">
                 <div class="col-md-12">
                     <div class="panel">
                         <div class="panel-heading">
@@ -26,19 +25,15 @@
                                     <label for="exampleInputPanggilan">Sinopsis</label>
                                     <input name="deskripsi" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{$karya->deskripsi}}">
                                 </div>
-                                
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-warning">Update</button>
-
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-warning">Update</button>
+                                </div>
+                    
+                            </form>
                         </div>
                     </div>
-                    </form>
                 </div>
-            </div>
         </div>
     </div>
-</div>
-</div>
 </div>
 @stop

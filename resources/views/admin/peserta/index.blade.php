@@ -32,7 +32,7 @@ Data Semua Peserta
                             <div class="panel-body">
                                 <table class="table table-hover">
                                     <thead>
-                                        <tr>
+                                        <tr class="text-center">
                                             <th>NAMA LENGKAP</th>
                                             <th>JENIS KELAMIN</th>
                                             <th>PROFESI</th>
@@ -43,7 +43,7 @@ Data Semua Peserta
                                     </thead>
                                     <tbody>
                                         @foreach($peserta as $pesertas)
-                                        <tr?>
+                                        <tr>
                                             <td>{{$pesertas->nama_lengkap}}</td>
                                             <td>{{$pesertas->jenis_kelamin}}</td>
                                             <td>{{$pesertas->profesi}}</td>
@@ -73,12 +73,19 @@ Data Semua Peserta
                 </div>
                 <div class="modal-body">
                     <form action="/peserta/create" enctype="multipart/form-data" method="POST">
-                        @csrf
-                        <div class="form-group {{$errors->has('nama_lengkap') ? 'has-errors': ''}}">
+                    @csrf
+                    <div class="form-group {{$errors->has('nama_lengkap') ? 'has-errors': ''}}">
                         <label for="exampleInputEmail1">Nama Lengkap</label>
                         <input name="nama_lengkap" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{old('nama_lengkap')}}">
                         @if($errors->has('nama_lengkap'))
                         <span class="help-block">{{$errors->first('nama_lengkap')}}</span>
+                        @endif
+                    </div>
+                    <div class="form-group {{$errors->has('email') ? 'has-errors': ''}} ">
+                        <label for="exampleInputPassword1">Email</label>
+                        <input name="email" type="email" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{old('email')}}">
+                        @if($errors->has('email'))
+                        <span class=" help-block">{{$errors->first('email')}}</span>
                         @endif
                     </div>
                     <div class="form-group {{$errors->has('jenis_kelamin') ? 'has-errors': ''}}">
@@ -110,13 +117,6 @@ Data Semua Peserta
                         <input name="no_hp" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{old('no_hp')}}">
                         @if($errors->has('no_hp'))
                         <span class="help-block">{{$errors->first('no_hp')}}</span>
-                        @endif
-                    </div>
-                    <div class="form-group" {{$errors->has('avatar') ? 'has-errors': ''}}">
-                        <label for="exampleInputAvatar">Avatar</label>
-                        <input name="avatar" type="file" class="form-control" value="{{old('avatar')}}">
-                        @if($errors->has('avatar'))
-                        <span class="help-block">{{$errors->first('avatar')}}</span>
                         @endif
                     </div>
 

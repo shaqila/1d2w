@@ -1,5 +1,4 @@
 <footer class="tm-footer text-center">
-<p>Copyright &copy; 2020 Simple House 
+<p>Copyright &copy; One Day To Write
             
-| Design: <a rel="nofollow" href="https://templatemo.com">TemplateMo</a></p>
 </footer>

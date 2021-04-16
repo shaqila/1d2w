@@ -32,10 +32,9 @@ Data Workshop
                             <div class="panel-body">
                                 <table class="table table-hover">
                                     <thead>
-                                        <tr style="font-size: 12px;" class="text-center">
+                                        <tr class="text-center">
                                             <th>KODE</th>
                                             <th>NAMA WORKSHOP</th>
-                                            <th>DESKRIPSI</th>
                                             <th>HARGA</th>
                                             <th>TANGGAL PELAKSANAAN</th>
                                             <th>JUMLAH PESERTA</th>
@@ -47,12 +46,15 @@ Data Workshop
                                         @foreach($workshop as $workshops)
                                         <tr>
                                             <td>{{$workshops->kode}}</td>
-                                            <td>{{$workshops->nama}}</td>
-                                            <td>{{$workshops->deskripsi}}</td>
+                                            <td><a href="/workshop/{{$workshops->id}}/profile">{{$workshops->nama}}</a></td>
                                             <td>{{$workshops->harga}}</td>
                                             <td>{{$workshops->tanggal_pelaksanaan}}</td>
                                             <td>{{$workshops->jumlah_peserta}}</td>
-                                            <td><img src="{{$workshops->getPoster()}}" alt="Image" class="img-fluid tm-gallery-img" /></td>
+                                            <td><img src="{{$workshops->getPoster()}}" alt="Image" class="img-fluid tm-gallery-img" 
+                                                            style=" max-height: 150px;
+                                                            max-width: 150px;
+                                                            object-fit: cover;"
+                                            /></td>
                                             <td>
                                                 <a href="/workshop/{{$workshops->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
                                                 <a href="#" class="btn btn-danger btn-sm delete" workshop-id="{{$workshops->id}}">Delete</a>

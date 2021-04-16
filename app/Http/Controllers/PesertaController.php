@@ -4,33 +4,36 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Peserta;
+use App\Models\User;
+use App\Http\Requests\PesertaRequest;
 
 class PesertaController extends Controller
 {
     public function index(Request $request)
     {
         $peserta = Peserta::all();
-        return view ('admin.peserta.index', compact("peserta"));
+        return view('admin.peserta.index', compact("peserta"));
     }
-    public function create(Request $request)
+    public function create(PesertaRequest $request)
     {
-        $this->validate(
-            $request,
-            [
-                'nama_lengkap' => 'required',
-                'jenis_kelamin' => 'required',
-                'profesi' => 'required',
-                'domisili' => 'required',
-                'no_hp' => 'required',
-            ]
-        );
+
+        //Insert ke Table User
+        $user = new User();
+        $user->name = $request->nama_lengkap;
+        $user->email = $request->email;
+        $user->role = 'peserta';
+        $user->password = bcrypt(request('password'));
+        $user->save();
+        //Insert ke Table Peserta
+        $request->request->add(['user_id' => $user->id]);
         $peserta = Peserta::create($request->all());
-        if ($request->hasFile('avatar')) {
-            $request->file('avatar')->move('img-peserta/', $request->file('avatar')->getClientOriginalName());
-            $peserta->avatar = $request->file('avatar')->getClientOriginalName();
-            $peserta->save();
-        }
-        // \Session::flash('flash_message', 'A new course has been created!');
+
+        // if ($request->hasFile('avatar')) {
+        //     $request->file('avatar')->move('img-peserta/', $request->file('avatar')->getClientOriginalName());
+        //     $peserta->avatar = $request->file('avatar')->getClientOriginalName();
+        //     $peserta->save();
+        // }
+
         return redirect('/peserta')->with('sukses', 'Data berhasil diupdate');
     }
     public function delete(Peserta $peserta)
@@ -41,17 +44,18 @@ class PesertaController extends Controller
     public function edit($id)
     {
         $peserta = Peserta::find($id);
-        return view('admin.peserta.edit', ['peserta'=>$peserta]);
+        return view('admin.peserta.edit', ['peserta' => $peserta]);
     }
-    public function update(Request $request, $id)
+    public function update(PesertaRequest $request, $id)
     {
         $peserta = Peserta::find($id);
-        $peserta->update($request->all());
-        if ($request->hasFile('avatar')) {
-            $request->file('avatar')->move('img-avatar/', $request->file('avatar')->getClientOriginalName());
-            $peserta->avatar = $request->file('avatar')->getClientOriginalName();
-            $peserta->update();
-        }
+
+        // $peserta->update($request->all());
+        // if ($request->hasFile('avatar')) {
+        //     $request->file('avatar')->move('img-avatar/', $request->file('avatar')->getClientOriginalName());
+        //     $peserta->avatar = $request->file('avatar')->getClientOriginalName();
+        //     $peserta->update();
+        // }
 
         return redirect('/peserta')->with('sukses', 'Data berhasil diupdate');
     }

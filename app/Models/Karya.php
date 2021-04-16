@@ -9,7 +9,7 @@ class Karya extends Model
 {
     use HasFactory;
     protected $table = 'karya';
-    protected $fillable = ['id', 'nama_karya', 'deskripsi', 'cover', 'pdf'];
+    protected $fillable = ['id', 'nama_karya', 'level', 'deskripsi', 'cover', 'pdf'];
     
     public function getPdf($name)
     {

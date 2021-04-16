@@ -19,4 +19,11 @@ class Workshop extends Model
         }
         return asset('img-workshop/' . $this->poster);
     }
+
+    public function peserta()
+    {
+        {
+        return $this->belongsToMany(Peserta::class);
+        }
+    }
 }

@@ -9,7 +9,6 @@
                 {{session('sukses')}}
             </div>
             @endif
-            <div class="row">
                 <div class="col-md-12">
                     <div class="panel">
                         <div class="panel-heading">
@@ -17,7 +16,7 @@
                         </div>
                         <div class="panel-body">
                             <form action="{{route('peserta-update',$peserta->id)}}" method="POST" enctype="multipart/form-data">
-                                {{csrf_field()}}
+                                @csrf
                                 <div class="form-group">
                                     <label for="exampleInputfirstname">Nama Lengkap</label>
                                     <input name="nama_lengkap" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{$peserta->nama_lengkap}}">
@@ -41,22 +40,15 @@
                                     <label for="exampleInputPassword1">Nomor Handphone</label>
                                     <input name="no_hp" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{$peserta->no_hp}}">
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputAvatar">Avatar</label>
-                                    <input name="avatar" type="file" class="form-control">
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-warning">Update</button>
                                 </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-warning">Update</button>
-
+                            </form>
                         </div>
                     </div>
-                    </form>
                 </div>
-            </div>
         </div>
     </div>
 </div>
-</div>
-</div>
+
 @stop

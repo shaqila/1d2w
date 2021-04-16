@@ -8,6 +8,7 @@ Data Karya (Buku)
 
 <div class="main">
     <div class="main-content">
+        <div class="container-fluid">
         @if(session('sukses'))
         <div class="alert alert-success" roles="alert">
             <button type="button" class="close" data-dismiss="alert">×</button>
@@ -20,6 +21,7 @@ Data Karya (Buku)
             {{session('hapus')}}
         </div>
         @endif
+        </div>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -32,9 +34,10 @@ Data Karya (Buku)
                         <div class="panel-body">
                             <table class="table table-hover">
                                 <thead>
-                                    <tr style="font-size: 12px;" class="text-center">
+                                    <tr class="text-center">
                                         <th>JUDUL KARYA</th>
                                         <th>SINOPSIS</th>
+                                        <th>LEVEL</th>
                                         <th>COVER</th>
                                         <th>PDF</th>
                                         <th>AKSI</th>
@@ -42,9 +45,10 @@ Data Karya (Buku)
                                 </thead>
                                 <tbody>
                                     @foreach($karya as $karyas)
-                                    <tr style="font-size: 14px;" class="text-center">
+                                    <tr>
                                         <td>{{$karyas->nama_karya}}</td>
                                         <td>{{$karyas->deskripsi}}</td>
+                                        <td>{{$karyas->level}}</td>
                                         <td><img src="{{$karyas->getCover()}}" alt="Cover" class="img-fluid tm-gallery-img" 
                                                     style=" max-height: 100px;
                                                             max-width: 100px;
@@ -88,6 +92,13 @@ Data Karya (Buku)
                         <input name="deskripsi" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{old('deskripsi')}}">
                         @if($errors->has('deskripsi'))
                         <span class="help-block">{{$errors->first('deskripsi')}}</span>
+                        @endif
+                    </div>
+                    <div class="form-group {{$errors->has('level') ? 'has-errors': ''}}">
+                        <label for="exampleInputEmail1">Level</label>
+                        <input name="level" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{old('level')}}">
+                        @if($errors->has('level'))
+                        <span class="help-block">{{$errors->first('level')}}</span>
                         @endif
                     </div>
                     <div class="form-group" {{$errors->has('cover') ? 'has-errors': ''}}">

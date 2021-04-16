@@ -30,11 +30,11 @@ class CreationController extends Controller
                 $karya->cover = $request->file('cover')->getClientOriginalName();
                 $karya->save();
             }
-            // if ($request->hasFile('pdf')) {
-            //     $request->file('pdf')->move('cover-karya/', $request->file('pdf')->getClientOriginalName());
-            //     $karya->pdf = $request->file('pdf')->getClientOriginalName();
-            //     $karya->save();
-            // }
+            if ($request->hasFile('pdf')) {
+                $request->file('pdf')->move('cover-karya/', $request->file('pdf')->getClientOriginalName());
+                $karya->pdf = $request->file('pdf')->getClientOriginalName();
+                $karya->save();
+            }
         // \Session::flash('flash_message', 'A new course has been created!');
         return redirect('/creation')->with('sukses', 'Data berhasil ditambah');
     }
