@@ -9,7 +9,7 @@ class Karya extends Model
 {
     use HasFactory;
     protected $table = 'karya';
-    protected $fillable = ['id', 'nama_karya', 'deskripsi', 'cover', 'pdf'];
+    protected $fillable = ['id', 'nama_karya', 'level', 'deskripsi', 'cover', 'pdf'];
     
     public function getPdf($name)
     {
@@ -21,8 +21,8 @@ class Karya extends Model
     public function getCover()
     {
         if (!$this->cover) {
-            return asset('cover-workshop/workshop.jpg');
+            return asset('cover-karya/cover.jpg');
         }
-        return asset('cover-workshop/' . $this->poster);
+        return asset('cover-karya/' . $this->cover);
     }
 }
