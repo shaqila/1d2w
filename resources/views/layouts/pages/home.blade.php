@@ -65,8 +65,8 @@ ODTW | One Day To Write
         @foreach($karya as $karyas)
         <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-duration="3000">
           <a class="card card-dashboard-karya d-block" href="{{route('detail_creation',$karyas->id)}}">
-            <div class="card-body">
-              <img src="{{$karyas->getCover()}}" alt="" class="karya-image" />
+            <div class="card-body" style="width:15rem">
+              <img src="{{$karyas->getCover()}}" alt="" class="img-fluid" />
               <div class="karya-title">{{$karyas->nama_karya}}</div>
               <div class="karya-category">{{$karyas->level}}</div>
             </div>

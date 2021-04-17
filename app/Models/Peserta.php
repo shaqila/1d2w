@@ -11,16 +11,15 @@ class Peserta extends Model
     protected $table = 'peserta';
     protected $fillable = [
         'user_id',
-        'nama_lengkap', 
-        'jenis_kelamin', 
-        'profesi', 
-        'domisili', 
+        'nama_lengkap',
+        'jenis_kelamin',
+        'profesi',
+        'domisili',
         'no_hp'
     ];
 
     public function workshop()
     {
-        return $this->belongsToMany(Workshop::class);
-            
+        return $this->belongsToMany(Workshop::class, 'peserta_workshop');
     }
 }

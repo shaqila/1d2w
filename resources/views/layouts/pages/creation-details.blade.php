@@ -9,6 +9,7 @@ Karya | One Day To Write
   <div class="container">
     <div class="d-flex justify-content-between align-items-center">
       <ol>
+
         <li><a href="{{route('home')}}">Beranda</a></li>
         <li>Detail Karya</li>
       </ol>
@@ -24,7 +25,7 @@ Karya | One Day To Write
       <div class="col-lg-4">
         <div class="workshop-details-slider ">
           <div class="poster">
-            <img src="{{$karya->getCover()}}" alt="">
+            <img src="{{$karya->getCover()}}" class="creation-detail" alt="">
           </div>
           <div class="workshop-info">
             <a href="{{url('download/'.$karya->pdf)}}" class="btn btn-outline-primary btn-lg btn-block">Download</a>

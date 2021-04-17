@@ -46,15 +46,13 @@ Data Workshop
                                         @foreach($workshop as $workshops)
                                         <tr>
                                             <td>{{$workshops->kode}}</td>
-                                            <td><a href="/workshop/{{$workshops->id}}/profile">{{$workshops->nama}}</a></td>
+                                            <td><a href="{{route('detail-workshop',$workshops->id)}}">{{$workshops->nama}}</a></td>
                                             <td>{{$workshops->harga}}</td>
                                             <td>{{$workshops->tanggal_pelaksanaan}}</td>
                                             <td>{{$workshops->jumlah_peserta}}</td>
-                                            <td><img src="{{$workshops->getPoster()}}" alt="Image" class="img-fluid tm-gallery-img" 
-                                                            style=" max-height: 150px;
+                                            <td><img src="{{$workshops->getPoster()}}" alt="Image" class="img-fluid tm-gallery-img" style=" max-height: 150px;
                                                             max-width: 150px;
-                                                            object-fit: cover;"
-                                            /></td>
+                                                            object-fit: cover;" /></td>
                                             <td>
                                                 <a href="/workshop/{{$workshops->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
                                                 <a href="#" class="btn btn-danger btn-sm delete" workshop-id="{{$workshops->id}}">Delete</a>
@@ -110,7 +108,7 @@ Data Workshop
                         </div>
                         <div class="form-group {{$errors->has('tanggal_pelaksanaan') ? 'has-errors': ''}}">
                             <label for="exampleInputPassword1">Tanggal Pelaksanaan</label>
-                            <input name="tanggal_pelaksanaan" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{old('tanggal_pelaksanaan')}}">
+                            <input name="tanggal_pelaksanaan" type="date" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{old('tanggal_pelaksanaan')}}">
                             @if($errors->has('tanggal_pelaksanaan'))
                             <span class="help-block">{{$errors->first('tanggal_pelaksanaan')}}</span>
                             @endif
@@ -143,21 +141,21 @@ Data Workshop
 @endsection
 
 @push('addon-script')
-    <script>
-        $('.delete').click(function() {
-            var workshop_id = $(this).attr('workshop-id');
-            swal({
-                    title: "Apakah anda yakin?",
-                    text: "Data dengan id " + workshop_id + " akan terhapus",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        window.location = "/workshop/" + workshop_id + "/delete";
-                    }
-                });
-        })
-    </script>
+<script>
+    $('.delete').click(function() {
+        var workshop_id = $(this).attr('workshop-id');
+        swal({
+                title: "Apakah anda yakin?",
+                text: "Data dengan id " + workshop_id + " akan terhapus",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    window.location = "/workshop/" + workshop_id + "/delete";
+                }
+            });
+    })
+</script>
 @endpush
