@@ -3,31 +3,95 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Karya;
+use Carbon\Carbon;
+use Intervention\Image\Facades\Image;
 
 class CreationController extends Controller
 {
     public function index()
     {
-        return view('layouts.pages.creation');
+        $karya = Karya::all();
+        return view('admin.creation.index', compact("karya"));
     }
-    public function create()
+    public function create(Request $request)
     {
-        # code...
+        $this->validate(
+            $request,
+            [
+                'nama_karya' => 'required',
+                'deskripsi' => 'required',
+                'cover' => 'mimes:jpg,png',
+                'pdf' => 'mimes:pdf'
+            ]
+        );
+        //Insert ke Table Karya
+        $karya = Karya::create($request->all());
+        if ($request->hasFile('cover')) {
+            $image = $request->file('cover');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $size = Image::make($image);
+            $size->resize(570, 721)->encode('png')->save(public_path('/cover-karya/' . $filename));
+            $karya->cover = $filename;
+        } else {
+            $karya->cover = 'cover01.jpg';
+        }
+        if ($request->hasFile('pdf')) {
+            $pdf = $request->file('pdf');
+            $filename = time() . '.' . $pdf->getClientOriginalExtension();
+            $request->file('pdf')->move('pdf-workshop/', $filename);
+            $karya->pdf = $filename;
+        }
+        $karya->save();
+        // \Session::flash('flash_message', 'A new course has been created!');
+        return redirect('/creation')->with('sukses', 'Data berhasil ditambah');
     }
-    public function edit()
+    public function edit($id)
     {
-        # code...
+        // $this->validate(
+        //     $request,
+        //     [
+        //         'nama_karya' => 'required',
+        //         'deskripsi' => 'required',
+        //         'cover' => 'mimes:jpg,png',
+        //         'pdf' => 'mimes:pdf'
+        //     ]
+        // );
+
+        $karya = Karya::find($id);
+        return view('admin.creation.edit', ['karya' => $karya]);
     }
-    public function update()
+    public function update(Request $request, $id)
     {
-        # code...
+        // $workshop->update($request->all());
+        // if ($request->hasFile('avatar')) {
+        //     $request->file('avatar')->move('images/', $request->file('avatar')->getClientOriginalName());
+        //     $peserta->avatar = $request->file('avatar')->getClientOriginalName();
+        //     $peserta->save();
+        // }
+        $karya = Karya::find($id);
+        $karya->nama_karya = $request->input('nama_karya');
+        $karya->deskripsi = $request->input('deskripsi');
+        $karya->update();
+        return redirect('/creation')->with('sukses', 'Data berhasil diupdate');
     }
-    public function delete()
+    public function delete($karya)
     {
-        # code...
+        $karya = Karya::where('id', $karya)->first();
+        $image_path = public_path() . '/cover-karya/' . $karya->cover;
+        $pdf_path = public_path() . '/pdf-workshop/' . $karya->pdf;
+        unlink($image_path);
+        unlink($pdf_path);
+        $karya->delete();
+        return redirect('/creation')->with('hapus', 'Data berhasil dihapus');
     }
-    public function readon()
+    public function getDownload($name)
     {
-        return view('layouts.pages.creation-details');
+        $file = public_path() . "/pdf-workshop/" . $name;
+        $headers = array(
+            'Content-type : application/pdf',
+        );
+        $format_nama = Carbon::now() + $name;
+        return response()->download($file, $format_nama, $headers);
     }
 }
