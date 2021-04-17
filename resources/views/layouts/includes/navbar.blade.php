@@ -18,6 +18,16 @@
           <a class="nav-link" href="#section2">Karya</a>
         </li>
         @if(Auth::user())
+        <div class="btn-group dropleft">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{Auth::user()->name}}
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Dashboard</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{{Auth::logout()}}">Logout</a>
+          </div>
+        </div>
         @else
         <li class="nav-item">
           <a class="nav-link" href="{{route('register')}}">Daftar</a>

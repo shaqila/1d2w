@@ -5,23 +5,29 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Workshop;
 use App\Http\Requests\WorkshopRequest;
+use Intervention\Image\Facades\Image;
 
 class WorkshopController extends Controller
 {
     public function index(Request $request)
     {
-        $workshop = Workshop::all();
+        $workshop = Workshop::with('peserta')->get();
         return view('admin.workshop.index', compact("workshop"));
     }
     public function create(WorkshopRequest $request)
     {
         //Insert ke Table Workshop
         $workshop = Workshop::create($request->all());
-            if ($request->hasFile('poster')) {
-                $request->file('poster')->move('img-workshop/', $request->file('poster')->getClientOriginalName());
-                $workshop->poster = $request->file('poster')->getClientOriginalName();
-                $workshop->save();
-            }
+        if ($request->hasFile('poster')) {
+            $image = $request->file('poster');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $size = Image::make($image);
+            $size->resize(570, 721)->encode('png')->save(public_path('/img-workshop/' . $filename));
+            $workshop->poster = $filename;
+        } else {
+            $workshop->poster = 'workshop.jpg';
+        }
+        $workshop->save();
         // \Session::flash('flash_message', 'A new course has been created!');
         return redirect()->route('workshop')->with('sukses', 'Data berhasil ditambah');
     }
@@ -36,6 +42,14 @@ class WorkshopController extends Controller
         $workshop = Workshop::find($id);
         return view('admin.workshop.edit', compact("workshop"));
     }
+
+    public function detail_workshop($id)
+    {
+        $workshop = Workshop::with('peserta')->where('id', $id)->first();
+        // dd($workshop);
+        return view('admin.workshop.detail', compact('workshop'));
+    }
+
     public function update(WorkshopRequest $request, $id)
     {
         // $workshop->update($request->all());
@@ -54,5 +68,4 @@ class WorkshopController extends Controller
         $workshop->update();
         return redirect('/workshop')->with('sukses', 'Data berhasil diupdate');
     }
-    
 }
