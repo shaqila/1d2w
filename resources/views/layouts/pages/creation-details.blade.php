@@ -9,7 +9,8 @@ Karya | One Day To Write
   <div class="container">
     <div class="d-flex justify-content-between align-items-center">
       <ol>
-        <li><a href="index.html">Beranda</a></li>
+
+        <li><a href="{{route('home')}}">Beranda</a></li>
         <li>Detail Karya</li>
       </ol>
     </div>
