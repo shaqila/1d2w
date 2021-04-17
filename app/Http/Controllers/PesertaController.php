@@ -48,7 +48,7 @@ class PesertaController extends Controller
     }
     public function update(PesertaRequest $request, $id)
     {
-        $peserta = Peserta::find($id);
+
 
         // $peserta->update($request->all());
         // if ($request->hasFile('avatar')) {
@@ -56,7 +56,13 @@ class PesertaController extends Controller
         //     $peserta->avatar = $request->file('avatar')->getClientOriginalName();
         //     $peserta->update();
         // }
-
+        $peserta = Peserta::findOrFail($id);
+        $peserta->nama_lengkap = $request->input('nama_lengkap');
+        $peserta->jenis_kelamin = $request->input('jenis_kelamin');
+        $peserta->profesi = $request->input('profesi');
+        $peserta->domain = $request->input('domain');
+        $peserta->no_hp = $request->input('no_hp');
+        $peserta->update();
         return redirect('/peserta')->with('sukses', 'Data berhasil diupdate');
     }
 }

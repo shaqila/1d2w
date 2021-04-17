@@ -37,7 +37,7 @@ ODTW | One Day To Write
       <div class="row">
         @foreach($workshop as $workshops)
         <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-duration="3000">
-          <a class="component-workshop d-block" href="{{route('detail_workshop')}}">
+          <a class="component-workshop d-block" href="{{route('detail_workshop',$workshops->id)}}">
             <div class="workshop-thumbnail">
               <img src="{{$workshops->getPoster()}}" alt="Image" class="workshop-image" />
             </div>
@@ -64,7 +64,7 @@ ODTW | One Day To Write
       <div class="row mt-4">
         @foreach($karya as $karyas)
         <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-duration="3000">
-          <a class="card card-dashboard-karya d-block" href="{{url('/creation-details/{id}')}}">
+          <a class="card card-dashboard-karya d-block" href="{{route('detail_creation',$karyas->id)}}">
             <div class="card-body">
               <img src="{{$karyas->getCover()}}" alt="" class="karya-image" />
               <div class="karya-title">{{$karyas->nama_karya}}</div>
