@@ -22,13 +22,13 @@ class HomeController extends Controller
     }
     public function detail_creation($id)
     {
-        $karya = Karya::where('id', $id)->first();
+        $karya = Karya::findOrfail($id);
         return view('layouts.pages.creation-details', compact("karya"));
     }
 
-    public function getDownload()
+    public function getDownload($karya)
     {
-        $file = public_path() . "/pdf-workshop/karya01.pdf";
+        $file = public_path() . "/pdf-workshop/$karya";
         $headers = array(
             'Content-type : application/pdf',
         );

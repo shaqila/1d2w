@@ -20,6 +20,7 @@ Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login_process', [AuthController::class, 'login_process'])->name('login_process');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register_process', [AuthController::class, 'register_process'])->name('register_process');
+Route::get('/download/{pdf}', [HomeController::class, 'getDownload'])->name('download_pdf');
 
 Route::get('/pendaftaran', [PendaftaranController::class, 'index'])->name('pendaftaran');
 Route::get('/complete-pendaftaran', [PendaftaranController::class, 'show'])->name('complete-pendaftaran');
@@ -45,6 +46,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/{id}/edit', [WorkshopController::class, 'edit'])->name('workshop-edit');
         Route::post('/{id}/update', [WorkshopController::class, 'update'])->name('workshop-update');
         Route::get('/{workshop}/delete', [WorkshopController::class, 'delete'])->name('workshop-delete');
+        Route::get('/{id}/detail', [WorkshopController::class, 'detail_workshop'])->name('detail-workshop');
     });
 
     Route::prefix('peserta')->group(function () {
