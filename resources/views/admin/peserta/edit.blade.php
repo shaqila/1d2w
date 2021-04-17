@@ -17,27 +17,27 @@
                         <div class="panel-body">
                             <form action="{{route('peserta-update',$peserta->id)}}" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <div class="form-group">
-                                    <label for="exampleInputfirstname">Nama Lengkap</label>
+                                <div class="mb-3">
+                                    <label for="FormControlInput">Nama Lengkap</label>
                                     <input name="nama_lengkap" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{$peserta->nama_lengkap}}">
                                 </div>
-                                <div class="form-group">
+                                <div class="mb-3">
                                     <label for="exampleFormSelect">Pilih Jenis Kelamin</label>
                                     <select class="form-control">
                                         <option value="L" @if ($peserta->jenis_kelamin=='L') selected @endif>Laki-Laki</option>
                                         <option value="P" @if ($peserta->jenis_kelamin=='P') selected @endif>Perempuan</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputProfesi">Profesi</label>
+                                <div class="mb-3">
+                                    <label for="FormControlInput">Profesi</label>
                                     <input name="profesi" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{$peserta->profesi}}">
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputDomisili">Domisili</label>
+                                <div class="mb-3">
+                                    <label for="FormControlInput">Domisili</label>
                                     <input name="domisili" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{$peserta->domisili}}">
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Nomor Handphone</label>
+                                <div class="mb-3">
+                                    <label for="FormControlInput">Nomor Handphone</label>
                                     <input name="no_hp" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{$peserta->no_hp}}">
                                 </div>
                                 <div class="modal-footer">

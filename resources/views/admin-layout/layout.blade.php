@@ -185,7 +185,7 @@
     </div>
 
     <!-- Footer -->
-    @include('admin-layout.footer')
+    @include('admin-layout.footer-admin')
 
   <!-- Script-->
     @stack('prepend-script')
