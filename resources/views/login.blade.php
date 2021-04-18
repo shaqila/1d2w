@@ -36,19 +36,19 @@
                 @endif
                 {{-- menampilkan error validasi --}}
                 @if (count($errors) > 0)
-                <div>
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            {{$error}}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        @endforeach
-                    </ul>
-                </div>
-                @endif
+                    <div>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{$error}}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
                   
                     <div class="card card-signin">
                             <div class="card-body login-card-body">
@@ -61,17 +61,10 @@
                                     <div class="input-group mb-3">
                                         <input type="password" name="password" class="form-control" placeholder="Password">
                                     </div>
-                                    <!-- /.col -->
                                     <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-                                    
-                                    <!-- /.col -->
+                                </form>
                             </div>
-                            </form>
-            
-                            <!-- /.social-auth-links -->
                     </div>
-                    <!-- /.login-box -->
-                
             </div>
         </div>
     </div>
