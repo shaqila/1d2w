@@ -17,7 +17,11 @@ Karya | One Day To Write
             <img src="{{$karya->getCover()}}" class="creation-detail" alt="">
           </div>
           <div class="workshop-info">
-            <a href="{{url('download/'.$karya->pdf)}}" class="btn btn-outline-primary btn-lg btn-block">Download</a>
+            <a href="{{url('download/'.$karya->pdf)}}" class="btn btn-lg btn-block" 
+            style="
+            background-color: #7abaff;
+            color: white;"
+            >Download</a>
           </div>
         </div>
       </div>

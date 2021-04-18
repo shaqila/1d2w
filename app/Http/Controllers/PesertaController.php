@@ -48,14 +48,6 @@ class PesertaController extends Controller
     }
     public function update(PesertaRequest $request, $id)
     {
-
-
-        // $peserta->update($request->all());
-        // if ($request->hasFile('avatar')) {
-        //     $request->file('avatar')->move('img-avatar/', $request->file('avatar')->getClientOriginalName());
-        //     $peserta->avatar = $request->file('avatar')->getClientOriginalName();
-        //     $peserta->update();
-        // }
         $peserta = Peserta::findOrFail($id);
         $peserta->nama_lengkap = $request->input('nama_lengkap');
         $peserta->jenis_kelamin = $request->input('jenis_kelamin');

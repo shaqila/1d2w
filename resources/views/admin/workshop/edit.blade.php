@@ -36,7 +36,11 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="FormControlInput">Tanggal Pelaksanaan</label>
-                                        <input name="tanggal_pelaksanaan" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{$workshop->tanggal_pelaksanaan}}">
+                                        <input name="tanggal_pelaksanaan" type="date" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{$workshop->tanggal_pelaksanaan}}">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="FormControlInput">Jam Pelaksanaan</label>
+                                        <input name="jam_pelaksanaan" type="time" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{$workshop->jam_pelaksanaan}}">
                                     </div>
                                     <div class="mb-3">
                                         <label for="FormControlInput">Jumlah Peserta</label>

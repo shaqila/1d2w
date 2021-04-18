@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 3 | Log in</title>
+    <title>ODTW | Register</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -52,12 +52,12 @@
                 @endif
                 <div class="card card-signin">
                         <div class="card-body login-card-body">
-                            <p class="login-box-msg">Buat Akun Baru</p>
+                            <p class="login-box-msg">Make new Account</p>
 
                             <form class="form-signin" action="{{route('register_process')}}" method="post">
                                 @csrf
                                 <div class="input-group mb-3">
-                                    <input type="text" name="name" class="form-control" placeholder="Nama Kamu">
+                                    <input type="text" name="name" class="form-control" placeholder="Name">
                                 </div>
                                 <div class="input-group mb-3">
                                     <input type="email" name="email" class="form-control" placeholder="Email">
@@ -68,8 +68,10 @@
                                 <div class="input-group mb-3">
                                     <input type="password" name="confirmPassword" class="form-control" placeholder="Confirm Password">
                                 </div>
-                                    <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                                    <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
                             </form>
+                            <a href="{{route('login')}}" class="sign-text">
+                            <p><u>Already Have Account</u></p></a>
                         </div>
                 </div>
             </div>

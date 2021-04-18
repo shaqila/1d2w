@@ -12,10 +12,10 @@
           <a class="nav-link" href="{{url('home')}}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#section1">About</a>
+          <a class="nav-link" href="{{url('about')}}">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#section2">Contact Us</a>
+          <a class="nav-link" href="{{url('contact')}}">Contact Us</a>
         </li>
         @if(Auth::user())
         <div class="btn-group dropdown">
@@ -30,10 +30,10 @@
         </div>
         @else
         <li class="nav-item">
-          <a class="nav-link" href="{{route('register')}}">Daftar</a>
+          <a class="nav-link" href="{{route('register')}}">Sign Up</a>
         </li>
         <li class="nav-item lead">
-          <a class="daftar-sekarang btn nav-link px-4 text-white" href="{{route('login')}}">Masuk</a>
+          <a class="daftar-sekarang btn nav-link px-4 text-white" href="{{route('login')}}">Sign In</a>
         </li>
         @endif
       </ul>

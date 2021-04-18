@@ -15,6 +15,8 @@ Route::get('/creation-details/{id}', [HomeController::class, 'detail_creation'])
 Route::get('/workshop-details/{id}', [HomeController::class, 'detail_workshop'])->name('detail_workshop');
 Route::get('/pendaftaran-details', [HomeController::class, 'detail_pendaftaran'])->name('detail-pendaftaran');
 Route::get('/peserta/dashboard', [HomeController::class, 'peserta_dashboard'])->name('peserta-dashboard');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login_process', [AuthController::class, 'login_process'])->name('login_process');

@@ -47,4 +47,12 @@ class HomeController extends Controller
         $karya = Karya::all();
         return view('peserta.dashboard-peserta', compact("workshop", "karya"));
     }
+    public function about()
+    {
+        return view('layouts.pages.about');
+    }
+    public function contact()
+    {
+        return view('layouts.pages.contact');
+    }
 }

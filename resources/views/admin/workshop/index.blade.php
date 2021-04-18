@@ -36,7 +36,7 @@ Data Workshop
                                             <th>KODE</th>
                                             <th>NAMA WORKSHOP</th>
                                             <th>HARGA</th>
-                                            <th>TANGGAL PELAKSANAAN</th>
+                                            <th>WAKTU PELAKSANAAN</th>
                                             <th>JUMLAH PESERTA</th>
                                             <th>POSTER</th>
                                             <th>AKSI</th>
@@ -48,7 +48,7 @@ Data Workshop
                                             <td>{{$workshops->kode}}</td>
                                             <td><a href="{{route('workshop-detail',$workshops->id)}}">{{$workshops->nama}}</a></td>
                                             <td>Rp. {{number_format($workshops->harga, 0, ',', '.')}}</td>
-                                            <td>{{$workshops->tanggal_pelaksanaan}}</td>
+                                            <td>{{$workshops->tanggal_pelaksanaan}} , {{$workshops->jam_pelaksanaan}}</td>
                                             <td>{{$workshops->jumlah_peserta}}</td>
                                             <td><img src="{{$workshops->getPoster()}}" alt="Image" class="img-fluid tm-gallery-img" style=" max-height: 150px;
                                                             max-width: 150px;
@@ -111,6 +111,13 @@ Data Workshop
                             <input name="tanggal_pelaksanaan" type="date" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{old('tanggal_pelaksanaan')}}">
                             @if($errors->has('tanggal_pelaksanaan'))
                             <span class="help-block">{{$errors->first('tanggal_pelaksanaan')}}</span>
+                            @endif
+                        </div>
+                        <div class="form-group {{$errors->has('jam_pelaksanaan') ? 'has-errors': ''}}">
+                            <label for="exampleInputPassword1">Jam Pelaksanaan</label>
+                            <input name="jam_pelaksanaan" type="time" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{old('jam_pelaksanaan')}}">
+                            @if($errors->has('jam_pelaksanaan'))
+                            <span class="help-block">{{$errors->first('jam_pelaksanaan')}}</span>
                             @endif
                         </div>
                         <div class="form-group {{$errors->has('jumlah_peserta') ? 'has-errors': ''}}">

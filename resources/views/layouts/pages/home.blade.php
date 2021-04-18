@@ -17,7 +17,7 @@ ODTW | One Day To Write
                 A first place for you to learn writing through your own exploration and imagination
               </p>
               <p class="lead">
-                <a class="daftar-sekarang btn btn-lg" href="{{route('register')}}" role="button">Daftar Sekarang!</a>
+                <a class="daftar-sekarang btn btn-lg" href="{{route('register')}}" role="button">Sign Up Now!</a>
               </p>
             </div>
           </div>
@@ -36,13 +36,16 @@ ODTW | One Day To Write
       </div>
       <div class="row">
         @foreach($workshop as $workshops)
-        <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-duration="2000">
+        <div class="card-workshop col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-duration="2000">
           <a class="component-workshop d-block" href="{{route('detail_workshop',$workshops->id)}}">
             <div class="workshop-thumbnail">
               <img src="{{$workshops->getPoster()}}" alt="Image" class="workshop-image" />
             </div>
             <div class="workshop-text">
               {{$workshops->nama}}
+            </div>
+            <div class="workshop-date">
+              {{$workshops->tanggal_pelaksanaan}} </br> {{$workshops->jam_pelaksanaan}}
             </div>
             <div class="workshop-price">
               Rp. {{number_format($workshops->harga, 0, ',', '.')}}
