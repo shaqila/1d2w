@@ -12778,3 +12778,40 @@ section {
 .sign-text{
     text-align: center;
 }
+
+/*--------------------------------------------------------------
+# ABOUT
+--------------------------------------------------------------*/
+.about{
+    padding-top: 150px;
+    font-family: "Poppins", sans-serif;
+}
+
+.about .content h3 {
+  font-weight: 700;
+  font-size: 32px;
+  color: #5eb2fc;
+}
+.about .content h2 {
+    padding-top: 30px;
+    color: #5eb2fc;
+}
+
+.about .content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about .content ul li {
+  padding-bottom: 10px;
+}
+
+.about .content ul i {
+  font-size: 20px;
+  padding-right: 4px;
+  color: #16df7e;
+}
+
+.about .content p:last-child {
+  margin-bottom: 0;
+}
