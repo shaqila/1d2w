@@ -46,8 +46,8 @@ Data Workshop
                                         @foreach($workshop as $workshops)
                                         <tr>
                                             <td>{{$workshops->kode}}</td>
-                                            <td><a href="{{route('detail-workshop',$workshops->id)}}">{{$workshops->nama}}</a></td>
-                                            <td>{{$workshops->harga}}</td>
+                                            <td><a href="{{route('workshop-detail',$workshops->id)}}">{{$workshops->nama}}</a></td>
+                                            <td>Rp. {{number_format($workshops->harga, 0, ',', '.')}}</td>
                                             <td>{{$workshops->tanggal_pelaksanaan}}</td>
                                             <td>{{$workshops->jumlah_peserta}}</td>
                                             <td><img src="{{$workshops->getPoster()}}" alt="Image" class="img-fluid tm-gallery-img" style=" max-height: 150px;

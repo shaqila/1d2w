@@ -43,7 +43,7 @@ class WorkshopController extends Controller
         return view('admin.workshop.edit', compact("workshop"));
     }
 
-    public function detail_workshop($id)
+    public function workshop_detail($id)
     {
         $workshop = Workshop::with('peserta')->where('id', $id)->first();
         // dd($workshop);

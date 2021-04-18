@@ -9,10 +9,10 @@ ODTW | One Day To Write
   <section class="ws-jumbotron">
     <div class="container">
       <div class="row">
-        <div class="col-lg-12" data-aos="zoom-in">
+        <div class="col-lg-12" data-aos="zoom-in" data-aos-duration="2000">
           <div class="jumbotron jumbotron-fluid" style="background-color:white; text-align:center">
             <div class="container">
-              <h1 class="display-6">One Day To Write</h1>
+              <h1 class="display-4">One Day To Write</h1>
               <p class="lead">
                 A first place for you to learn writing through your own exploration and imagination
               </p>
@@ -28,7 +28,7 @@ ODTW | One Day To Write
 
 
 
-  <section id="workshop" class="workshop" data-aos="fade-up" data-aos-duration="3000">
+  <section id="workshop" class="workshop" data-aos="fade-up" data-aos-duration="2000">
     <div class="container">
       <div class="section-title">
         <span>Workshop</span>
@@ -36,7 +36,7 @@ ODTW | One Day To Write
       </div>
       <div class="row">
         @foreach($workshop as $workshops)
-        <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-duration="3000">
+        <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-duration="2000">
           <a class="component-workshop d-block" href="{{route('detail_workshop',$workshops->id)}}">
             <div class="workshop-thumbnail">
               <img src="{{$workshops->getPoster()}}" alt="Image" class="workshop-image" />
@@ -45,7 +45,7 @@ ODTW | One Day To Write
               {{$workshops->nama}}
             </div>
             <div class="workshop-price">
-              {{$workshops->harga}}
+              Rp. {{number_format($workshops->harga, 0, ',', '.')}}
             </div>
           </a>
         </div>
@@ -54,7 +54,7 @@ ODTW | One Day To Write
     </div>
   </section>
 
-  <section id="creation" class="creation" data-aos="fade-up" data-aos-duration="3000">
+  <section id="creation" class="creation" data-aos="fade-up" data-aos-duration="2000">
     <div class="container">
       <div class="section-title">
         <span>Kumpulan Karya Workshop</span>
@@ -63,7 +63,7 @@ ODTW | One Day To Write
 
       <div class="row mt-4">
         @foreach($karya as $karyas)
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-duration="3000">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-duration="2000">
           <a class="card card-dashboard-karya d-block" href="{{route('detail_creation',$karyas->id)}}">
             <div class="card-body" style="width:15rem">
               <img src="{{$karyas->getCover()}}" alt="" class="img-fluid" />
@@ -76,7 +76,7 @@ ODTW | One Day To Write
       </div>
   </section>
 
-  <section id="testimonials" class="testimonials" data-aos="fade-up" data-aos-delay="200">
+  <section id="testimonials" class="testimonials" data-aos="fade-up" data-aos-duration="2000">
     <div class="container">
 
       <div class="section-title">
@@ -84,19 +84,21 @@ ODTW | One Day To Write
         <h2>Testimonials</h2>
       </div>
 
-      <div class="testimonials-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
+      <div class="testimonials-slider swiper-container" data-aos="fade-up" data-aos-duration="2000">
         <div class="swiper-wrapper">
 
           <div class="swiper-slide">
             <div class="testimonial-item">
               <p>
                 <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium
-                quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                Workshop Writing with mom kereeeen....
+                membuka cakrawala menulis, memunculkan ide-ide kreatif mom dan anak...
+                yang ngga diduga-duga..semoga terus berkembang dan menginovasi program2nya.. 
+                Mendekatkan anak bangsa dengan buku.. 💖
                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
               </p>
-              <h3>Saul Goodman</h3>
-              <h4>Ceo &amp; Founder</h4>
+              <h3>Beryl &amp; Ummi</h3>
+              <h4>Adults Level</h4>
             </div>
           </div>
 
@@ -104,38 +106,82 @@ ODTW | One Day To Write
             <div class="testimonial-item">
               <p>
                 <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim
-                tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                Workshop ini menyenangkan dan menambah ilmu menulis. 
+                Fadhila jadi tahu lebih luas ilmu menulis. 
+                Fadhila juga ingin membuat cerita pendek dan dibukukan, makasih kak. 
+                Terimakasih juga untuk feedbacknya. Semoga makin sukses dan maju😊
                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
               </p>
-              <h3>Jena Karlis</h3>
-              <h4>Store Owner</h4>
+              <h3>Fadhila</h3>
+              <h4>Kids Level</h4>
             </div>
           </div>
+
+          <!-- <div class="swiper-slide">
+            <div class="testimonial-item">
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                “Hai, saya Elvis (@efanizar). 
+                Wiken kemarin saya ikut workshop menulis kelas adults secara online 
+                di @onedaytowrite yang dibimbing oleh kak @lala.elmira selama 2 hari. 
+                Sebagai penulis cerita pendek pemula, kelas tingkat dasar ini sangat 
+                membantu saya untuk bisa memulai menulis cerita pendek yang ringan. 
+                Kita diperkenalkan dengan flash fiction dan ciri-cirinya, lalu diberi 
+                tugas untuk membuat flash fiction. Kita juga dibimbing gimana 
+                menghubungkan judul dengan konflik yang kita angkat di cerita serta 
+                gimana menghidupkan cerita dan menguatkan tokoh melalui dialog. 
+                Di akhir kelas, kita ditantang untuk membuat cerita pendek. Nantikan 
+                kumpulan cerita pendek kita yang akan diterbitkan oleh @ellunarpublish_. 
+                Pasti seru bacanya.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+              <h3>Elvis</h3>
+              <h4>Adults Level</h4>
+            </div>
+          </div> -->
 
           <div class="swiper-slide">
             <div class="testimonial-item">
               <p>
                 <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit
-                minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                Kesan pesanku selama menjadi peserta workshop novella itu seru banget, 
+                terus penjelasan nya jelas bangettt, sama aku enjoy banget sih, 
+                pesan ku mungkin kedepannya kalo ada sesi tanya jawabnya lebih dipanjangin hehe 😸 
+                supaya nanya nya puas 🤩
                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
               </p>
-              <h3>Matt Brandon</h3>
-              <h4>Freelancer</h4>
+              <h3>Karissa</h3>
+              <h4>Teens Level</h4>
             </div>
           </div>
+
+          <!-- <div class="swiper-slide">
+            <div class="testimonial-item">
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Alhamdulillah, ODTW memberikan workshop novella kids,aku ucapkan terima kasih banyak! 🌺
+                Aku belum pernah melihat komunitas sekeren ini sebelumnya,rasa senang dan kaget tercampur aduk ketika aku mengikuti workshop online yang diadakan oleh komunitas One Day To Write 🌈
+                Sekali lagi,aku ucapkan terima kasih kepada mentor-mentor ODTW yang sudah membimbing aku dan teman-teman selama workshop menulis online ini 🌇
+                Aku berharap ODTW tetap semangat berbagi ilmu untuk anak anak Indonesia 💖
+                Salam semangat dan ceria,
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+              <h3>Sasha</h3>
+              <h4>Kids Level</h4>
+            </div>
+          </div> -->
 
           <div class="swiper-slide">
             <div class="testimonial-item">
               <p>
                 <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa
-                labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                OneDayToWrite class novella
+                Nambah ilmu, nambah pengalaman, karya kita dibaca banyak orang lewat aplikasi keren best to write.
+                @mariniarinboboho
                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
               </p>
-              <h3>John Larson</h3>
-              <h4>Entrepreneur</h4>
+              <h3>Marini</h3>
+              <h4>Adults Level</h4>
             </div>
           </div>
 

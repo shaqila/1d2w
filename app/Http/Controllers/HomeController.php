@@ -41,7 +41,7 @@ class HomeController extends Controller
         // $peserta = Peserta::find($id);
         return view('peserta.pendaftaran');
     }
-    public function dashboard()
+    public function peserta_dashboard()
     {
         $workshop = Workshop::all();
         $karya = Karya::all();

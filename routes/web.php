@@ -14,7 +14,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/creation-details/{id}', [HomeController::class, 'detail_creation'])->name('detail_creation');
 Route::get('/workshop-details/{id}', [HomeController::class, 'detail_workshop'])->name('detail_workshop');
 Route::get('/pendaftaran-details', [HomeController::class, 'detail_pendaftaran'])->name('detail-pendaftaran');
-Route::get('/peserta/dashboard', [HomeController::class, 'dashboard'])->name('peserta-dashboard');
+Route::get('/peserta/dashboard', [HomeController::class, 'peserta_dashboard'])->name('peserta-dashboard');
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login_process', [AuthController::class, 'login_process'])->name('login_process');
@@ -30,7 +30,7 @@ Route::group(['middleware' => 'auth'], function () {
     //ADMIN
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin-dashboard');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-    Route::get('list-pendaftaran', [PendaftaranController::class, 'index'])->name('list-pendaftaran');
+    // Route::get('list-pendaftaran', [PendaftaranController::class, 'index'])->name('list-pendaftaran');
 
     Route::prefix('creation')->group(function () {
         Route::get('/', [CreationController::class, 'index'])->name('creation');
@@ -46,7 +46,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/{id}/edit', [WorkshopController::class, 'edit'])->name('workshop-edit');
         Route::post('/{id}/update', [WorkshopController::class, 'update'])->name('workshop-update');
         Route::get('/{workshop}/delete', [WorkshopController::class, 'delete'])->name('workshop-delete');
-        Route::get('/{id}/detail', [WorkshopController::class, 'detail_workshop'])->name('detail-workshop');
+        Route::get('/{id}/detail', [WorkshopController::class, 'workshop_detail'])->name('workshop-detail');
     });
 
     Route::prefix('peserta')->group(function () {

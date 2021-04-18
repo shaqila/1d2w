@@ -25,7 +25,7 @@
         </div>
         <div class="list-group list-group-flush">
           <a href="/dashboard.html" class="list-group-item list-group-item-action active">Workshop Saya</a>
-          <a href="/dashboard-settings.html" class="list-group-item list-group-item-action">Pengaturan</a>
+          <a href="/dashboard-settings.html" class="list-group-item list-group-item-action">Setting</a>
           <a href="/dashboard-account.html" class="list-group-item list-group-item-action">Akun Saya</a>
         </div>
       </div>
@@ -47,8 +47,8 @@
                   Hi, Angga
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="/index.html">Kembali ke Beranda</a>
-                  <a class="dropdown-item" href="/dashboard-account.html">Pengaturan</a>
+                  <a class="dropdown-item" href="{{url('home')}}">Home</a>
+                  <a class="dropdown-item" href="/dashboard-account.html">Setting</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="/">Logout</a>
                 </div>
