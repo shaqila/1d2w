@@ -55,9 +55,9 @@ Data Karya (Buku)
                                                             object-fit: cover;" />
                                         </td>
                                         <td><a href="{{url('download/'.$karyas->pdf)}}" class="btn btn-outline-secondary btn-sm btn-block">Download</a></td>
-                                        <td>
-                                            <a href="/creation/{{$karyas->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
-                                            <a href="#" class="btn btn-danger btn-sm delete" karya-id="{{$karyas->id}}">Delete</a>
+                                        <td style="text-align:center">
+                                            <a href="/creation/{{$karyas->id}}/edit" class="icon"><i class="edit-icon far fa-edit"></i></a>
+                                            <a href="#" class="icon delete" karya-id="{{$karyas->id}}"><i class="edit-icon far fa-trash-alt"></i></a>
                                         </td>
                                     </tr>
                                         @endforeach

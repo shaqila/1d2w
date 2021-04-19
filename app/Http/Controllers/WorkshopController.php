@@ -67,6 +67,7 @@ class WorkshopController extends Controller
         $workshop->deskripsi = $request->input('deskripsi');
         $workshop->harga = $request->input('harga');
         $workshop->tanggal_pelaksanaan = $request->input('tanggal_pelaksanaan');
+        $workshop->batas_pendaftaran = $request->input('batas_pendaftaran');
         $workshop->jam_pelaksanaan = $request->input('jam_pelaksanaan');
         $workshop->jumlah_peserta = $request->input('jumlah_peserta');
         $workshop->update();

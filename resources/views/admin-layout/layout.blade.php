@@ -109,43 +109,28 @@
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
-            <li class="nav-item">
-              <a href="/peserta" class="nav-link">
-                <i class="nav-icon fas fa-tree"></i>
-                <p>
-                  Peserta
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-                    <!-- <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="/peserta" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Timeline</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="pages/UI/ribbons.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Ribbons</p>
-                      </a>
-                    </li>
-                  </ul> -->
+            
             <li class="nav-item">
               <a href="/workshop" class="nav-link">
-                <i class="nav-icon far fa-calendar-alt"></i>
+                <i class="nav-icon fas fa-table"></i>
                 <p>
                   Workshop
-                  <span class="badge badge-info right">2</span>
                 </p>
               </a>
             </li>
             <li class="nav-item">
               <a href="/creation" class="nav-link">
-                <i class="nav-icon far fa-calendar-alt"></i>
+                <i class="nav-icon fas fa-table"></i>
                 <p>
                   Karya
-                  <span class="badge badge-info right">2</span>
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/peserta" class="nav-link">
+                <i class="nav-icon fas fa-table"></i>
+                <p>
+                  Peserta
                 </p>
               </a>
             </li>

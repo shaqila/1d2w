@@ -19,7 +19,7 @@
         </li>
         @if(Auth::user())
         <div class="btn-group dropdown">
-          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {{Auth::user()->name}}
           </button>
           <div class="dropdown-menu">

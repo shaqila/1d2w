@@ -34,29 +34,32 @@ Data Workshop
                                     <thead>
                                         <tr class="text-center">
                                             <th>KODE</th>
-                                            <th>NAMA WORKSHOP</th>
+                                            <th>NAMA</br>WORKSHOP</th>
                                             <th>HARGA</th>
-                                            <th>WAKTU PELAKSANAAN</th>
-                                            <th>JUMLAH PESERTA</th>
+                                            <th>WAKTU</br>PELAKSANAAN</th>
+                                            <th>BATAS AKHIR</br>PENDAFTARAN</th>
+                                            <th>KAPASITAS</br>PESERTA</th>
                                             <th>POSTER</th>
                                             <th>AKSI</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody style="text-align:center">
                                         @foreach($workshop as $workshops)
                                         <tr>
                                             <td>{{$workshops->kode}}</td>
                                             <td><a href="{{route('workshop-detail',$workshops->id)}}">{{$workshops->nama}}</a></td>
                                             <td>Rp. {{number_format($workshops->harga, 0, ',', '.')}}</td>
                                             <td>{{$workshops->tanggal_pelaksanaan}} , {{$workshops->jam_pelaksanaan}}</td>
+                                            <td>{{$workshops->batas_pendaftaran}}</td>
                                             <td>{{$workshops->jumlah_peserta}}</td>
                                             <td><img src="{{$workshops->getPoster()}}" alt="Image" class="img-fluid tm-gallery-img" style=" max-height: 150px;
                                                             max-width: 150px;
                                                             object-fit: cover;" /></td>
                                             <td>
-                                                <a href="/workshop/{{$workshops->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
-                                                <a href="#" class="btn btn-danger btn-sm delete" workshop-id="{{$workshops->id}}">Delete</a>
-                                            </td>
+                                                <a href="/workshop/{{$workshops->id}}/edit" class="icon"><i class="edit-icon far fa-edit"></i></a>
+                                                </br>
+                                                <a href="#" class="icon delete" workshop-id="{{$workshops->id}}"><i class="edit-icon far fa-trash-alt"></i></a>
+                                            </td> 
                                         </tr>
                                         @endforeach
                                     </tbody>
@@ -118,6 +121,13 @@ Data Workshop
                             <input name="jam_pelaksanaan" type="time" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{old('jam_pelaksanaan')}}">
                             @if($errors->has('jam_pelaksanaan'))
                             <span class="help-block">{{$errors->first('jam_pelaksanaan')}}</span>
+                            @endif
+                        </div>
+                        <div class="form-group {{$errors->has('batas_pendaftaran') ? 'has-errors': ''}}">
+                            <label for="exampleInputPassword1">Tanggal Pelaksanaan</label>
+                            <input name="batas_pendaftaran" type="date" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{old('batas_pendaftaran')}}">
+                            @if($errors->has('batas_pendaftaran'))
+                            <span class="help-block">{{$errors->first('batas_pendaftaran')}}</span>
                             @endif
                         </div>
                         <div class="form-group {{$errors->has('jumlah_peserta') ? 'has-errors': ''}}">

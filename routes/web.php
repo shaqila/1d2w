@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/creation-details/{id}', [HomeController::class, 'detail_creation'])->name('detail_creation');
 Route::get('/workshop-details/{id}', [HomeController::class, 'detail_workshop'])->name('detail_workshop');
-Route::get('/pendaftaran-details', [HomeController::class, 'detail_pendaftaran'])->name('detail-pendaftaran');
+Route::get('/pendaftaran-details/{id}', [HomeController::class, 'detail_pendaftaran'])->name('detail-pendaftaran');
 Route::get('/peserta/dashboard', [HomeController::class, 'peserta_dashboard'])->name('peserta-dashboard');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
@@ -24,7 +24,7 @@ Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register_process', [AuthController::class, 'register_process'])->name('register_process');
 Route::get('/download/{pdf}', [HomeController::class, 'getDownload'])->name('download_pdf');
 
-Route::get('/pendaftaran', [PendaftaranController::class, 'index'])->name('pendaftaran');
+// Route::get('/pendaftaran', [PendaftaranController::class, 'index'])->name('pendaftaran');
 Route::get('/complete-pendaftaran', [PendaftaranController::class, 'show'])->name('complete-pendaftaran');
 
 

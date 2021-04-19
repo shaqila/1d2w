@@ -12,7 +12,7 @@ class Workshop extends Model
     use HasFactory;
 
     protected $table = 'workshop';
-    protected $fillable = ['kode', 'slug', 'nama', 'deskripsi', 'harga', 'tanggal_pelaksanaan', 'jam_pelaksanaan', 'jumlah_peserta', 'poster'];
+    protected $fillable = ['kode', 'slug', 'nama', 'deskripsi', 'harga', 'tanggal_pelaksanaan', 'batas_pendaftaran', 'jam_pelaksanaan', 'jumlah_peserta', 'poster'];
 
 
     public function getPoster()

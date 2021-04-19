@@ -41,7 +41,7 @@ Data Semua Peserta
                                             <th>AKSI</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody style="text-align:center">
                                         @foreach($peserta as $pesertas)
                                         <tr>
                                             <td>{{$pesertas->nama_lengkap}}</td>
@@ -50,8 +50,8 @@ Data Semua Peserta
                                             <td>{{$pesertas->domisili}}</td>
                                             <td>{{$pesertas->no_hp}}</td>
                                             <td>
-                                                <a href="/peserta/{{$pesertas->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
-                                                <a href="#" class="btn btn-danger btn-sm delete" peserta-id="{{$pesertas->id}}">Delete</a>
+                                                <a href="/peserta/{{$pesertas->id}}/edit" class="icon"><i class="edit-icon far fa-edit"></i></a>
+                                                <a href="#" class="icon delete" peserta-id="{{$pesertas->id}}"><i class="edit-icon far fa-trash-alt"></i></a>
                                             </td>
                                             </tr>
                                             @endforeach
