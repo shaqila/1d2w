@@ -25,8 +25,8 @@ Workshop | One Day To Write
         <div class="workshop-info">
           <h3>{{$workshop->nama}}</h3>
           <ul>
-            <li><strong>Tanggal Pelaksanaan</strong>: </br>{{$workshop->tanggal_pelaksanaan}} | {{$workshop->jam_pelaksanaan}}</li>
-            <li><strong>Batas Akhir Pendaftaran</strong>: </br>{{$workshop->batas_pendaftaran}}</li>
+            <li><strong>Waktu Pelaksanaan</strong>: </br>{{ date('l, d F Y', strtotime($workshop->tanggal_pelaksanaan)) }} </br> Jam {{ date('H:i', strtotime($workshop->jam_pelaksanaan)) }} WIB</li>
+            <li><strong>Batas Akhir Pendaftaran</strong>: </br>{{ date('d F Y', strtotime($workshop->batas_pendaftaran)) }}</li>
             <li><strong>Kapasitas</strong>:</br> {{$workshop->jumlah_peserta}} Peserta</li>
           </ul>
         </div>

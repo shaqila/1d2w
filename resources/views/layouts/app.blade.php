@@ -8,6 +8,7 @@
     <meta name="author" content="" />
 
     <title> @yield('title') </title>
+    <link rel="icon" href="{{ asset('LOGO-ODTW.png') }}">
 
     <!-- Style -->
     @stack('prepend-style')

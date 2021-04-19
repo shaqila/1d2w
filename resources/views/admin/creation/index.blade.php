@@ -4,6 +4,10 @@
 Data Karya (Buku)
 @endsection
 
+@push('prepend-style')
+<link href="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet"/>
+@endpush
+
 @section('content')
 
 <div class="main">
@@ -21,52 +25,60 @@ Data Karya (Buku)
             {{session('hapus')}}
         </div>
         @endif
-        </div>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="panel">
-                        <div class="panel-heading">
-                            <button type="button" class="btn btn-info float-right" data-toggle="modal" data-target="#exampleModal" style="margin-bottom:12px">
-                                <i class="fas fa-plus"></i> Tambah Karya Buku
-                            </button>
-                        </div>
-                        <div class="panel-body">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr class="text-center">
-                                        <th>JUDUL KARYA</th>
-                                        <th>SINOPSIS</th>
-                                        <th>LEVEL</th>
-                                        <th>COVER</th>
-                                        <th>PDF</th>
-                                        <th>AKSI</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($karya as $karyas)
-                                    <tr>
-                                        <td>{{$karyas->nama_karya}}</td>
-                                        <td>{{$karyas->deskripsi}}</td>
-                                        <td>{{$karyas->level}}</td>
-                                        <td><img src="{{$karyas->getCover()}}" alt="Cover" class="img-fluid tm-gallery-img" 
-                                                    style=" max-height: 100px;
-                                                            max-width: 100px;
-                                                            object-fit: cover;" />
-                                        </td>
-                                        <td><a href="{{url('download/'.$karyas->pdf)}}" class="btn btn-outline-secondary btn-sm btn-block">Download</a></td>
-                                        <td style="text-align:center">
-                                            <a href="/creation/{{$karyas->id}}/edit" class="icon"><i class="edit-icon far fa-edit"></i></a>
-                                            <a href="#" class="icon delete" karya-id="{{$karyas->id}}"><i class="edit-icon far fa-trash-alt"></i></a>
-                                        </td>
-                                    </tr>
-                                        @endforeach
-                                </tbody>
-                            </table>
-                        </div>
+        <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                <!-- Button trigger modal -->
+                    <button
+                        type="button"
+                        class="btn btn-primary btn-sm btn-add"
+                        data-toggle="modal" 
+                        data-target="#exampleModal" 
+                    >
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table 
+                            class="table table-bordered table-striped table-hover"
+                            id="dataTable"
+                            width="100%"
+                            cellspacing="0"
+                            >
+                            <thead>
+                                <tr class="text-center">
+                                    <th>NO.</th>
+                                    <th>JUDUL KARYA</th>
+                                    <th>SINOPSIS</th>
+                                    <th>LEVEL</th>
+                                    <th>COVER</th>
+                                    <th>PDF</th>
+                                    <th>AKSI</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($karya as $karyas)
+                                <tr>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$karyas->nama_karya}}</td>
+                                    <td>{{$karyas->deskripsi}}</td>
+                                    <td>{{$karyas->level}}</td>
+                                    <td><img src="{{$karyas->getCover()}}" alt="Cover" class="img-fluid tm-gallery-img" 
+                                                style=" max-height: 100px;
+                                                        max-width: 100px;
+                                                        object-fit: cover;" />
+                                    </td>
+                                    <td><a href="{{url('download/'.$karyas->pdf)}}" class="btn btn-outline-secondary btn-sm btn-block">Download</a></td>
+                                    <td style="text-align:center">
+                                        <a href="/creation/{{$karyas->id}}/edit" class="icon"><i class="edit-icon far fa-edit"></i></a>
+                                        <a href="#" class="icon delete" karya-id="{{$karyas->id}}"><i class="edit-icon far fa-trash-alt"></i></a>
+                                    </td>
+                                </tr>
+                                    @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 </div>
@@ -76,6 +88,14 @@ Data Karya (Buku)
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Tambah Karya</h5>
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                >
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
                 <form action="/creation/create" enctype="multipart/form-data" method="POST">
@@ -128,7 +148,12 @@ Data Karya (Buku)
 @endsection
 
 @push('addon-script')
+    <script src="{{ asset('assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
     <script>
+        $(document).ready(function() {
+            $('#dataTable').DataTable();
+        });
         $('.delete').click(function() {
             var karya_id = $(this).attr('karya-id');
             swal({

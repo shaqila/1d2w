@@ -45,7 +45,7 @@ ODTW | One Day To Write
               {{$workshops->nama}}
             </div>
             <div class="workshop-date">
-              {{$workshops->tanggal_pelaksanaan}} </br> {{$workshops->jam_pelaksanaan}}
+              {{ date('l, d F Y', strtotime($workshops->tanggal_pelaksanaan)) }}</br> {{ date('H:i', strtotime($workshops->jam_pelaksanaan)) }}
             </div>
             <div class="workshop-price">
               Rp. {{number_format($workshops->harga, 0, ',', '.')}}

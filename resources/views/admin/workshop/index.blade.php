@@ -4,6 +4,10 @@
 Data Workshop
 @endsection
 
+@push('prepend-style')
+<link href="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet"/>
+@endpush
+
 @section('content')
 <section class="content">
     <div class="main">
@@ -20,19 +24,29 @@ Data Workshop
                 {{session('hapus')}}
             </div>
             @endif
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="panel">
-                            <div class="panel-heading">
-                                <button type="button" class="btn btn-info float-right" data-toggle="modal" data-target="#exampleModal" style="margin-bottom:12px">
-                                    <i class="fas fa-plus"></i> Tambah Workshop
-                                </button>
-                            </div>
-                            <div class="panel-body">
-                                <table class="table table-hover">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                <!-- Button trigger modal -->
+                    <button
+                        type="button"
+                        class="btn btn-primary btn-sm btn-add"
+                        data-toggle="modal" 
+                        data-target="#exampleModal" 
+                    >
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table 
+                            class="table table-bordered table-striped table-hover"
+                            id="dataTable"
+                            width="100%"
+                            cellspacing="0"
+                            >
                                     <thead>
                                         <tr class="text-center">
+                                            <th>NO.</th>
                                             <th>KODE</th>
                                             <th>NAMA</br>WORKSHOP</th>
                                             <th>HARGA</th>
@@ -46,10 +60,11 @@ Data Workshop
                                     <tbody style="text-align:center">
                                         @foreach($workshop as $workshops)
                                         <tr>
+                                            <td>{{$loop->iteration}}</td>
                                             <td>{{$workshops->kode}}</td>
                                             <td><a href="{{route('workshop-detail',$workshops->id)}}">{{$workshops->nama}}</a></td>
                                             <td>Rp. {{number_format($workshops->harga, 0, ',', '.')}}</td>
-                                            <td>{{$workshops->tanggal_pelaksanaan}} , {{$workshops->jam_pelaksanaan}}</td>
+                                            <td>{{ date('l, d F Y', strtotime($workshops->tanggal_pelaksanaan)) }} </br> {{ date('H:i', strtotime($workshops->jam_pelaksanaan)) }}</td>
                                             <td>{{$workshops->batas_pendaftaran}}</td>
                                             <td>{{$workshops->jumlah_peserta}}</td>
                                             <td><img src="{{$workshops->getPoster()}}" alt="Image" class="img-fluid tm-gallery-img" style=" max-height: 150px;
@@ -77,6 +92,14 @@ Data Workshop
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Tambah Workshop</h5>
+                    <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                    >
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <form action="/workshop/create" enctype="multipart/form-data" method="POST">
@@ -158,7 +181,12 @@ Data Workshop
 @endsection
 
 @push('addon-script')
+<script src="{{ asset('assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
 <script>
+    $(document).ready(function() {
+        $('#dataTable').DataTable();
+    });
     $('.delete').click(function() {
         var workshop_id = $(this).attr('workshop-id');
         swal({
