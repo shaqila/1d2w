@@ -16,7 +16,7 @@ class Peserta
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->user()->level == "admin") {
+        if ($request->user()->role == "admin") {
             return redirect('/dashboard');
         } else {
             return $next($request);

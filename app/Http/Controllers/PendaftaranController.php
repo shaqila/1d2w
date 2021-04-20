@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
 use App\Models\Peserta;
+use App\Models\PesertaWorkshop;
+use App\Models\Province;
 use App\Models\Workshop;
+use Illuminate\Support\Facades\Auth;
 
 class PendaftaranController extends Controller
 {
@@ -14,23 +17,45 @@ class PendaftaranController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
+        if (!Auth::user()) return redirect('login')->with('sukses', 'Harap Daftar Terlebih Dahulu');
         $peserta = Peserta::get();
-        $workshop = Workshop::get();
+        $workshop = Workshop::where('id', $id)->first();
+        $province = Province::all();
         // $peserta = Peserta::find($id);
-        return view ('peserta.pendaftaran', compact("peserta", "workshop"));
-    
+
+        return view('peserta.pendaftaran', compact("peserta", "workshop", 'province'));
     }
 
+    // public function detail_pendaftaran($id)
+    // {
+    //     $workshop = Workshop::with('peserta')->where('id', $id)->first();
+    //     $province = Province::all();
+    //     return view('peserta.pendaftaran', compact("workshop", 'province'));
+    // }
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create_proses(Request $request)
     {
-        //
+
+        $peserta = new Peserta();
+        $peserta->nama_lengkap = $request->nama_lengkap;
+        $peserta->jenis_kelamin = $request->jenis_kelamin;
+        $peserta->user_id = Auth::user()->id;
+        $peserta->profesi = $request->profesi;
+        $peserta->domisili = $request->domisili;
+        $peserta->no_hp = $request->no_hp;
+        $peserta->save();
+
+        $peserta_workshop = new PesertaWorkshop();
+        $peserta_workshop->peserta_id = $peserta->id;
+        $peserta_workshop->workshop_id = $request->workshop_id;
+        $peserta_workshop->save();
+        return redirect()->back()->with('sukses', 'Berhasil');
     }
 
     /**
@@ -41,7 +66,6 @@ class PendaftaranController extends Controller
      */
     public function store(Request $request)
     {
-
     }
 
     /**
@@ -52,7 +76,7 @@ class PendaftaranController extends Controller
      */
     public function show(Pendaftaran $pendaftaran)
     {
-        return view ('peserta.complete-pendaftaran');
+        return view('peserta.complete-pendaftaran');
     }
 
     /**

@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/creation-details/{id}', [HomeController::class, 'detail_creation'])->name('detail_creation');
 Route::get('/workshop-details/{id}', [HomeController::class, 'detail_workshop'])->name('detail_workshop');
-Route::get('/pendaftaran-details/{id}', [HomeController::class, 'detail_pendaftaran'])->name('detail-pendaftaran');
+Route::get('/pendaftaran-details/{id}', [PendaftaranController::class, 'index'])->name('detail-pendaftaran');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
@@ -23,11 +23,15 @@ Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register_process', [AuthController::class, 'register_process'])->name('register_process');
 Route::get('/download/{pdf}', [HomeController::class, 'getDownload'])->name('download_pdf');
 
+// Pendaftaran
+Route::post('/daftar-workshop', [PendaftaranController::class, 'create_proses'])->name('create_pendaftaran');
+
 // Route::get('/pendaftaran', [PendaftaranController::class, 'index'])->name('pendaftaran');
 Route::get('/complete-pendaftaran', [PendaftaranController::class, 'show'])->name('complete-pendaftaran');
 
 
-Route::middleware(['auth'])->group(function () {
+
+Route::group(['middleware' => 'auth'], function () {
 
     Route::middleware(['peserta'])->group(function () {
         Route::get('/peserta/dashboard', [HomeController::class, 'peserta_dashboard'])->name('peserta-dashboard');
@@ -38,8 +42,8 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
-Route::middleware(['admin'])->group(function () {
-    Route::get('/dashboard', [AdminController::class, 'dashboard'])->naet('/dashboard', [AdminController::class, 'dashboard'])->name('admin-dashboard');
+Route::group(['middleware' => 'admin'], function () {
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin-dashboard');
     Route::prefix('workshop')->group(function () {
         Route::get('/', [WorkshopController::class, 'index'])->name('workshop');
         Route::post('/create', [WorkshopController::class, 'create'])->name('workshop-create');
