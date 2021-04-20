@@ -18,14 +18,18 @@
                     <div class="panel-body">
                         <div class="card">
                             <div class="row">
-                                <div class="col-lg-4">
+                                <div class="col-lg-2">
                                     <img src="{{$workshop->getPoster()}}" class="img-fluid" />
                                 </div>
-                                <div class="col-lg">
+                                <div class="col-lg workshop-description">
+                                    <h4>Deskripsi Workshop</h4>
+                                    <p>{{$workshop->deskripsi}}</p>
+                                </div>
+                                <div class="col-lg-12">
                                     <table class="table table-hover">
                                         <thead>
                                             <tr class="text-center">
-                                                <th>NAMA Peserta</th>
+                                                <th>Nama Peserta</th>
                                                 <th>Jenis Kelamin</th>
                                                 <th>Profesi</th>
                                                 <th>Domisili</th>

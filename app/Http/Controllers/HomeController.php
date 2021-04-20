@@ -35,16 +35,27 @@ class HomeController extends Controller
 
         return response()->download($file, 'file.pdf', $headers);
     }
-    public function detail_pendaftaran()
+    public function detail_pendaftaran($id)
     {
-        // $peserta = Peserta::where('id',$id)->first();
-        // $peserta = Peserta::find($id);
-        return view('peserta.pendaftaran');
+        $workshop = Workshop::with('peserta')->where('id', $id)->first();
+        return view('peserta.pendaftaran', compact("workshop"));
     }
-    public function dashboard()
+    public function peserta_dashboard()
     {
         $workshop = Workshop::all();
         $karya = Karya::all();
         return view('peserta.dashboard-peserta', compact("workshop", "karya"));
+    }
+    public function peserta_setting()
+    {
+        return view('peserta.peserta-setting');
+    }
+    public function about()
+    {
+        return view('layouts.pages.about');
+    }
+    public function contact()
+    {
+        return view('layouts.pages.contact');
     }
 }

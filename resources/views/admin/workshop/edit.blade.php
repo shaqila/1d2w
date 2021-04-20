@@ -28,7 +28,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="FormControlInput">Deskripsi</label>
-                                        <input name="deskripsi" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{$workshop->deskripsi}}">
+                                        <textarea name="deskripsi" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" row="3" value="{{$workshop->deskripsi}}"></textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label for="FormControlInput">Harga</label>
@@ -36,7 +36,15 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="FormControlInput">Tanggal Pelaksanaan</label>
-                                        <input name="tanggal_pelaksanaan" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{$workshop->tanggal_pelaksanaan}}">
+                                        <input name="tanggal_pelaksanaan" type="date" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{$workshop->tanggal_pelaksanaan}}">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="FormControlInput">Jam Pelaksanaan</label>
+                                        <input name="jam_pelaksanaan" type="time" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{$workshop->jam_pelaksanaan}}">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="FormControlInput">Batas Akhir Pendaftaran</label>
+                                        <input name="batas_pendaftaran" type="date" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{$workshop->batas_pendaftaran}}">
                                     </div>
                                     <div class="mb-3">
                                         <label for="FormControlInput">Jumlah Peserta</label>

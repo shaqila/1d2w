@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ODTW | Dashboard Admin</title>
+  <link rel="icon" href="{{ asset('LOGO-ODTW.png') }}">
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -99,7 +100,7 @@
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           
           <div class="info">
-            <a href="#" class="d-block">Admin</a>
+            <a href="#" class="d-block">{{Auth::user()->name}}</a>
           </div>
         </div>
 
@@ -109,43 +110,28 @@
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
-            <li class="nav-item">
-              <a href="/peserta" class="nav-link">
-                <i class="nav-icon fas fa-tree"></i>
-                <p>
-                  Peserta
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-                    <!-- <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="/peserta" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Timeline</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="pages/UI/ribbons.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Ribbons</p>
-                      </a>
-                    </li>
-                  </ul> -->
-            <li class="nav-item">
+            
+            <li class="nav-item {{ 'workshop' == request()->path() ? 'active' : '' }}">
               <a href="/workshop" class="nav-link">
-                <i class="nav-icon far fa-calendar-alt"></i>
+                <i class="nav-icon fas fa-table"></i>
                 <p>
                   Workshop
-                  <span class="badge badge-info right">2</span>
                 </p>
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{ 'creation' == request()->path() ? 'active' : '' }}">
               <a href="/creation" class="nav-link">
-                <i class="nav-icon far fa-calendar-alt"></i>
+                <i class="nav-icon fas fa-table"></i>
                 <p>
                   Karya
-                  <span class="badge badge-info right">2</span>
+                </p>
+              </a>
+            </li>
+            <li class="nav-item {{ 'peserta' == request()->path() ? 'active' : '' }}">
+              <a href="/peserta" class="nav-link">
+                <i class="nav-icon fas fa-table"></i>
+                <p>
+                  Peserta
                 </p>
               </a>
             </li>

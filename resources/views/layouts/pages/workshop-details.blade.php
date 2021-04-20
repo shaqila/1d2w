@@ -18,17 +18,17 @@ Workshop | One Day To Write
           <div class="harga" style="text-align:center">
             <h3>@currency($workshop->harga)</h3>
           </div>
-          <a class="daftar-sekarang btn btn-lg btn-block" href="{{route('detail-pendaftaran')}}" style="background-color: #7abaff; color: white; ">Daftar Workshop</a>
+          <a class="daftar-sekarang btn btn-lg btn-block" href="{{route('detail-pendaftaran', $workshop->id)}}" style="background-color: #7abaff; color: white; ">Daftar Workshop</a>
+          
         </div>
       </div>
       <div class="col-lg-8">
         <div class="workshop-info">
           <h3>{{$workshop->nama}}</h3>
           <ul>
-            <li><strong>Level</strong>: </br> Kids, Teens, Adults</li>
-            <li><strong>Tanggal Pelaksanaan</strong>: </br>24 April 2021 | 09:00 - 11:00</li>
-            <li><strong>Batas Akhir Pendaftaran</strong>: </br>23 April 2021</li>
-            <li><strong>Kapasitas</strong>:</br> 50 Peserta</li>
+            <li><strong>Waktu Pelaksanaan</strong>: </br>{{ date('l, d F Y', strtotime($workshop->tanggal_pelaksanaan)) }} </br> Jam {{ date('H:i', strtotime($workshop->jam_pelaksanaan)) }} WIB</li>
+            <li><strong>Batas Akhir Pendaftaran</strong>: </br>{{ date('d F Y', strtotime($workshop->batas_pendaftaran)) }}</li>
+            <li><strong>Kapasitas</strong>:</br> {{$workshop->jumlah_peserta}} Peserta</li>
           </ul>
         </div>
         <div class="workshop-description">

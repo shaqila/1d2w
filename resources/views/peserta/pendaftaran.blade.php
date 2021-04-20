@@ -45,16 +45,13 @@
 				</div>
 				<div class="form-right">
 					<h2>Informasi Pembayaran</h2>
-					<!-- <div class="form-workshop">
-					Ini Row buat Judul Workshop dan harganya
-					</div> -->
 					<div class="form-row">
 						<p class="title">Workshop</p>
-						<p class="value"><em>February Workshop</em></p>
+						<p class="value"><em><b>{{$workshop->nama}}</b></em></p>
 					</div>
 					<div class="form-row">
 						<p class="title">Total Harga</p>
-						<p class="value"><em>Rp. 100.000</em></p>
+						<p class="value"><em><b>Rp. {{number_format($workshop->harga, 0, ',', '.')}}</b></em></p>
 					</div>
 					<h2>Transfer Pembayaran</h2>
 

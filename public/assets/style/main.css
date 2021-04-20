@@ -2935,6 +2935,13 @@ textarea.form-control.is-invalid {
 .lead .daftar-sekarang{
     background-color: #7abaff;
     color: white;
+    font-family: "Poppins", sans-serif;
+}
+
+.lead .daftar-sekarang:hover{
+    transform: translate(0, -3px);
+    transition: 0.2s;
+    text-decoration: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -4837,6 +4844,7 @@ input[type="button"].btn-block {
     }
 }
 
+
 .nav {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -4951,6 +4959,7 @@ input[type="button"].btn-block {
     -ms-flex-pack: justify;
     justify-content: space-between;
     padding: 0.5rem 1rem;
+    font-family: "Poppins", sans-serif;;
 }
 
 .navbar .container,
@@ -4986,6 +4995,7 @@ input[type="button"].btn-block {
 .logo-odtw {
     width: 45px;
 }
+
 .sidebar-heading,
 .logo-odtw {
     width: 45px;
@@ -5444,6 +5454,7 @@ input[type="button"].btn-block {
     color: #fff;
 }
 
+
 .card {
     position: relative;
     display: -webkit-box;
@@ -5484,8 +5495,8 @@ input[type="button"].btn-block {
 }
 
 .card-body {
-    -webkit-box-flex: 1;
-    -ms-flex: 1 1 auto;
+    /* -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto; */
     flex: 1 1 auto;
     min-height: 1px;
     padding: 1.25rem;
@@ -11295,25 +11306,9 @@ a.text-dark:focus {
     }
 }
 
-body {
-    font-family: "Poppins", sans-serif;
-}
 
 .page-content {
     margin-top: 100px;
-}
-
-footer {
-    border-top: 1px solid #e4e4e4;
-    margin-top: 100px;
-}
-
-footer p {
-    color: #979797;
-}
-
-.form-control {
-    background-color: #f3f3f3;
 }
 
 .navbar-store {
@@ -11707,6 +11702,7 @@ footer p {
     border: 0;
     font-size: 16px;
     color: #c5c5c5;
+    font-family: "Poppins", sans-serif;
 }
 
 .page-dashboard .list-group-item.active {
@@ -11714,15 +11710,15 @@ footer p {
         linear,
         right top,
         left top,
-        color-stop(2%, rgba(255, 113, 88, 0.32)),
+        color-stop(2%, rgba(88, 180, 255, 0.32)),
         to(rgba(255, 255, 255, 0))
     );
     background: linear-gradient(
         270deg,
-        rgba(255, 113, 88, 0.32) 2%,
+        rgba(88, 180, 255, 0.32) 2%,
         rgba(255, 255, 255, 0) 100%
     );
-    border-right: 4px solid #ff7158;
+    border-right: 4px solid #7abaff;
     color: #0c0d36;
 }
 
@@ -11785,8 +11781,13 @@ footer p {
     right: 0;
 }
 
+.card-workshop {
+    text-align: center;
+}
+
 .component-workshop {
     margin-bottom: 20px;
+    font-family: "Poppins", sans-serif;
 }
 
 .component-workshop:hover {
@@ -11822,14 +11823,16 @@ footer p {
 .component-workshop .workshop-text {
     color: #0c0d36;
     margin-top: 12px;
-    font-weight: normal;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .component-workshop .workshop-price {
     font-weight: 500;
     font-size: 16px;
-    color: #ff7158;
+}
+
+.component-workshop .workshop-date {
+    color: #0c0d36;
 }
 
 .component-workshop .myworkshop-thumbnail {
@@ -11880,44 +11883,6 @@ footer p {
     font-size: 18px;
     line-height: 40px;
     color: #0c0d36;
-}
-
-.card-dashboard-karya {
-    margin-bottom: 10px;
-}
-
-.card-dashboard-karya .card-body {
-    padding: 13px;
-}
-
-.card-dashboard-karya .card-body .karya-image {
-    margin-bottom: 1rem !important;
-    width: 100%;
-    height: 100%;
-    background-color: #ddd;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-}
-
-.card-dashboard-karya .card-body:hover .karya-image,
-.card-dashboard-karya .card-body:focus .karya-image {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
-}
-
-.card-dashboard-karya .card-body .karya-title {
-    font-weight: normal;
-    font-size: 18px;
-    color: #0c0d36;
-}
-
-.card-dashboard-karya .card-body .karya-category {
-    font-size: 16px;
-    line-height: 24px;
-    color: #c5c5c5;
 }
 
 .slide-fade-enter-active {
@@ -12027,11 +11992,15 @@ footer p {
 --------------------------------------------------------------*/
 .workshop-details {
     padding-top: 40px;
+    margin-top: 50px;
+    font-family: "Poppins", sans-serif;
 }
 
 .workshop-details .workshop-details-slider img {
     width: 100%;
-    box-shadow: 0px 0 50px rgba(55, 60, 71, 0.08);
+    box-shadow: 20px 0 30px rgba(55, 60, 71, 0.08);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 /* .workshop-details .workshop-details-slider .swiper-pagination {
@@ -12052,7 +12021,8 @@ footer p {
 
 .workshop-details .workshop-info {
     padding: 30px;
-    box-shadow: 0px 0 30px rgba(95, 104, 123, 0.08);
+    box-shadow: 20px 0 30px rgba(95, 104, 123, 0.08);
+    border-radius: 8px;
 }
 
 .workshop-details .workshop-info h3 {
@@ -12090,47 +12060,54 @@ footer p {
 /*--------------------------------------------------------------
 # Creation
 --------------------------------------------------------------*/
-.creation-box {
-    text-align: center;
-    background-color: #f8f8f8;
-    border-radius: 4px;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border-bottom: 1px solid #eee;
-    margin: 15px 20px 10px 15px;
+
+.card-dashboard-karya {
+    margin-bottom: 10px;
+    font-family: "Poppins", sans-serif;
 }
 
-.creation-box:hover {
-    background-color: #50abf7;
-    -webkit-transition: all 0.1s linear;
-    -moz-transition: all 0.1s linear;
-    -o-transition: all 0.1s linear;
-    -ms-transition: all 0.1s linear;
-    transition: all 0.1s linear;
-    box-shadow: 0px 0px 5px #ccc;
+.card-dashboard-karya .card-body {
+    padding: 13px;
 }
-.creation-box:hover a {
-    color: #fff !important;
-}
-.creation-box img {
+
+.card-dashboard-karya .karya-thumbnail {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
     overflow: hidden;
-    margin-top: 10px;
+    position: relative;
+    z-index: 1;
 }
-.creation-box a.title {
-    text-transform: uppercase;
-    color: #111111;
-    display: inline-block;
-    font-weight: bold;
-    font-size: 11px;
-    margin: 15px 0 0px 0;
+
+.card-dashboard-karya .karya-thumbnail .karya-image {
+    margin-bottom: 1rem !important;
+    max-width: 100%;
+    height: auto;
+    background-color: #ddd;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
-.creation-box a.category {
-    color: #eb4800;
+
+
+.card-dashboard-karya .karya-thumbnail:hover .karya-image,
+.card-dashboard-karya .karya-thumbnail:focus .karya-image {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
 }
-.creation-box p.price {
-    font-size: 20px;
-    font-weight: 300;
-    padding: 10px 0;
+
+.card-dashboard-karya .card-body .karya-title {
+    font-weight: normal;
+    font-size: 18px;
+    color: #0c0d36;
+}
+
+.card-dashboard-karya .card-body .karya-category {
+    font-size: 16px;
+    line-height: 24px;
+    color: #c5c5c5;
 }
 
 /*--------------------------------------------------------------
@@ -12182,19 +12159,20 @@ footer p {
 .testimonials .testimonial-item {
     box-sizing: content-box;
     min-height: 10px;
+    font-family: "Poppins", sans-serif;
 }
 
 .testimonials .testimonial-item h3 {
     font-size: 18px;
-    font-weight: bold;
+    font-weight: semibold;
     margin: 0px 0 5px 35px;
-    color: #111;
+    color: #50a3fc;
 }
 
 .testimonials .testimonial-item h4 {
     font-size: 14px;
     color: #999;
-    margin: 0 0 0 35px;
+    margin: 0 0 30px 35px;
 }
 
 .testimonials .testimonial-item .quote-icon-left,
@@ -12236,16 +12214,21 @@ footer p {
     height: 12px;
     background-color: #fff;
     opacity: 1;
-    border: 1px solid #4441f7;
+    border: 1px solid #4d76ff;
 }
 
 .testimonials .swiper-pagination .swiper-pagination-bullet-active {
-    background-color: #4d76ff;
+    background-color: #7abaff;
 }
 
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
+footer {
+    border-top: 1px solid #e4e4e4;
+    margin-top: 100px;
+}
+
 .footer-odtw {
     font-family: "Poppins", sans-serif;
 }
@@ -12253,13 +12236,15 @@ footer p {
     text-align: center;
     font-size: 2rem;
     font-weight: 900;
+    margin-top: 20px;
 }
 .footer-odtw .footer-site-logo a {
-    color: #6c757d;
+    color: #5eb2fc;
 }
 .footer-odtw .nav-links {
     padding: 0;
     margin: 0;
+    color: #5eb2fc;
 }
 .footer-odtw .nav-links li {
     display: inline-block;
@@ -12269,12 +12254,13 @@ footer p {
     color: #000;
 }
 .footer-odtw .nav-links li a:hover {
-    color: #4200ff;
+    color: #5eb2fc;
 }
 .footer-odtw .social h3 {
     font-weight: bold;
     font-size: 18px;
-    color: #000;
+    color: rgb(46, 46, 46);
+    padding-top: 0;
 }
 .footer-odtw .social ul li {
     display: inline-block;
@@ -12292,12 +12278,7 @@ footer p {
 .footer-odtw .social ul li.fb a {
     color: #3742d0;
 }
-.footer-odtw .social ul li.dr a {
-    color: #fa38c1;
-}
-.footer-odtw .social ul li.pin a {
-    color: #dd4d5a;
-}
+
 .footer-odtw .copyright {
     color: #999999;
 }
@@ -12672,4 +12653,136 @@ body {
         text-align: center;
         margin: 44px 0 30px;
     }
+}
+
+/*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+section {
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.section-bg {
+  background-color: #f9f9fa;
+}
+
+.section-title {
+  text-align: center;
+  padding: 30px 0;
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding-bottom: 0;
+  color: #61acfc;
+  position: relative;
+  z-index: 2;
+}
+
+.section-title span {
+  position: absolute;
+  top: 30px;
+  color: #f1f4fa;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  font-weight: 700;
+  font-size: 52px;
+  text-transform: uppercase;
+  line-height: 0;
+}
+
+/*--------------------------------------------------------------
+# LOGIN
+--------------------------------------------------------------*/
+
+.login-page{
+    background: #6fa1ff;
+    background: linear-gradient(to right, rgb(63, 144, 250), rgb(171, 221, 255));
+    font-family: "Poppins", sans-serif;
+}
+
+.card-signin{
+    margin-top: 100px;
+}
+.login-card-body {
+    border: 0;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    background-color: whitesmoke;
+    padding: 1.5rem;
+    
+}
+
+.login-card-body .login-box-msg{
+    margin-bottom: 2rem;
+    font-weight: 300;
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+    color: #1e6dff;
+}
+
+.input-group input{
+    height: auto;
+    border-radius: 2rem;
+}
+
+.form-signin .btn{
+  font-size: 100%;
+  border-radius: 5rem;
+  letter-spacing: .1rem;
+  font-weight: bold;
+  padding: 1rem;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.sign-text{
+    text-align: center;
+}
+
+/*--------------------------------------------------------------
+# ABOUT
+--------------------------------------------------------------*/
+.about{
+    padding-top: 150px;
+    font-family: "Poppins", sans-serif;
+}
+
+.about .content h3 {
+  font-weight: 700;
+  font-size: 32px;
+  color: #5eb2fc;
+}
+.about .content h2 {
+    padding-top: 30px;
+    color: #5eb2fc;
+}
+
+.about .content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about .content ul li {
+  padding-bottom: 10px;
+}
+
+.about .content ul i {
+  font-size: 14px;
+  padding-right: 6px;
+  color: #7abaff;
+}
+
+.about .content p:last-child {
+  margin-bottom: 0;
 }

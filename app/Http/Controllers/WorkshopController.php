@@ -31,9 +31,9 @@ class WorkshopController extends Controller
         // \Session::flash('flash_message', 'A new course has been created!');
         return redirect()->route('workshop')->with('sukses', 'Data berhasil ditambah');
     }
-    public function delete($id)
+    public function delete($workshop)
     {
-        $workshop = Workshop::findOrFail($id);
+        $workshop = Workshop::where('id', $workshop)->first();
         $workshop->delete();
         return redirect()->route('workshop')->with('hapus', 'Data berhasil dihapus');
     }
@@ -43,7 +43,7 @@ class WorkshopController extends Controller
         return view('admin.workshop.edit', compact("workshop"));
     }
 
-    public function detail_workshop($id)
+    public function workshop_detail($id)
     {
         $workshop = Workshop::with('peserta')->where('id', $id)->first();
         // dd($workshop);
@@ -52,18 +52,23 @@ class WorkshopController extends Controller
 
     public function update(WorkshopRequest $request, $id)
     {
-        // $workshop->update($request->all());
-        // if ($request->hasFile('avatar')) {
-        //     $request->file('avatar')->move('images/', $request->file('avatar')->getClientOriginalName());
-        //     $peserta->avatar = $request->file('avatar')->getClientOriginalName();
-        //     $peserta->save();
-        // }
         $workshop = Workshop::findOrFail($id);
+        if ($request->hasFile('poster')) {
+            $image = $request->file('poster');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $size = Image::make($image);
+            $size->resize(570, 721)->encode('png')->save(public_path('/img-workshop/' . $filename));
+            $workshop->poster = $filename;
+        } else {
+            $workshop->poster = 'workshop.jpg';
+        }
         $workshop->kode = $request->input('kode');
         $workshop->nama = $request->input('nama');
         $workshop->deskripsi = $request->input('deskripsi');
         $workshop->harga = $request->input('harga');
         $workshop->tanggal_pelaksanaan = $request->input('tanggal_pelaksanaan');
+        $workshop->batas_pendaftaran = $request->input('batas_pendaftaran');
+        $workshop->jam_pelaksanaan = $request->input('jam_pelaksanaan');
         $workshop->jumlah_peserta = $request->input('jumlah_peserta');
         $workshop->update();
         return redirect('/workshop')->with('sukses', 'Data berhasil diupdate');

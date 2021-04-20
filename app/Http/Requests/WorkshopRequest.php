@@ -29,6 +29,8 @@ class WorkshopRequest extends FormRequest
                 'deskripsi' => 'required',
                 'harga' => 'required',
                 'tanggal_pelaksanaan' => 'required',
+                'batas_pendaftaran' => 'required',
+                'jam_pelaksanaan' => 'required',
                 'jumlah_peserta' => 'required',
                 'poster' => 'mimes:jpg,png'
         ];
