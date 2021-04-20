@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Workshop;
 use App\Models\Karya;
 use App\Models\Peserta;
+use App\Models\Province;
 
 class HomeController extends Controller
 {
@@ -35,11 +36,7 @@ class HomeController extends Controller
 
         return response()->download($file, 'file.pdf', $headers);
     }
-    public function detail_pendaftaran($id)
-    {
-        $workshop = Workshop::with('peserta')->where('id', $id)->first();
-        return view('peserta.pendaftaran', compact("workshop"));
-    }
+
     public function peserta_dashboard()
     {
         $workshop = Workshop::all();

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light navbar-store fixed-top navbar-fixed-top">
   <div class="container">
     <a class="navbar-brand" href="{{url('home')}}">
-      <img src="{{asset('LOGO-ODTW.png')}}" class="logo-odtw" alt="logo-odtw"/>
+      <img src="{{asset('LOGO-ODTW.png')}}" class="logo-odtw" alt="logo-odtw" />
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -28,16 +28,16 @@
       </ul>
 
       @auth
-        <div class="btn-group dropdown">
-          <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{Auth::user()->name}}
-          </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="{{route('admin-dashboard')}}">Dashboard</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="{{Auth::logout()}}">Logout</a>
-          </div>
+      <div class="btn-group dropdown">
+        <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{Auth::user()->name}}
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="{{route('admin-dashboard')}}">Dashboard</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
         </div>
+      </div>
       @endauth
     </div>
   </div>

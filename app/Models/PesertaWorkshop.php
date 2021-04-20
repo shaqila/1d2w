@@ -12,6 +12,6 @@ class PesertaWorkshop extends Model
 
     public function workshop()
     {
-        return $this->belongsTo(Peserta::class);
+        return $this->hasMany(Peserta::class, 'user_id');
     }
 }

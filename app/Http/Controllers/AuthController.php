@@ -7,9 +7,17 @@ use App\Models\Peserta;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\URL;
 
 class AuthController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->redirectTo = url()->previous();
+    }
     public function login_process(Request $request)
     {
         $this->validate($request, [
@@ -22,7 +30,7 @@ class AuthController extends Controller
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $user = Auth::user();
             if ($user->role == 'peserta') {
-                return redirect()->route('peserta-dashboard')->with('success', 'Selamat Datang');
+                return Redirect::to(Session::get('url.intended'));
             } else if ($user->role == 'admin') {
                 return redirect()->route('admin-dashboard')->with('success', 'Selamat Datang');
             } else {
@@ -55,6 +63,7 @@ class AuthController extends Controller
 
     public function login()
     {
+        Session::put('url.intended', URL::previous());
         return view('login');
     }
 
@@ -62,7 +71,13 @@ class AuthController extends Controller
     {
         return view('register');
     }
-
+    public function showLoginForm()
+    {
+        if (!session()->has('url.intended')) {
+            session(['url.intended' => url()->previous()]);
+        }
+        return view('auth.login');
+    }
     public function logout()
     {
         Auth::logout();

@@ -5,11 +5,13 @@
 <body class="form-v10">
 	<div class="pendaftaran-content">
 		<div class="form-v10-content">
-			<form class="form-detail" action="#" method="post" id="myform">
+			<form class="form-detail" action="{{route('create_pendaftaran')}}" method="post" id="myform">
+				@csrf
 				<div class="form-left">
 					<h2>Informasi Peserta</h2>
 					<div class="form-row">
 						<input type="text" name="nama_lengkap" class="input-text" id="nama_lengkap" placeholder="Nama Langkap" required>
+						<input type="hidden" name="workshop_id" class="input-text" id="nama_lengkap" value="{{$workshop->id}}" readonly>
 					</div>
 					<div class="form-row">
 						<select name="jenis_kelamin" required>
@@ -25,21 +27,24 @@
 						<input type="text" name="no_hp" class="input-text" id="no_hp" placeholder="Nomor Telefon" required>
 					</div>
 					<div class="form-row">
-						<select name="Domisili" required>
-							<option value="domisili">Pilih Domisili</option>
-							<option value="director">Director</option>
-							<option value="manager">Manager</option>
-							<option value="employee">Employee</option>
+						<select name="domisili" required>
+							<option value="">Pilih Domisili</option>
+							@foreach($province as $provinces)
+							<option value="{{$provinces->id}}">{{$provinces->nama_provinsi}}</option>
+							@endforeach
 						</select>
 						<span class="select-btn">
 							<i class="zmdi zmdi-chevron-down"></i>
 						</span>
 					</div>
-					<div class="form-group">
+					<!-- <div class="form-group">
 						<label class="date-input" required>Tanggal Lahir</label>
 						<div class="form-row">
 							<input class="form-control" type="date" value="today" id="date-input">
 						</div>
+					</div> -->
+					<div class="form-row">
+						<input type="text" name="profesi" class="input-text" id="no_hp" placeholder="Profesi" required>
 					</div>
 
 				</div>

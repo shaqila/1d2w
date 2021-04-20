@@ -6,6 +6,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 class Workshop extends Model
 {
@@ -23,15 +24,19 @@ class Workshop extends Model
         return asset('img-workshop/' . $this->poster);
     }
 
+    public function getDateAttribute()
+    {
+        return Carbon::parse($this->attributes['jam_pelaksanaan'])->translatedFormat('l, d F Y');
+    }
+
     public function peserta()
-    { {
-            return $this->belongsToMany(Peserta::class);
-        }
+    {
+        return $this->belongsToMany(Peserta::class, 'peserta_workshop');
     }
 
     public function peserta_workshop()
     {
-        return $this->belongsToMany(Peserta::class, 'peserta_workshop');
+        return $this->belongsToMany(Peserta::class, 'peserta', 'user_id', 'peserta_workshop');
     }
 
     // public function sluggable(): array

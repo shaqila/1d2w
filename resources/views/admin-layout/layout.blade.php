@@ -98,7 +98,7 @@
       <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-          
+
           <div class="info">
             <a href="#" class="d-block">{{Auth::user()->name}}</a>
           </div>
@@ -110,7 +110,7 @@
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
-            
+
             <li class="nav-item {{ 'workshop' == request()->path() ? 'active' : '' }}">
               <a href="/workshop" class="nav-link">
                 <i class="nav-icon fas fa-table"></i>
@@ -167,13 +167,13 @@
 
 
       <!-- Main content -->
-        @yield('content')
+      @yield('content')
     </div>
 
     <!-- Footer -->
     @include('admin-layout.footer-admin')
 
-  <!-- Script-->
+    <!-- Script-->
     @stack('prepend-script')
     @include('admin-layout.script')
     @stack ('addon-script')
