@@ -48,7 +48,7 @@ ODTW | One Day To Write
               {{ date('l, d F Y', strtotime($workshops->tanggal_pelaksanaan)) }}</br> {{ date('H:i', strtotime($workshops->jam_pelaksanaan)) }}
             </div>
             <div class="workshop-price">
-              Rp. {{number_format($workshops->harga, 0, ',', '.')}}
+              @currency($workshops->harga)
             </div>
           </a>
         </div>
@@ -61,7 +61,7 @@ ODTW | One Day To Write
     <div class="container">
       <div class="section-title">
         <span>Karya</span>
-        <h2>  Karya</h2>
+        <h2> Karya</h2>
       </div>
 
       <div class="row">
@@ -98,7 +98,7 @@ ODTW | One Day To Write
                 <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                 Workshop Writing with mom kereeeen....
                 membuka cakrawala menulis, memunculkan ide-ide kreatif mom dan anak...
-                yang ngga diduga-duga..semoga terus berkembang dan menginovasi program2nya.. 
+                yang ngga diduga-duga..semoga terus berkembang dan menginovasi program2nya..
                 Mendekatkan anak bangsa dengan buku.. 💖
                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
               </p>
@@ -111,9 +111,9 @@ ODTW | One Day To Write
             <div class="testimonial-item">
               <p>
                 <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                Workshop ini menyenangkan dan menambah ilmu menulis. 
-                Fadhila jadi tahu lebih luas ilmu menulis. 
-                Fadhila juga ingin membuat cerita pendek dan dibukukan, makasih kak. 
+                Workshop ini menyenangkan dan menambah ilmu menulis.
+                Fadhila jadi tahu lebih luas ilmu menulis.
+                Fadhila juga ingin membuat cerita pendek dan dibukukan, makasih kak.
                 Terimakasih juga untuk feedbacknya. Semoga makin sukses dan maju😊
                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
               </p>
@@ -149,9 +149,9 @@ ODTW | One Day To Write
             <div class="testimonial-item">
               <p>
                 <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                Kesan pesanku selama menjadi peserta workshop novella itu seru banget, 
-                terus penjelasan nya jelas bangettt, sama aku enjoy banget sih, 
-                pesan ku mungkin kedepannya kalo ada sesi tanya jawabnya lebih dipanjangin hehe 😸 
+                Kesan pesanku selama menjadi peserta workshop novella itu seru banget,
+                terus penjelasan nya jelas bangettt, sama aku enjoy banget sih,
+                pesan ku mungkin kedepannya kalo ada sesi tanya jawabnya lebih dipanjangin hehe 😸
                 supaya nanya nya puas 🤩
                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
               </p>
