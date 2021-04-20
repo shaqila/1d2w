@@ -37,7 +37,7 @@ class HomeController extends Controller
     }
     public function detail_pendaftaran($id)
     {
-        $workshop = Workshop::where('id', $id)->first();
+        $workshop = Workshop::with('peserta')->where('id', $id)->first();
         return view('peserta.pendaftaran', compact("workshop"));
     }
     public function peserta_dashboard()
@@ -45,6 +45,10 @@ class HomeController extends Controller
         $workshop = Workshop::all();
         $karya = Karya::all();
         return view('peserta.dashboard-peserta', compact("workshop", "karya"));
+    }
+    public function peserta_setting()
+    {
+        return view('peserta.peserta-setting');
     }
     public function about()
     {

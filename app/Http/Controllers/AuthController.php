@@ -46,8 +46,8 @@ class AuthController extends Controller
         $peserta->user_id = $user->id;
         $peserta->nama_lengkap = $user->name;
         $peserta->jenis_kelamin = 'L';
-        $peserta->profesi = 'Siswa';
-        $peserta->domisili = 'Jakarta';
+        $peserta->profesi = '-';
+        $peserta->domisili = '-';
         $peserta->no_hp = '0';
         $peserta->save();
         return redirect('login')->with('success', 'Register Success');

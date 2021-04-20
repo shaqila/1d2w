@@ -52,7 +52,7 @@
                   
                     <div class="card card-signin">
                             <div class="card-body login-card-body">
-                                <p class="login-box-msg">Masuk Akun ODTW</p>
+                                <p class="login-box-msg">One Day To Write</p>
                                 <form class="form-signin" action="{{route('login_process')}}" method="post">
                                     @csrf
                                     <div class="input-group mb-3">

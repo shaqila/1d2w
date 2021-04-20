@@ -37,6 +37,15 @@ About | One Day To Write
               dolore
               magna aliqua.
             </p>
+            <ul>
+              <li><i class="bi bi-circle-fill"></i>Pilih Workshop yang ingin kamu ikuti</li>
+              <li><i class="bi bi-circle-fill"></i>Klik tombol "Daftar Sekarang" pada halaman Detail Workshop</li>
+              <li><i class="bi bi-circle-fill"></i>Lengkapi form data pendaftaran</li>
+              <li><i class="bi bi-circle-fill"></i>Lakukan pembayaran melalui transfer <strong>Bank BCA 08123131 a.n Shaqila Erbeliza</strong></li>
+              <li><i class="bi bi-circle-fill"></i>Klik tombol "Submit"</li>
+              <li><i class="bi bi-circle-fill"></i>Kirim konfirmasi pembayaran melalui <strong>Whatsapp</strong> pada nomor <strong>085157574711 (Shaqila Erbeliza)</strong></li>
+              <li><i class="bi bi-circle-fill"></i>Tunggu balasan konfirmasi dari Admin</li>
+            </ul>
           </div>
         </div>
       </div>

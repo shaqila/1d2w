@@ -52,15 +52,15 @@
                 @endif
                 <div class="card card-signin">
                         <div class="card-body login-card-body">
-                            <p class="login-box-msg">Make new Account</p>
+                            <p class="login-box-msg">One Day To Write</p>
 
                             <form class="form-signin" action="{{route('register_process')}}" method="post">
                                 @csrf
                                 <div class="input-group mb-3">
-                                    <input type="text" name="name" class="form-control" placeholder="Name">
+                                    <input type="text" name="name" class="form-control" placeholder="Full Name">
                                 </div>
                                 <div class="input-group mb-3">
-                                    <input type="email" name="email" class="form-control" placeholder="Email">
+                                    <input type="email" name="email" class="form-control" placeholder="New Email">
                                 </div>
                                 <div class="input-group mb-3">
                                     <input type="password" name="password" class="form-control" placeholder="Password">

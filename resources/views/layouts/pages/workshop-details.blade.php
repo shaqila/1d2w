@@ -19,6 +19,7 @@ Workshop | One Day To Write
             <h3>@currency($workshop->harga)</h3>
           </div>
           <a class="daftar-sekarang btn btn-lg btn-block" href="{{route('detail-pendaftaran', $workshop->id)}}" style="background-color: #7abaff; color: white; ">Daftar Workshop</a>
+          
         </div>
       </div>
       <div class="col-lg-8">

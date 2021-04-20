@@ -17,10 +17,10 @@
 </head>
 
 <body>
+    
     <!-- Navbar -->
     @include('layouts.includes.navbar')
-
-
+    
     <!-- Page Content -->
     @yield('content')
 

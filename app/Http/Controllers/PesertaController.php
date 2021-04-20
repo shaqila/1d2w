@@ -28,12 +28,6 @@ class PesertaController extends Controller
         $request->request->add(['user_id' => $user->id]);
         $peserta = Peserta::create($request->all());
 
-        // if ($request->hasFile('avatar')) {
-        //     $request->file('avatar')->move('img-peserta/', $request->file('avatar')->getClientOriginalName());
-        //     $peserta->avatar = $request->file('avatar')->getClientOriginalName();
-        //     $peserta->save();
-        // }
-
         return redirect('/peserta')->with('sukses', 'Data berhasil diupdate');
     }
     public function delete(Peserta $peserta)

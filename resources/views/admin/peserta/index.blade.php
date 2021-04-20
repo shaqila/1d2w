@@ -55,7 +55,7 @@ Data Semua Peserta
                                         <th>AKSI</th>
                                     </tr>
                                 </thead>
-                                <tbody style="text-align:center">
+                                <tbody>
                                     @foreach($peserta as $pesertas)
                                     <tr>
                                          <td>{{$loop->iteration}}</td>
@@ -64,7 +64,7 @@ Data Semua Peserta
                                          <td>{{$pesertas->profesi}}</td>
                                          <td>{{$pesertas->domisili}}</td>
                                         <td>{{$pesertas->no_hp}}</td>
-                                        <td>
+                                        <td class="text-center">
                                             <a href="/peserta/{{$pesertas->id}}/edit" class="icon"><i class="edit-icon far fa-edit"></i></a>
                                             <a href="#" class="icon delete" peserta-id="{{$pesertas->id}}"><i class="edit-icon far fa-trash-alt"></i></a>
                                         </td>

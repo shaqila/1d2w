@@ -100,7 +100,7 @@
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           
           <div class="info">
-            <a href="#" class="d-block">Admin</a>
+            <a href="#" class="d-block">{{Auth::user()->name}}</a>
           </div>
         </div>
 
@@ -111,7 +111,7 @@
                with font-awesome or any other icon font library -->
 
             
-            <li class="nav-item">
+            <li class="nav-item {{ 'workshop' == request()->path() ? 'active' : '' }}">
               <a href="/workshop" class="nav-link">
                 <i class="nav-icon fas fa-table"></i>
                 <p>
@@ -119,7 +119,7 @@
                 </p>
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{ 'creation' == request()->path() ? 'active' : '' }}">
               <a href="/creation" class="nav-link">
                 <i class="nav-icon fas fa-table"></i>
                 <p>
@@ -127,7 +127,7 @@
                 </p>
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{ 'peserta' == request()->path() ? 'active' : '' }}">
               <a href="/peserta" class="nav-link">
                 <i class="nav-icon fas fa-table"></i>
                 <p>

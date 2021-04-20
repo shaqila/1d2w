@@ -57,20 +57,20 @@ Data Workshop
                                             <th>AKSI</th>
                                         </tr>
                                     </thead>
-                                    <tbody style="text-align:center">
+                                    <tbody>
                                         @foreach($workshop as $workshops)
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$workshops->kode}}</td>
                                             <td><a href="{{route('workshop-detail',$workshops->id)}}">{{$workshops->nama}}</a></td>
                                             <td>Rp. {{number_format($workshops->harga, 0, ',', '.')}}</td>
-                                            <td>{{ date('l, d F Y', strtotime($workshops->tanggal_pelaksanaan)) }} </br> {{ date('H:i', strtotime($workshops->jam_pelaksanaan)) }}</td>
+                                            <td>{{ date('l, d F Y', strtotime($workshops->tanggal_pelaksanaan)) }} </br> {{ date('H:i', strtotime($workshops->jam_pelaksanaan)) }} WIB</td>
                                             <td>{{$workshops->batas_pendaftaran}}</td>
                                             <td>{{$workshops->jumlah_peserta}}</td>
-                                            <td><img src="{{$workshops->getPoster()}}" alt="Image" class="img-fluid tm-gallery-img" style=" max-height: 150px;
+                                            <td class="text-center"><img src="{{$workshops->getPoster()}}" alt="Image" class="img-fluid tm-gallery-img" style=" max-height: 150px;
                                                             max-width: 150px;
                                                             object-fit: cover;" /></td>
-                                            <td>
+                                            <td class="text-center">
                                                 <a href="/workshop/{{$workshops->id}}/edit" class="icon"><i class="edit-icon far fa-edit"></i></a>
                                                 </br>
                                                 <a href="#" class="icon delete" workshop-id="{{$workshops->id}}"><i class="edit-icon far fa-trash-alt"></i></a>
@@ -120,7 +120,7 @@ Data Workshop
                         </div>
                         <div class="form-group {{$errors->has('deskripsi') ? 'has-errors': ''}}">
                             <label for="exampleInputEmail1">Deskripsi</label>
-                            <input name="deskripsi" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{old('deskripsi')}}">
+                            <textarea name="deskripsi" class="form-control" id="exampleFormControlTextarea1" rows="3" value="{{old('deskripsi')}}"> </textarea>
                             @if($errors->has('deskripsi'))
                             <span class="help-block">{{$errors->first('deskripsi')}}</span>
                             @endif

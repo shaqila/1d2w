@@ -60,16 +60,18 @@ ODTW | One Day To Write
   <section id="creation" class="creation" data-aos="fade-up" data-aos-duration="2000">
     <div class="container">
       <div class="section-title">
-        <span>Kumpulan Karya Workshop</span>
-        <h2>Kumpulan Karya Workshop</h2>
+        <span>Karya</span>
+        <h2>  Karya</h2>
       </div>
 
-      <div class="row mt-4">
+      <div class="row">
         @foreach($karya as $karyas)
         <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-duration="2000">
           <a class="card card-dashboard-karya d-block" href="{{route('detail_creation',$karyas->id)}}">
-            <div class="card-body" style="width:15rem">
-              <img src="{{$karyas->getCover()}}" alt="" class="img-fluid" />
+            <div class="card-body">
+              <div class="karya-thumbnail">
+                <img src="{{$karyas->getCover()}}" alt="" class="karya-image img-fluid" />
+              </div>
               <div class="karya-title">{{$karyas->nama_karya}}</div>
               <div class="karya-category">{{$karyas->level}}</div>
             </div>
@@ -83,8 +85,8 @@ ODTW | One Day To Write
     <div class="container">
 
       <div class="section-title">
-        <span>Testimonials</span>
-        <h2>Testimonials</h2>
+        <span>Kesan & Pesan</span>
+        <h2>Kesan & Pesan</h2>
       </div>
 
       <div class="testimonials-slider swiper-container" data-aos="fade-up" data-aos-duration="2000">
