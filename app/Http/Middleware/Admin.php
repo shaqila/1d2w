@@ -17,7 +17,7 @@ class Admin
     public function handle(Request $request, Closure $next)
     {
         
-        if ($request->user()->level == "peserta") {
+        if ($request->user()->role == "peserta") {
             return redirect('/peserta/dashboard');
         } else {
             return $next($request);
