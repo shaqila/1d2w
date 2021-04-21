@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Peserta;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -49,6 +50,10 @@ class User extends Authenticatable
     public function province()
     {
         return $this->belongsTo(Province::class);
+    }
+    public function workshop()
+    {
+        return $this->belongsToMany(Workshop::class, 'peserta', 'status');
     }
     public function peserta()
     {

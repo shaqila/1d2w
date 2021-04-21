@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Workshop;
 use App\Http\Requests\WorkshopRequest;
+use App\Models\Peserta;
 use Intervention\Image\Facades\Image;
 
 class WorkshopController extends Controller
@@ -45,10 +46,15 @@ class WorkshopController extends Controller
 
     public function workshop_detail($id)
     {
-        $workshop = Workshop::with(['peserta'=>function($query){
-            $query->user();
+        $workshop = Workshop::with(['user' => function ($query) {
         }])->where('id', $id)->first();
-        dd($workshop);
+
+        foreach ($workshop->user as $user) {
+            $array = $user;
+        };
+        // dd($array);
+        $peserta = Peserta::where('user_id', $array->id)->get();
+        dd($peserta);
         return view('admin.workshop.detail', compact('workshop'));
     }
 
