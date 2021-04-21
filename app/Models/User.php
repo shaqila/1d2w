@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Peserta;
 
 class User extends Authenticatable
 {
@@ -20,7 +21,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role'
+        'role',
+        'jenis_kelamin',
+        'profesi',
+        'no_hp',
+        'province_id'
     ];
 
     /**
@@ -41,4 +46,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function province()
+    {
+        return $this->belongsTo(Province::class);
+    }
+    public function peserta()
+    {
+        return $this->belongsTo(Peserta::class);
+    }
 }

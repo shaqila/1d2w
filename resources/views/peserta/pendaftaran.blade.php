@@ -27,7 +27,7 @@
 						<input type="text" name="no_hp" class="input-text" id="no_hp" placeholder="Nomor Telefon" required>
 					</div>
 					<div class="form-row">
-						<select name="domisili" required>
+						<select name="province_id" required>
 							<option value="">Pilih Domisili</option>
 							@foreach($province as $provinces)
 							<option value="{{$provinces->id}}">{{$provinces->nama_provinsi}}</option>

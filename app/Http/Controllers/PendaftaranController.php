@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\Peserta;
 use App\Models\PesertaWorkshop;
 use App\Models\Province;
@@ -20,12 +21,10 @@ class PendaftaranController extends Controller
     public function index($id)
     {
         if (!Auth::user()) return redirect('login')->with('sukses', 'Harap Daftar Terlebih Dahulu');
-        $peserta = Peserta::get();
+        $user = User::get();
         $workshop = Workshop::where('id', $id)->first();
         $province = Province::all();
-        // $peserta = Peserta::find($id);
-
-        return view('peserta.pendaftaran', compact("peserta", "workshop", 'province'));
+        return view('peserta.pendaftaran', compact("user", "workshop", 'province'));
     }
 
     // public function detail_pendaftaran($id)
@@ -47,15 +46,26 @@ class PendaftaranController extends Controller
         $peserta->jenis_kelamin = $request->jenis_kelamin;
         $peserta->user_id = Auth::user()->id;
         $peserta->profesi = $request->profesi;
-        $peserta->domisili = $request->domisili;
+        $peserta->province_id = $request->province_id;
         $peserta->no_hp = $request->no_hp;
+        $peserta->workshop_id = $request->workshop_id;
         $peserta->save();
 
-        $peserta_workshop = new PesertaWorkshop();
-        $peserta_workshop->peserta_id = $peserta->id;
-        $peserta_workshop->workshop_id = $request->workshop_id;
-        $peserta_workshop->save();
-        return redirect()->back()->with('sukses', 'Berhasil');
+        $user= User::findOrFail($peserta->user_id);
+        if($user->province_id==0){
+            $user->province_id=$peserta->province_id;
+        }
+        if($user->profesi==null){
+            $user->profesi=$peserta->profesi;
+        }
+        if($user->jenis_kelamin==null){
+            $user->jenis_kelamin=$peserta->jenis_kelamin;
+        }
+        if($user->no_hp==null){
+            $user->no_hp=$peserta->no_hp;
+        }
+        $user->update();
+        return view('peserta.complete-pendaftaran');
     }
 
     /**
@@ -76,7 +86,6 @@ class PendaftaranController extends Controller
      */
     public function show(Pendaftaran $pendaftaran)
     {
-        return view('peserta.complete-pendaftaran');
     }
 
     /**

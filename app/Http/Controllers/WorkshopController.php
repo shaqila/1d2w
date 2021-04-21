@@ -45,8 +45,10 @@ class WorkshopController extends Controller
 
     public function workshop_detail($id)
     {
-        $workshop = Workshop::with('peserta')->where('id', $id)->first();
-
+        $workshop = Workshop::with(['peserta'=>function($query){
+            $query->user();
+        }])->where('id', $id)->first();
+        dd($workshop);
         return view('admin.workshop.detail', compact('workshop'));
     }
 

@@ -31,13 +31,10 @@ class Workshop extends Model
 
     public function peserta()
     {
-        return $this->belongsToMany(Peserta::class, 'peserta_workshop');
+        return $this->hasMany(Peserta::class);
     }
 
-    public function peserta_workshop()
-    {
-        return $this->belongsToMany(Peserta::class, 'peserta', 'user_id', 'peserta_workshop');
-    }
+
 
     // public function sluggable(): array
     // {

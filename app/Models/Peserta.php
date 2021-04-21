@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
+use App\Models\Workshop;
 
 class Peserta extends Model
 {
@@ -12,14 +14,18 @@ class Peserta extends Model
     protected $fillable = [
         'user_id',
         'nama_lengkap',
-        'jenis_kelamin',
+        'jenis_kelamin', 
         'profesi',
-        'domisili',
+        'province_id',
         'no_hp'
     ];
 
     public function workshop()
     {
-        return $this->belongsToMany(Workshop::class, 'peserta_workshop');
+        return $this->belongsTo(Workshop::class);
+    }
+    public function user()
+    {
+        return $this->belongsToMany(User::class);
     }
 }
