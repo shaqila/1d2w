@@ -33,7 +33,8 @@
                                                 <th>Jenis Kelamin</th>
                                                 <th>Profesi</th>
                                                 <th>Domisili</th>
-                                                <th>AKSI</th>
+                                                <th>No. Handphone</th>
+                                                <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -43,8 +44,12 @@
                                                 <td class="text-center">{{$peserta->nama_lengkap}}</td>
                                                 <td class="text-center">{{$peserta->jenis_kelamin}}</td>
                                                 <td class="text-center">{{$peserta->profesi}}</td>
-                                                <td class="text-center">{{$peserta->domisili}}</td>
-                                                <td class="text-center"><a href="#">Hapus</a></td>
+                                                <td class="text-center">{{$peserta->province->nama_provinsi}}</td>
+                                                <td class="text-center">{{$peserta->no_hp}}</td>
+                                                <td class="text-center">
+                                                    <a href="/" class="icon"><i class="edit-icon far fa-edit"></i></a>
+                                                    <a href="#" class="delete" peserta-id="{{$peserta->id}}">Hapus</a>
+                                                </td>
                                             </tr>
                                             @endforeach
 
@@ -63,3 +68,23 @@
     </div>
 </div>
 @endsection
+
+@push('addon-script')
+<script>
+$('.delete').click(function() {
+        var peserta_id = $(this).attr('peserta-id');
+        swal({
+                title: "Apakah anda yakin?",
+                text: "Data dengan id " + peserta_id + " akan terhapus",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    window.location = "/workshop/" + workshop_id + "/delete";
+                }
+            });
+    })
+</script>
+@endpush

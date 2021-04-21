@@ -27,7 +27,11 @@ class RegisterRequest extends FormRequest
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
-            'confirmPassword' => 'required|same:password'
+            'confirmPassword' => 'required|same:password',
+            'jenis_kelamin' => 'string',
+            'profesi' => 'string',
+            'province_id' => 'number',
+            'no_hp' => 'string',
         ];
     }
 }

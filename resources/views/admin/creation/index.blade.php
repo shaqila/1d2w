@@ -56,7 +56,7 @@ Data Karya (Buku)
                                     <th>AKSI</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody style="text-transform:capitalize">
                                 @foreach($karya as $karyas)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>

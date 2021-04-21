@@ -33,7 +33,11 @@
           {{Auth::user()->name}}
         </button>
         <div class="dropdown-menu">
+          @if(Auth::user()->role=='admin')
           <a class="dropdown-item" href="{{route('admin-dashboard')}}">Dashboard</a>
+          @else
+          <a class="dropdown-item" href="{{route('peserta-dashboard')}}">Dashboard</a>
+          @endif
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
         </div>

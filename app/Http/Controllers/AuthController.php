@@ -43,32 +43,28 @@ class AuthController extends Controller
 
     public function register_process(RegisterRequest $request)
     {
+        
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->role = 'peserta';
         $user->password = bcrypt(request('password'));
-
+        $user->province_id = 0;
         $user->save();
-        $peserta = new Peserta();
-        $peserta->user_id = $user->id;
-        $peserta->nama_lengkap = $user->name;
-        $peserta->jenis_kelamin = 'L';
-        $peserta->profesi = '-';
-        $peserta->domisili = '-';
-        $peserta->no_hp = '0';
-        $peserta->save();
+
         return redirect('login')->with('success', 'Register Success');
     }
 
     public function login()
     {
+        if(Auth::user())return redirect ('/home');
         Session::put('url.intended', URL::previous());
         return view('login');
     }
 
     public function register()
     {
+        if(Auth::user())return redirect ('/home');
         return view('register');
     }
     public function showLoginForm()
