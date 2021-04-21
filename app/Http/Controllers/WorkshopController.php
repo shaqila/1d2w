@@ -12,7 +12,7 @@ class WorkshopController extends Controller
 {
     public function index(Request $request)
     {
-        $workshop = Workshop::with('peserta')->get();
+        $workshop = Workshop::all();
         return view('admin.workshop.index', compact("workshop"));
     }
     public function create(WorkshopRequest $request)
@@ -46,15 +46,9 @@ class WorkshopController extends Controller
 
     public function workshop_detail($id)
     {
-        $workshop = Workshop::with(['user' => function ($query) {
+        $workshop = Workshop::with(['peserta' => function ($query) {
         }])->where('id', $id)->first();
 
-        foreach ($workshop->user as $user) {
-            $array = $user;
-        };
-        // dd($array);
-        $peserta = Peserta::where('user_id', $array->id)->get();
-        dd($peserta);
         return view('admin.workshop.detail', compact('workshop'));
     }
 

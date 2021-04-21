@@ -57,6 +57,6 @@ class User extends Authenticatable
     }
     public function peserta()
     {
-        return $this->belongsTo(Peserta::class);
+        return $this->hasMany(Peserta::class);
     }
 }

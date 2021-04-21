@@ -40,15 +40,15 @@
                                         </thead>
                                         <tbody>
 
-                                            @foreach($workshop->user as $peserta)
+                                            @foreach($workshop->peserta as $peserta)
 
                                             <tr>
-                                                <td class="text-center">{{$peserta->name}}</td>
+                                                <td class="text-center">{{$peserta->nama_lengkap}}</td>
                                                 <td class="text-center">{{$peserta->jenis_kelamin}}</td>
                                                 <td class="text-center">{{$peserta->profesi}}</td>
-                                                <td class="text-center">{{$peserta->province->nama_provinsi}}</td>
+                                                <td class="text-center">{{$peserta->user->province->nama_provinsi}}</td>
                                                 <td class="text-center">{{$peserta->no_hp}}</td>
-                                                <td class="text-center">{{$peserta->pivot->status}}</td>
+                                                <td class="text-center">{{$peserta->status}}</td>
                                                 <td class="text-center">
                                                     <a href="/" class="icon"><i class="edit-icon far fa-edit"></i></a>
                                                     <a href="#" class="delete" peserta-id="{{$peserta->id}}">Hapus</a>
@@ -58,7 +58,7 @@
 
                                         </tbody>
                                         <tr>
-                                            <td>Total Peserta : {{$workshop->user->count()}}</td>
+                                            <td>Total Peserta : {{$workshop->peserta->count()}}</td>
                                         </tr>
                                     </table>
                                 </div>

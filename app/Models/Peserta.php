@@ -23,6 +23,11 @@ class Peserta extends Model
 
     public function workshop()
     {
-        return $this->hasMany(Workshop::class);
+        return $this->belongsTo(Workshop::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
