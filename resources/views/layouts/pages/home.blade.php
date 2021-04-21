@@ -16,9 +16,11 @@ ODTW | One Day To Write
               <p class="lead">
                 A first place for you to learn writing through your own exploration and imagination
               </p>
+              @guest
               <p class="lead">
                 <a class="daftar-sekarang btn btn-lg" href="{{route('register')}}" role="button">Sign Up Now!</a>
               </p>
+              @endguest
             </div>
           </div>
         </div>

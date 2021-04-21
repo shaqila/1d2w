@@ -47,7 +47,7 @@ Data Workshop
                                     <th>AKSI</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody style="text-transform:capitalize">
                                 @foreach($workshop as $workshops)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>

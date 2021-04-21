@@ -10,7 +10,7 @@
 				<div class="form-left">
 					<h2>Informasi Peserta</h2>
 					<div class="form-row">
-						<input type="text" name="nama_lengkap" class="input-text" id="nama_lengkap" placeholder="Nama Langkap" required>
+						<input type="text" name="nama_lengkap" class="input-text" id="nama_lengkap" value="{{Auth::user()->name}}" required>
 						<input type="hidden" name="workshop_id" class="input-text" id="nama_lengkap" value="{{$workshop->id}}" readonly>
 					</div>
 					<div class="form-row">
