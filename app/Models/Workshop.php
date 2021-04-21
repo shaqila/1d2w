@@ -29,10 +29,16 @@ class Workshop extends Model
         return Carbon::parse($this->attributes['jam_pelaksanaan'])->translatedFormat('l, d F Y');
     }
 
-    public function user()
+    // public function user()
+    // {
+    //     return $this->belongsToMany(User::class, 'peserta');
+    // }
+
+    public function peserta()
     {
-        return $this->belongsToMany(User::class, 'peserta');
+        return $this->hasMany(Peserta::class);
     }
+
 
 
 
