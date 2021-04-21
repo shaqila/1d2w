@@ -29,9 +29,9 @@ class Workshop extends Model
         return Carbon::parse($this->attributes['jam_pelaksanaan'])->translatedFormat('l, d F Y');
     }
 
-    public function peserta()
+    public function user()
     {
-        return $this->hasMany(Peserta::class);
+        return $this->belongsToMany(User::class, 'peserta');
     }
 
 

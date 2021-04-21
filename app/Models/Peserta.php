@@ -14,18 +14,15 @@ class Peserta extends Model
     protected $fillable = [
         'user_id',
         'nama_lengkap',
-        'jenis_kelamin', 
+        'jenis_kelamin',
         'profesi',
         'province_id',
+        'status',
         'no_hp'
     ];
 
     public function workshop()
     {
-        return $this->belongsTo(Workshop::class);
-    }
-    public function user()
-    {
-        return $this->belongsToMany(User::class);
+        return $this->hasMany(Workshop::class);
     }
 }
