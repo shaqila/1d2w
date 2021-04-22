@@ -57,14 +57,14 @@ class AuthController extends Controller
 
     public function login()
     {
-        if(Auth::user())return redirect ('/home');
+        if(Auth::user())return redirect ('/');
         Session::put('url.intended', URL::previous());
         return view('login');
     }
 
     public function register()
     {
-        if(Auth::user())return redirect ('/home');
+        if(Auth::user())return redirect ('/');
         return view('register');
     }
     public function showLoginForm()

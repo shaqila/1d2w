@@ -15,9 +15,9 @@ Dashboard Peserta
           <div class="row g-0">
             @foreach($workshop as $workshops)
             <div class="col-md-4">
-              <img src="{{$workshops->getPoster()}}" alt="Image" class="poster img-fluid w-75" style="padding: 20px 20px;" />
+              <img src="{{$workshops->getPoster()}}" alt="Image" class="poster img-fluid w-75" style="padding: 20px 20px" />
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 ">
               <div class="card-body">
                 <h5 class="card-title">{{$workshops->nama}}</h5>
                 <p class="card-text">

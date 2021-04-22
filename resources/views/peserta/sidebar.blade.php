@@ -25,7 +25,7 @@
         </div>
         <div class="list-group list-group-flush">
           <a href="{{route('peserta-dashboard')}}" class="list-group-item list-group-item-action {{ 'peserta/dashboard' == request()->path() ? 'active' : '' }}">Workshop Saya</a>
-          <a href="{{route('peserta-setting')}}" class="list-group-item list-group-item-action {{ 'peserta/setting' == request()->path() ? 'active' : '' }}">Settings</a>
+          <a href="{{route('home')}}" class="list-group-item list-group-item-action {{ '/' == request()->path() ? 'active' : '' }}">Kembali Ke Home</a>
           <a href="{{route('logout')}}" class="list-group-item list-group-item-action">Logout</a>
         </div>
       </div>

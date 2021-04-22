@@ -10,7 +10,7 @@ use App\Http\Controllers\PendaftaranController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/creation-details/{id}', [HomeController::class, 'detail_creation'])->name('detail_creation');
 Route::get('/workshop-details/{id}', [HomeController::class, 'detail_workshop'])->name('detail_workshop');
 Route::get('/pendaftaran-details/{id}', [PendaftaranController::class, 'index'])->name('detail-pendaftaran');
