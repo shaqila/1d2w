@@ -13,19 +13,22 @@
             <div class="col-md-12">
                 <div class="panel">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Detail Workshop</h3>
+                        <h3 class="panel-title mb-4 ml-1">{{$workshop->nama}}</h3>
                     </div>
                     <div class="panel-body">
                         <div class="card">
                             <div class="row">
-                                <div class="col-lg-2">
-                                    <img src="{{$workshop->getPoster()}}" class="img-fluid" />
+                                <div class="col-lg-2 ">
+                                    <img src="{{$workshop->getPoster()}}" class="img-fluid my-3 ml-3" />
+                                    <!-- <ul style="list-style-type:none;" class="text-left">
+                                        <li><strong>Harga Workshop </strong></br>{{$workshop->harga}}</li>
+                                        <li><strong>Waktu Pelaksanaan </strong><br>{{$workshop->tanggal_pelaksanaan}}</li>
+                                    </ul> -->
                                 </div>
-                                <div class="col-lg workshop-description">
-                                    <h4>Deskripsi Workshop</h4>
+                                <div class="col-lg workshop-description m-3">
                                     <p>{{$workshop->deskripsi}}</p>
                                 </div>
-                                <div class="col-lg-12">
+                                <div class="col-lg-12 px-4">
                                     <table class="table table-hover">
                                         <thead>
                                             <tr class="text-center">

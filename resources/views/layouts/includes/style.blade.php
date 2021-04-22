@@ -11,5 +11,6 @@
 <link href="{{asset('assets/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
 <link href="{{asset('assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
 <link href="{{asset('assets/fonts/icomoon/style.css')}}" rel="stylesheet" >
+<link href="{{ asset('assets/vendor/toastr/toastr.min.css') }}" rel="stylesheet"/>
 <link rel="stylesheet" type="text/css" href="{{asset('assets/fonts/montserrat-font.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('assets/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css')}}">

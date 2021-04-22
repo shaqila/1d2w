@@ -74,7 +74,7 @@ class PendaftaranController extends Controller
             'status' => 'Sudah Bayar',
         ]);
 
-        return redirect()->back()->with('success', 'Pembayaran Ticket Success!');
+        return redirect()->back()->with('sukses', 'Pendaftaran Sukses!');
     }
 
     /**

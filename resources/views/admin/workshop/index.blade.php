@@ -12,12 +12,9 @@ Data Workshop
 <section class="content">
     <div class="main">
         <div class="main-content">
-            @if(session('sukses'))
-            <div class="alert alert-success" roles="alert">
-                <button type="button" class="close" data-dismiss="alert">×</button>
-                {{session('sukses')}}
-            </div>
-            @endif
+            
+                {{session('success')}}
+            
             @if(session('hapus'))
             <div class="alert alert-danger" roles="alert">
                 <button type="button" class="close" data-dismiss="alert">×</button>
@@ -133,7 +130,7 @@ Data Workshop
                             @endif
                         </div>
                         <div class="form-group {{$errors->has('batas_pendaftaran') ? 'has-errors': ''}}">
-                            <label for="exampleInputPassword1">Tanggal Pelaksanaan</label>
+                            <label for="exampleInputPassword1">Batas Akhir Pendaftaran</label>
                             <input name="batas_pendaftaran" type="date" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{old('batas_pendaftaran')}}">
                             @if($errors->has('batas_pendaftaran'))
                             <span class="help-block">{{$errors->first('batas_pendaftaran')}}</span>
