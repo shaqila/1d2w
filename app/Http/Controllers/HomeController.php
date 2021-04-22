@@ -7,6 +7,7 @@ use App\Models\Workshop;
 use App\Models\Karya;
 use App\Models\Peserta;
 use App\Models\Province;
+use Illuminate\Support\Carbon;
 
 class HomeController extends Controller
 {
@@ -41,6 +42,9 @@ class HomeController extends Controller
     {
         $workshop = Workshop::all();
         $karya = Karya::all();
+        // foreach ($workshop as $workshops) {
+        //     dd(Carbon::now()->format('Y m d') == Carbon::parse($workshops->tanggal_pelaksanaan)->format('Y m d'));
+        // }
         return view('peserta.dashboard-peserta', compact("workshop", "karya"));
     }
     public function peserta_setting()

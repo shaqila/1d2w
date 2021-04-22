@@ -51,7 +51,7 @@
                                                 <td class="text-center">{{$peserta->status}}</td>
                                                 <td class="text-center">
                                                     <a href="/" class="icon"><i class="edit-icon far fa-edit"></i></a>
-                                                    <a href="#" class="delete" peserta-id="{{$peserta->id}}">Hapus</a>
+                                                    <a href="#" class="delete" peserta-id="">{{$peserta->id}}</a>
                                                 </td>
                                             </tr>
                                             @endforeach
