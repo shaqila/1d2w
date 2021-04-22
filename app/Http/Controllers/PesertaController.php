@@ -40,15 +40,30 @@ class PesertaController extends Controller
         $peserta = Peserta::find($id);
         return view('admin.peserta.edit', ['peserta' => $peserta]);
     }
+    
     public function update(PesertaRequest $request, $id)
     {
         $peserta = Peserta::findOrFail($id);
         $peserta->nama_lengkap = $request->input('nama_lengkap');
         $peserta->jenis_kelamin = $request->input('jenis_kelamin');
         $peserta->profesi = $request->input('profesi');
-        $peserta->domain = $request->input('domain');
+        $peserta->province_id = $request->input('province_id');
         $peserta->no_hp = $request->input('no_hp');
         $peserta->update();
         return redirect('/peserta')->with('sukses', 'Data berhasil diupdate');
+    }
+
+    public function feedback_peserta($id)
+    {
+        $peserta = Peserta::findOrFail($id);
+        return view('admin.workshop.feedback-peserta', ['peserta' => $peserta]);
+    }
+
+    public function feedback_update(PesertaRequest $request, $id)
+    {
+        $peserta = Peserta::findOrFail($id);
+        $peserta->feedback = $request->input('feedback');
+        $peserta->update();
+        return redirect()->route('workshop-detail')->with('sukses', 'Feedback Terkirim!');
     }
 }

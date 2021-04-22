@@ -36,14 +36,14 @@ Data Workshop
                         <table class="table table-bordered table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr class="text-center">
-                                    <th>NO.</th>
-                                    <th>KODE</th>
-                                    <th>NAMA</br>WORKSHOP</th>
-                                    <th>HARGA</th>
-                                    <th>WAKTU</br>PELAKSANAAN</th>
-                                    <th>BATAS AKHIR</br>PENDAFTARAN</th>
-                                    <th>KAPASITAS</br>PESERTA</th>
-                                    <th>POSTER</th>
+                                    <th>No.</th>
+                                    <th>Nama</br>Workshop</th>
+                                    <th>Harga</th>
+                                    <th>Waktu</br>Pelaksanaan</th>
+                                    <th>Batas Akhir</br>Pendaftaran</th>
+                                    <th>Kapasitas</br>Peserta</th>
+                                    <th>Kode Classroom</th>
+                                    <th>Poster</th>
                                     <th>AKSI</th>
                                 </tr>
                             </thead>
@@ -51,19 +51,20 @@ Data Workshop
                                 @foreach($workshop as $workshops)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$workshops->kode}}</td>
                                     <td><a href="{{route('workshop-detail',$workshops->id)}}">{{$workshops->nama}}</a></td>
                                     <td>@currency($workshops->harga)</td>
                                     <td>{{Carbon\Carbon::parse($workshops->tanggal_pelaksanaan)->translatedFormat('l, d F Y')}} </br> {{ date('H:i', strtotime($workshops->jam_pelaksanaan)) }} WIB</td>
                                     <td>{{$workshops->batas_pendaftaran}}</td>
-                                    <td>{{$workshops->jumlah_peserta}}</td>
+                                    <td>{{$workshops->jumlah_peserta}} Peserta</td>
+                                    <td>{{$workshops->kode}}</td>
                                     <td class="text-center"><img src="{{$workshops->getPoster()}}" alt="Image" class="img-fluid tm-gallery-img" style=" max-height: 150px;
                                                             max-width: 150px;
                                                             object-fit: cover;" /></td>
                                     <td class="text-center">
-                                        <a href="/workshop/{{$workshops->id}}/edit" class="icon"><i class="edit-icon far fa-edit"></i></a>
                                         </br>
-                                        <a href="#" class="icon delete" workshop-id="{{$workshops->id}}"><i class="edit-icon far fa-trash-alt"></i></a>
+                                        <a href="/workshop/{{$workshops->id}}/edit" class="btn btn-warning btn-sm btn-circle"><i class="far fa-edit"></i> </a>
+                                        </br></br>
+                                        <a href="#" class="delete btn btn-danger btn-sm btn-circle" workshop-id="{{$workshops->id}}"><i class="fas fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach

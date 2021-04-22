@@ -34,7 +34,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="FormControlInput">Domisili</label>
-                                    <input name="domisili" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{$peserta->domisili}}">
+                                    <input name="domisili" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{$peserta->province_id->nama_provinsi}}">
                                 </div>
                                 <div class="mb-3">
                                     <label for="FormControlInput">Nomor Handphone</label>

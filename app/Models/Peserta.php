@@ -17,8 +17,9 @@ class Peserta extends Model
         'jenis_kelamin',
         'profesi',
         'province_id',
+        'no_hp',
         'status',
-        'no_hp'
+        'feedback'
     ];
 
     public function workshop()

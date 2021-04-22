@@ -35,6 +35,7 @@
                                                 <th>Domisili</th>
                                                 <th>No. Handphone</th>
                                                 <th>Status</th>
+                                                <th>Feedback</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -50,8 +51,10 @@
                                                 <td class="text-center">{{$peserta->no_hp}}</td>
                                                 <td class="text-center">{{$peserta->status}}</td>
                                                 <td class="text-center">
-                                                    <a href="/" class="icon"><i class="edit-icon far fa-edit"></i></a>
-                                                    <a href="#" class="delete" peserta-id="{{$peserta->id}}">Hapus</a>
+                                                    <a href="/feedback/{{$peserta->id}}" class="btn btn-warning btn-sm btn-circle"><i class="far fa-edit"></i> </a>
+                                                </td>
+                                                <td class="text-center">
+                                                    <a href="#" class="delete btn btn-danger btn-sm btn-circle" peserta-id="{{$peserta->id}}"><i class="fas fa-trash-alt"></i></a>
                                                 </td>
                                             </tr>
                                             @endforeach
@@ -70,6 +73,7 @@
         </div>
     </div>
 </div>
+
 @endsection
 
 @push('addon-script')
