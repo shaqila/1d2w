@@ -49,7 +49,11 @@
                                                 <td class="text-center">{{$peserta->profesi}}</td>
                                                 <td class="text-center">{{$peserta->user->province->nama_provinsi}}</td>
                                                 <td class="text-center">{{$peserta->no_hp}}</td>
-                                                <td class="text-center">{{$peserta->status}}</td>
+                                                <td class="text-center">{{$peserta->status}}
+                                                @if ($peserta->status == "Belum Bayar")
+                                                    <a href="{{ route('pembayaran', $peserta->id) }}" class="btn btn-primary btn-block btn-sm text-white">Verifikasi</a>
+                                                @endif
+                                                </td>
                                                 <td class="text-center">
                                                     <a href="/feedback/{{$peserta->id}}" class="btn btn-warning btn-sm btn-circle"><i class="far fa-edit"></i> </a>
                                                 </td>

@@ -68,6 +68,15 @@ class PendaftaranController extends Controller
         return view('peserta.complete-pendaftaran');
     }
 
+    public function pembayaran($id)
+    {
+        Peserta::find($id)->update([
+            'status' => 'Sudah Bayar',
+        ]);
+
+        return redirect()->back()->with('success', 'Pembayaran Ticket Success!');
+    }
+
     /**
      * Store a newly created resource in storage.
      *

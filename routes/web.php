@@ -53,6 +53,8 @@ Route::group(['middleware' => 'auth'], function () {
         });
         Route::get('feedback/{peserta}', [PesertaController::class, 'feedback_peserta'])->name('feedback-peserta');
         Route::post('feedback/{peserta}/update', [PesertaController::class, 'feedback_update'])->name('feedback-update');
+        Route::get('workshop/pembayaran/{id}', [PendaftaranController::class, 'pembayaran'])->name('pembayaran');
+
         // Route::prefix('peserta')->group(function () {
         //     Route::get('/', [PesertaController::class, 'index'])->name('peserta');
         //     Route::post('/create', [PesertaController::class, 'create'])->name('peserta-create');
