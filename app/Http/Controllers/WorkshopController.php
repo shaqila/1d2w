@@ -12,12 +12,11 @@ class WorkshopController extends Controller
 {
     public function index(Request $request)
     {
-        $workshop = Workshop::all();
+        $workshop = Workshop::orderBy('tanggal_pelaksanaan')->get();;
         return view('admin.workshop.index', compact("workshop"));
     }
     public function create(WorkshopRequest $request)
     {
-        //Insert ke Table Workshop
         $workshop = Workshop::create($request->all());
         if ($request->hasFile('poster')) {
             $image = $request->file('poster');
@@ -29,8 +28,7 @@ class WorkshopController extends Controller
             $workshop->poster = 'workshop.jpg';
         }
         $workshop->save();
-        // \Session::flash('flash_message', 'A new course has been created!');
-        return redirect()->route('workshop')->with('sukses', 'Data berhasil ditambah');
+        return redirect()->route('workshop')->with('success', 'Data berhasil ditambah');
     }
     public function delete($workshop)
     {

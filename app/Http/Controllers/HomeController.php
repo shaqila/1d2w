@@ -13,8 +13,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $workshop = Workshop::all();
-        $karya = Karya::all();
+        $workshop = Workshop::where('tanggal_pelaksanaan', '>', Carbon::yesterday())->get();
+        $karya = Karya::orderBy('created_at', 'DESC')->get();
         return view('layouts.pages.home', compact("workshop", "karya"));
     }
     public function detail_workshop($id)
@@ -38,15 +38,6 @@ class HomeController extends Controller
         return response()->download($file, 'file.pdf', $headers);
     }
 
-    public function peserta_dashboard()
-    {
-        $workshop = Workshop::all();
-        $karya = Karya::all();
-        // foreach ($workshop as $workshops) {
-        //     dd(Carbon::now()->format('Y m d') == Carbon::parse($workshops->tanggal_pelaksanaan)->format('Y m d'));
-        // }
-        return view('peserta.dashboard-peserta', compact("workshop", "karya"));
-    }
     public function peserta_setting()
     {
         return view('peserta.peserta-setting');
@@ -55,8 +46,8 @@ class HomeController extends Controller
     {
         return view('layouts.pages.about');
     }
-    public function contact()
+    public function tips()
     {
-        return view('layouts.pages.contact');
+        return view('layouts.pages.tips');
     }
 }

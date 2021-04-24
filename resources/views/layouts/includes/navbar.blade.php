@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light navbar-store fixed-top navbar-fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="{{url('home')}}">
+    <a class="navbar-brand" href="{{route('home')}}">
       <img src="{{asset('LOGO-ODTW.png')}}" class="logo-odtw" alt="logo-odtw" />
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,15 +8,15 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item {{ 'home' == request()->path() ? 'active' : '' }}">
-          <a class="nav-link" href="{{url('home')}}">Home</a>
+        <li class="nav-item {{ '/' == request()->path() ? 'active' : '' }}">
+          <a class="nav-link" href="{{route('home')}}">Home</a>
         </li>
         <li class="nav-item {{ 'about' == request()->path() ? 'active' : '' }}">
-          <a class="nav-link" href="{{url('about')}}">About</a>
+          <a class="nav-link" href="{{route('about')}}">About</a>
         </li>
-        <!-- <li class="nav-item {{ 'contact' == request()->path() ? 'active' : '' }}">
-          <a class="nav-link" href="{{url('contact')}}">Contact Us</a>
-        </li> -->
+        <li class="nav-item {{ 'tips' == request()->path() ? 'active' : '' }}">
+          <a class="nav-link" href="{{route('tips')}}">Tips</a>
+        </li>
         @guest
         <li class="nav-item">
           <a class="nav-link" href="{{route('register')}}">Sign Up</a>

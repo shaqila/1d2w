@@ -70,8 +70,9 @@ Data Karya (Buku)
                                     </td>
                                     <td><a href="{{url('download/'.$karyas->pdf)}}" class="btn btn-outline-secondary btn-sm btn-block">Download</a></td>
                                     <td style="text-align:center">
-                                        <a href="/creation/{{$karyas->id}}/edit" class="icon"><i class="edit-icon far fa-edit"></i></a>
-                                        <a href="#" class="icon delete" karya-id="{{$karyas->id}}"><i class="edit-icon far fa-trash-alt"></i></a>
+                                        <a href="/creation/{{$karyas->id}}/edit" class="btn btn-warning btn-sm btn-circle"><i class="far fa-edit"></i></a>
+                                    </br></br>
+                                        <a href="#" class="delete btn btn-danger btn-sm btn-circle" karya-id="{{$karyas->id}}"><i class="fas fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
                                     @endforeach

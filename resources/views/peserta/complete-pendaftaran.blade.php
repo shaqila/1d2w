@@ -13,14 +13,14 @@
                 Checkout Berhasil!
               </h2>
               <p>
-                Silahkan lakukan konfirmasi pembayaran melalui Whatsapp <br />
-                untuk melanjutkan proses pendaftaran.
+                Silahkan lakukan konfirmasi pembayaran melalui <br/>
+                <strong style="color:#25d366; font-size:large">Whatsapp 08123123131</strong><br/> untuk melanjutkan proses pendaftaran.
               </p>
               <div>
                 <a class="btn w-50 mt-4" href="{{route('peserta-dashboard')}}" style="background-color:#7abaff; color:white;">
                   Dashboard Saya
                 </a>
-                <a class="btn btn-signup w-50 mt-2" href="/index.html">
+                <a class="btn btn-signup w-50 mt-2" href="{{route('tips')}}">
                   Butuh Bantuan
                 </a>
               </div>

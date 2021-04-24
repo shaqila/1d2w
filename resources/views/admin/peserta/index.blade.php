@@ -48,9 +48,7 @@ Data Semua Peserta
                                     <tr class="text-center">
                                         <th>NO.</th>
                                         <th>NAMA LENGKAP</th>
-                                        <th>JENIS KELAMIN</th>
                                         <th>PROFESI</th>
-                                        <th>DOMISILI</th>
                                         <th>NO. HANDPHONE</th>
                                         <th>AKSI</th>
                                     </tr>
@@ -60,9 +58,7 @@ Data Semua Peserta
                                     <tr>
                                          <td>{{$loop->iteration}}</td>
                                          <td>{{$pesertas->nama_lengkap}}</td>
-                                         <td>{{$pesertas->jenis_kelamin}}</td>
                                          <td>{{$pesertas->profesi}}</td>
-                                         <td>{{$pesertas->domisili}}</td>
                                         <td>{{$pesertas->no_hp}}</td>
                                         <td class="text-center">
                                             <a href="/peserta/{{$pesertas->id}}/edit" class="icon"><i class="edit-icon far fa-edit"></i></a>

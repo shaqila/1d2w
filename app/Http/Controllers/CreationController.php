@@ -43,7 +43,6 @@ class CreationController extends Controller
             $karya->pdf = $filename;
         }
         $karya->save();
-        // \Session::flash('flash_message', 'A new course has been created!');
         return redirect('/creation')->with('sukses', 'Data berhasil ditambah');
     }
     public function edit($id)

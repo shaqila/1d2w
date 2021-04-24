@@ -65,7 +65,16 @@ class PendaftaranController extends Controller
             $user->no_hp=$peserta->no_hp;
         }
         $user->update();
-        return view('peserta.complete-pendaftaran');
+        return redirect()->route('complete-pendaftaran')->with('sukses', 'Pendaftaran Sukses!');
+    }
+
+    public function pembayaran($id)
+    {
+        Peserta::find($id)->update([
+            'status' => 'Sudah Bayar',
+        ]);
+
+        return redirect()->back()->with('sukses', 'Pendaftaran Sukses!');
     }
 
     /**
@@ -86,6 +95,7 @@ class PendaftaranController extends Controller
      */
     public function show(Pendaftaran $pendaftaran)
     {
+        return view('peserta.complete-pendaftaran');
     }
 
     /**
