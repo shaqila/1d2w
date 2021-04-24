@@ -1,4 +1,4 @@
-<footer class="main-footer">
+<footer class="footer">
     <strong>Copyright &copy; 2021 One Day To Write . </strong>
     All rights reserved.
 </footer>

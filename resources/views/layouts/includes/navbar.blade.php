@@ -14,9 +14,9 @@
         <li class="nav-item {{ 'about' == request()->path() ? 'active' : '' }}">
           <a class="nav-link" href="{{route('about')}}">About</a>
         </li>
-        <!-- <li class="nav-item {{ 'contact' == request()->path() ? 'active' : '' }}">
-          <a class="nav-link" href="{{url('contact')}}">Contact Us</a>
-        </li> -->
+        <li class="nav-item {{ 'tips' == request()->path() ? 'active' : '' }}">
+          <a class="nav-link" href="{{route('tips')}}">Tips</a>
+        </li>
         @guest
         <li class="nav-item">
           <a class="nav-link" href="{{route('register')}}">Sign Up</a>

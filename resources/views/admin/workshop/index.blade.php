@@ -37,8 +37,9 @@ Data Workshop
                                     <th>Nama</br>Workshop</th>
                                     <th>Harga</th>
                                     <th>Waktu</br>Pelaksanaan</th>
-                                    <th>Batas Akhir</br>Pendaftaran</th>
-                                    <th>Kapasitas</br>Peserta</th>
+                                    <!-- <th>Batas Akhir</br>Pendaftaran</th> -->
+                                    <!-- <th>Kapasitas</br>Peserta</th> -->
+                                    <th>Pendaftar</th>
                                     <th>Kode Classroom</th>
                                     <th>Poster</th>
                                     <th>AKSI</th>
@@ -51,8 +52,9 @@ Data Workshop
                                     <td><a href="{{route('workshop-detail',$workshops->id)}}">{{$workshops->nama}}</a></td>
                                     <td>@currency($workshops->harga)</td>
                                     <td>{{Carbon\Carbon::parse($workshops->tanggal_pelaksanaan)->translatedFormat('l, d F Y')}} </br> {{ date('H:i', strtotime($workshops->jam_pelaksanaan)) }} WIB</td>
-                                    <td>{{$workshops->batas_pendaftaran}}</td>
-                                    <td>{{$workshops->jumlah_peserta}} Peserta</td>
+                                    <!-- <td>{{$workshops->batas_pendaftaran}}</td> -->
+                                    <!-- <td>{{$workshops->jumlah_peserta}} Peserta</td> -->
+                                    <td>{{$workshops->peserta->count()}} Peserta</td>
                                     <td>{{$workshops->kode}}</td>
                                     <td class="text-center"><img src="{{$workshops->getPoster()}}" alt="Image" class="img-fluid tm-gallery-img" style=" max-height: 150px;
                                                             max-width: 150px;

@@ -13,8 +13,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $workshop = Workshop::all();
-        $karya = Karya::all();
+        $workshop = Workshop::where('tanggal_pelaksanaan', '>', Carbon::yesterday())->get();
+        $karya = Karya::orderBy('created_at', 'DESC')->get();
         return view('layouts.pages.home', compact("workshop", "karya"));
     }
     public function detail_workshop($id)
@@ -55,8 +55,8 @@ class HomeController extends Controller
     {
         return view('layouts.pages.about');
     }
-    public function contact()
+    public function tips()
     {
-        return view('layouts.pages.contact');
+        return view('layouts.pages.tips');
     }
 }

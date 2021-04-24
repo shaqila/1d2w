@@ -1,5 +1,9 @@
 @extends('admin-layout.layout')
 
+@push('prepend-style')
+<link href="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" />
+@endpush
+
 @section('content')
 <div class="main">
     <div class="main-content">
@@ -24,12 +28,16 @@
                                         <li><strong>Harga Workshop </strong></br>{{$workshop->harga}}</li>
                                         <li><strong>Waktu Pelaksanaan </strong><br>{{$workshop->tanggal_pelaksanaan}}</li>
                                     </ul> -->
+                                    <div class="count-peserta mx-3 mb-3" style="font-weight:bold">
+                                    Total Peserta : <span>{{$workshop->peserta->count()}}
+                                    </div>
                                 </div>
                                 <div class="col-lg workshop-description m-3">
                                     <p>{{$workshop->deskripsi}}</p>
                                 </div>
-                                <div class="col-lg-12 px-4">
-                                    <table class="table table-hover">
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr class="text-center">
                                                 <th>Nama Peserta</th>
@@ -67,9 +75,6 @@
                                             @endforeach
 
                                         </tbody>
-                                        <tr>
-                                            <td>Total Peserta : {{$workshop->peserta->count()}}</td>
-                                        </tr>
                                     </table>
                                 </div>
                             </div>
@@ -84,7 +89,12 @@
 @endsection
 
 @push('addon-script')
+<script src="{{ asset('assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
 <script>
+    $(document).ready(function() {
+        $('#dataTable').DataTable();
+    });
     $('.delete').click(function() {
         var peserta_id = $(this).attr('peserta-id');
         swal({

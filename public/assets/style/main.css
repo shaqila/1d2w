@@ -11737,7 +11737,7 @@ a.text-dark:focus {
 }
 
 .page-dashboard .section-content {
-    margin-top: 100px;
+    margin-top: 80px;
 }
 
 @media (min-width: 768px) {
@@ -11745,16 +11745,19 @@ a.text-dark:focus {
         margin-top: 20px;
         margin-left: 20px;
     }
+
 }
+.page-dashboard .section-content .dashboard-content {
+      font-family: "Poppins", sans-serif;  
+    }
 
 .page-dashboard .section-content .dashboard-title {
     font-weight: 600px;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Poppins", sans-serif;
     margin-bottom: 20px;
     font-size: 24px;
     color: #0c0d36;
 }
-
 
 .page-dashboard .section-content h5 {
     font-size: 18px;

@@ -7,6 +7,7 @@
   <title>ODTW | Dashboard Admin</title>
   <link rel="icon" href="{{ asset('LOGO-ODTW.png') }}">
 
+  <link href="{{asset('assets/style/main.css')}}" rel="stylesheet" />
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -73,14 +74,14 @@
                 </p>
               </a>
             </li>
-            <!-- <li class="nav-item {{ 'peserta' == request()->path() ? 'active' : '' }}">
+            <li class="nav-item {{ 'peserta' == request()->path() ? 'active' : '' }}">
               <a href="/peserta" class="nav-link">
                 <i class="nav-icon fas fa-table"></i>
                 <p>
                   Peserta
                 </p>
               </a>
-            </li> -->
+            </li>
             <li class="nav-item">
               <a href="{{route('logout')}}" class="nav-link">
                 <i class="nav-icon fa fa-sign-out-alt"></i>
@@ -117,7 +118,7 @@
     </div>
 
     <!-- Footer -->
-    @include('admin-layout.footer-admin')
+    <!-- @include('admin-layout.footer-admin') -->
 
     <!-- Script-->
     @stack('prepend-script')

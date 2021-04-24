@@ -26,12 +26,12 @@ Workshop | One Day To Write
         <div class="workshop-info">
           <h3>{{$workshop->nama}}</h3>
           <ul>
-            <li><strong>Waktu Pelaksanaan</strong>: </br>{{ date('l, d F Y', strtotime($workshop->tanggal_pelaksanaan)) }} </br> Jam {{ date('H:i', strtotime($workshop->jam_pelaksanaan)) }} WIB</li>
-            <li><strong>Batas Akhir Pendaftaran</strong>: </br>{{ date('d F Y', strtotime($workshop->batas_pendaftaran)) }}</li>
+            <li><strong>Waktu Pelaksanaan</strong>: </br>{{Carbon\Carbon::parse($workshop->tanggal_pelaksanaan)->translatedFormat('l, d F Y')}} </br> Jam {{ date('H:i', strtotime($workshop->jam_pelaksanaan)) }} WIB</li>
+            <li><strong>Batas Akhir Pendaftaran</strong>: </br>{{Carbon\Carbon::parse($workshop->batas_pendaftaran)->translatedFormat('l, d F Y')}}</li>
             <li><strong>Kapasitas</strong>:</br> {{$workshop->jumlah_peserta}} Peserta</li>
           </ul>
         </div>
-        <div class="workshop-description">
+        <div class="workshop-description mx-4">
           <h4>Tentang Workshop</h4>
           <p>{{$workshop->deskripsi}}</p>
         </div>

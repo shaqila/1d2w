@@ -66,4 +66,5 @@ class PesertaController extends Controller
         $peserta->update();
         return redirect()->route('workshop-detail')->with('sukses', 'Feedback Terkirim!');
     }
+    
 }

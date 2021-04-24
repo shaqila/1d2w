@@ -17,7 +17,6 @@ class WorkshopController extends Controller
     }
     public function create(WorkshopRequest $request)
     {
-        //Insert ke Table Workshop
         $workshop = Workshop::create($request->all());
         if ($request->hasFile('poster')) {
             $image = $request->file('poster');
@@ -29,7 +28,6 @@ class WorkshopController extends Controller
             $workshop->poster = 'workshop.jpg';
         }
         $workshop->save();
-        // \Session::flash('flash_message', 'A new course has been created!');
         return redirect()->route('workshop')->with('success', 'Data berhasil ditambah');
     }
     public function delete($workshop)

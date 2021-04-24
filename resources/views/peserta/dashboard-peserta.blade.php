@@ -5,66 +5,46 @@ Dashboard Peserta
 @endsection
 
 @section('content')
+<nav class="navbar navbar-store navbar-expand-lg navbar-light fixed-top" data-aos="fade-down">
+  <button class="btn d-md-none mr-auto mr-2" id="menu-toggle" style="background-color:#7abaff; color:white">
+    &laquo; Menu
+  </button>
+</nav>
 <div class="section-content section-dashboard-home" data-aos="fade-up">
   <div class="container-fluid">
     <div class="dashboard-heading">
-      <h2 class="dashboard-title">Workshop Saya</h2>
+      <h2 class="dashboard-title">Workshop Yang Saya Ikuti</h2>
     </div>
     <div class="dashboard-content">
+      @foreach($workshop as $workshops)
       <div class="card mb-3">
-        <div class="row g-0">
-          @foreach($workshop as $workshops)
-          <div class="col-md-4">
-            <img src="{{$workshops->getPoster()}}" alt="Image" class="poster img-fluid w-75" style="padding: 20px 20px;" />
+        <div class="row">
+          <div class="col-md-3">
+            <img src="{{$workshops->getPoster()}}" alt="Image" class="poster img-fluid" style="padding: 10px 10px; "/>
           </div>
           <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">{{$workshops->nama}}</h5>
-              <p class="card-text">
-                This is a wider card with supporting text below as a natural lead-in to
-                additional content. This content is a little bit longer.
-              </p>
+            <div class="card-body" >
+              <h5 class="card-title" style="text-transform:capitalize">{{$workshops->nama}}</h5>
               <p class="card-text">
                 @if(\Carbon\Carbon::now()->format('Y m d') != \Carbon\Carbon::parse($workshops->tanggal_pelaksanaan)->subDay(1)->format('Y m d'))
-                <small class="text-muted"> {{$workshops->tanggal_pelaksanaan}}</small>
+                <strong>{{ Carbon\Carbon::parse($workshops->tanggal_pelaksanaan)->translatedFormat('l, d F Y') }}</strong>
                 @else
               <div class="alert alert-primary" role="alert">
                 Halo <strong>{{Auth::user()->name}}</strong>!
                 </br> Workshop ini akan dimulai besok pukul {{ date('H:i', strtotime($workshops->jam_pelaksanaan)) }}
                 </br> Ini kode akses aplikasi Zoomnya : <strong>{{$workshops->kode}}</strong>
                 </br> Jangan lupa yaa!
-                <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
-                </button> -->
+                </button>
               </div>
               @endif
               </p>
-              
             </div>
           </div>
-          @endforeach
         </div>
       </div>
-      <!-- <div class="card-deck">
-          <div class="card">
-            <div class="col-lg-12" style="padding-bottom: 30px;">
-              @foreach($workshop as $workshops)
-              <div class="card mb-6">
-                <div class="col-6 col-md-4 col-lg-3">
-                  <a class="component-workshop d-block" href="/details.html">
-                    <div class="myworkshop-thumbnail">
-                      <img src="{{$workshops->getPoster()}}" alt="Image" class="myworkshop-image" />
-                    </div>
-                    <div class="myworkshop-title">
-                      {{$workshops->nama}}
-                    </div>
-                  </a>
-                </div>
-              </div>
-              @endforeach
-            </div>
-          </div>
-        </div> -->
+      @endforeach
     </div>
   </div>
 </div>

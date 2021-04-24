@@ -15,7 +15,7 @@ Route::get('/creation-details/{id}', [HomeController::class, 'detail_creation'])
 Route::get('/workshop-details/{id}', [HomeController::class, 'detail_workshop'])->name('detail_workshop');
 Route::get('/pendaftaran-details/{id}', [PendaftaranController::class, 'index'])->name('detail-pendaftaran');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
-Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::get('/tips', [HomeController::class, 'tips'])->name('tips');
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login_process', [AuthController::class, 'login_process'])->name('login_process');
@@ -29,7 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/peserta/dashboard', [HomeController::class, 'peserta_dashboard'])->name('peserta-dashboard');
         // Pendaftaran
         Route::post('/daftar-workshop', [PendaftaranController::class, 'create_proses'])->name('create_pendaftaran');
-        Route::get('/complete-pendaftaran', [PendaftaranController::class, 'show'])->name('complete-pendaftaran');
+        // Route::get('/complete-pendaftaran', [PendaftaranController::class, 'show'])->name('complete-pendaftaran');
 
     });
 
@@ -55,13 +55,13 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('feedback/{peserta}/update', [PesertaController::class, 'feedback_update'])->name('feedback-update');
         Route::get('pembayaran/{id}', [PendaftaranController::class, 'pembayaran'])->name('pembayaran');
 
-        // Route::prefix('peserta')->group(function () {
-        //     Route::get('/', [PesertaController::class, 'index'])->name('peserta');
-        //     Route::post('/create', [PesertaController::class, 'create'])->name('peserta-create');
-        //     Route::get('/{peserta}/delete', [PesertaController::class, 'delete'])->name('peserta-delete');
-        //     Route::get('/{id}/edit', [PesertaController::class, 'edit'])->name('peserta-edit');
-        //     Route::post('/{id}/update', [PesertaController::class, 'update'])->name('peserta-update');
-        // });
+        Route::prefix('peserta')->group(function () {
+            Route::get('/', [PesertaController::class, 'index'])->name('peserta');
+            Route::post('/create', [PesertaController::class, 'create'])->name('peserta-create');
+            Route::get('/{peserta}/delete', [PesertaController::class, 'delete'])->name('peserta-delete');
+            Route::get('/{id}/edit', [PesertaController::class, 'edit'])->name('peserta-edit');
+            Route::post('/{id}/update', [PesertaController::class, 'update'])->name('peserta-update');
+        });
     });
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });

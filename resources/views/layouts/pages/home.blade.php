@@ -43,11 +43,13 @@ ODTW | One Day To Write
             <div class="workshop-thumbnail">
               <img src="{{$workshops->getPoster()}}" alt="Image" class="workshop-image" />
             </div>
-            <div class="workshop-text">
+            <div class="workshop-text" style="text-transform:capitalize; font-weight:500">
               {{$workshops->nama}}
             </div>
             <div class="workshop-date">
-              {{ date('l, d F Y', strtotime($workshops->tanggal_pelaksanaan)) }}</br> {{ date('H:i', strtotime($workshops->jam_pelaksanaan)) }}
+              {{ Carbon\Carbon::parse($workshops->tanggal_pelaksanaan)->translatedFormat('l, d F Y') }}
+              </br> 
+              {{ date('H:i', strtotime($workshops->jam_pelaksanaan)) }} WIB
             </div>
             <div class="workshop-price">
               @currency($workshops->harga)
