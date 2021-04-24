@@ -26,10 +26,10 @@ Route::get('/download/{pdf}', [HomeController::class, 'getDownload'])->name('dow
 Route::group(['middleware' => 'auth'], function () {
 
     Route::middleware(['peserta'])->group(function () {
-        Route::get('/peserta/dashboard', [HomeController::class, 'peserta_dashboard'])->name('peserta-dashboard');
+        Route::get('/peserta/dashboard', [PesertaController::class, 'peserta_dashboard'])->name('peserta-dashboard');
         // Pendaftaran
         Route::post('/daftar-workshop', [PendaftaranController::class, 'create_proses'])->name('create_pendaftaran');
-        // Route::get('/complete-pendaftaran', [PendaftaranController::class, 'show'])->name('complete-pendaftaran');
+        Route::get('/complete-pendaftaran', [PendaftaranController::class, 'show'])->name('complete-pendaftaran');
 
     });
 

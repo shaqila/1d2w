@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Peserta;
 use App\Models\User;
+use App\Models\Workshop;
 use App\Http\Requests\PesertaRequest;
 
 class PesertaController extends Controller
@@ -65,6 +66,15 @@ class PesertaController extends Controller
         $peserta->feedback = $request->input('feedback');
         $peserta->update();
         return redirect()->route('workshop-detail')->with('sukses', 'Feedback Terkirim!');
+    }
+
+        public function peserta_dashboard()
+    {
+        $workshop = Workshop::all();
+        // foreach ($workshop as $workshops) {
+        //     dd(Carbon::now()->format('Y m d') == Carbon::parse($workshops->tanggal_pelaksanaan)->format('Y m d'));
+        // }
+        return view('peserta.dashboard-peserta', compact("workshop"));
     }
     
 }
