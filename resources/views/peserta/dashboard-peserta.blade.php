@@ -28,16 +28,18 @@ Dashboard Peserta
               <p class="card-text">
                 @if(\Carbon\Carbon::now()->format('Y m d') != \Carbon\Carbon::parse($workshops->tanggal_pelaksanaan)->subDay(1)->format('Y m d'))
                 <strong>{{ Carbon\Carbon::parse($workshops->tanggal_pelaksanaan)->translatedFormat('l, d F Y') }}</strong>
+                <p>nb : Workshop ini akan menggunakan Aplikasi Zoom, kode akan muncul 1 hari sebelum waktu pelaksanaan.</p>
+                
                 @else
-              <div class="alert alert-primary" role="alert">
-                Halo <strong>{{Auth::user()->name}}</strong>!
-                </br> Workshop ini akan dimulai besok pukul {{ date('H:i', strtotime($workshops->jam_pelaksanaan)) }}
-                </br> Ini kode akses aplikasi Zoomnya : <strong>{{$workshops->kode}}</strong>
-                </br> Jangan lupa yaa!
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
+                 <div class="alert alert-primary" role="alert">
+                   Halo <strong>{{Auth::user()->name}}</strong>!
+                   </br> Workshop ini akan dimulai besok pukul {{ date('H:i', strtotime($workshops->jam_pelaksanaan)) }}
+                  </br> Ini kode akses aplikasi Zoomnya : <strong>{{$workshops->kode}}</strong>
+                  </br> Jangan lupa yaa!
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
               @endif
               </p>
             </div>
