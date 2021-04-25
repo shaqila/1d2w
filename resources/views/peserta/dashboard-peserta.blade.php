@@ -33,6 +33,7 @@ Dashboard Peserta
                   Halo <strong>{{Auth::user()->name}}</strong>!
                   </br> Workshop ini akan dimulai besok pukul {{ date('H:i', strtotime($peserta->workshop->jam_pelaksanaan)) }}
                   </br> Ini kode akses aplikasi Zoomnya : <strong>{{$peserta->workshop->kode}}</strong>
+            
                   </br> Jangan lupa yaa!
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
