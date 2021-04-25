@@ -30,7 +30,6 @@ Route::group(['middleware' => 'auth'], function () {
         // Pendaftaran
         Route::post('/daftar-workshop', [PendaftaranController::class, 'create_proses'])->name('create_pendaftaran');
         Route::get('/complete-pendaftaran', [PendaftaranController::class, 'show'])->name('complete-pendaftaran');
-
     });
 
     Route::group(['middleware' => 'admin'], function () {
