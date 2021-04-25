@@ -11,6 +11,7 @@ use Illuminate\Support\Carbon;
 
 class HomeController extends Controller
 {
+
     public function index()
     {
         $workshop = Workshop::where('tanggal_pelaksanaan', '>', Carbon::yesterday())->get();
