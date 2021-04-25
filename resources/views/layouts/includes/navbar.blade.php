@@ -22,7 +22,7 @@
           <a class="nav-link" href="{{route('register')}}">Sign Up</a>
         </li>
         <li class="nav-item lead">
-          <a class="daftar-sekarang btn nav-link px-4 text-white" href="{{route('login')}}">Sign In</a>
+          <a class="daftar-sekarang btn nav-link px-4 text-white" href="{{route('signin')}}">Sign In</a>
         </li>
         @endguest
       </ul>

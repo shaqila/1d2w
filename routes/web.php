@@ -8,29 +8,48 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PesertaController;
 use App\Http\Controllers\PendaftaranController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Auth\Middleware\EnsureEmailIsVerified;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/creation-details/{id}', [HomeController::class, 'detail_creation'])->name('detail_creation');
 Route::get('/workshop-details/{id}', [HomeController::class, 'detail_workshop'])->name('detail_workshop');
-Route::get('/pendaftaran-details/{id}', [PendaftaranController::class, 'index'])->name('detail-pendaftaran');
+Route::get('/pendaftaran-details/{id}', [PendaftaranController::class, 'index'])->name('detail-pendaftaran')->middleware('verified');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/tips', [HomeController::class, 'tips'])->name('tips');
 
-Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/signin', [AuthController::class, 'login'])->name('signin');
 Route::post('/login_process', [AuthController::class, 'login_process'])->name('login_process');
-Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::get('/signup', [AuthController::class, 'register'])->name('register');
 Route::post('/register_process', [AuthController::class, 'register_process'])->name('register_process');
 Route::get('/download/{pdf}', [HomeController::class, 'getDownload'])->name('download_pdf');
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+
+    return redirect('/');
+})->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::group(['middleware' => 'auth'], function () {
-
-    Route::middleware(['peserta'])->group(function () {
+    Auth::routes(['verify' => true]);
+    Route::middleware(['peserta', 'verified'])->group(function () {
         Route::get('/peserta/dashboard', [PesertaController::class, 'peserta_dashboard'])->name('peserta-dashboard');
         // Pendaftaran
         Route::post('/daftar-workshop', [PendaftaranController::class, 'create_proses'])->name('create_pendaftaran');
         Route::get('/complete-pendaftaran', [PendaftaranController::class, 'show'])->name('complete-pendaftaran');
-
     });
 
     Route::group(['middleware' => 'admin'], function () {
@@ -40,7 +59,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/', [WorkshopController::class, 'index'])->name('workshop');
             Route::post('/create', [WorkshopController::class, 'create'])->name('workshop-create');
             Route::get('/{id}/edit', [WorkshopController::class, 'edit'])->name('workshop-edit');
-            Route::post('/{id}/update', [WorkshopController::class, 'update'])->name('workshop-update');
+            Route::post('/update/{id}', [WorkshopController::class, 'update'])->name('workshop-update');
             Route::get('/{workshop}/delete', [WorkshopController::class, 'delete'])->name('workshop-delete');
             Route::get('/{id}/detail', [WorkshopController::class, 'workshop_detail'])->name('workshop-detail');
         });

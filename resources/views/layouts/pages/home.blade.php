@@ -46,9 +46,10 @@ ODTW | One Day To Write
             <div class="workshop-text" style="text-transform:capitalize; font-weight:500">
               {{$workshops->nama}}
             </div>
+
             <div class="workshop-date">
               {{ Carbon\Carbon::parse($workshops->tanggal_pelaksanaan)->translatedFormat('l, d F Y') }}
-              </br> 
+              </br>
               {{ date('H:i', strtotime($workshops->jam_pelaksanaan)) }} WIB
             </div>
             <div class="workshop-price">

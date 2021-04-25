@@ -16,29 +16,40 @@ Dashboard Peserta
       <h2 class="dashboard-title">Workshop Yang Saya Ikuti</h2>
     </div>
     <div class="dashboard-content">
-      @foreach($workshop as $workshops)
+      @foreach($peserta as $peserta)
       <div class="card mb-3">
         <div class="row">
           <div class="col-md-3">
-            <img src="{{$workshops->getPoster()}}" alt="Image" class="poster img-fluid" style="padding: 10px 10px; "/>
+            <img src="{{$peserta->workshop->getPoster()}}" alt="Image" class="poster img-fluid" style="padding: 10px 10px; " />
           </div>
           <div class="col-md-8">
-            <div class="card-body" >
-              <h5 class="card-title" style="text-transform:capitalize">{{$workshops->nama}}</h5>
+            <div class="card-body">
+              <h5 class="card-title" style="text-transform:capitalize">{{$peserta->workshop->nama}}</h5>
               <p class="card-text">
-                @if(\Carbon\Carbon::now()->format('Y m d') != \Carbon\Carbon::parse($workshops->tanggal_pelaksanaan)->subDay(1)->format('Y m d'))
-                <strong>{{ Carbon\Carbon::parse($workshops->tanggal_pelaksanaan)->translatedFormat('l, d F Y') }}</strong>
+                @if(\Carbon\Carbon::now()->format('Y m d') != \Carbon\Carbon::parse($peserta->workshop->tanggal_pelaksanaan)->subDay(1)->format('Y m d'))
+                <strong>{{ Carbon\Carbon::parse($peserta->workshop->tanggal_pelaksanaan)->translatedFormat('l, d F Y') }}</strong>
                 @else
-              <div class="alert alert-primary" role="alert">
-                Halo <strong>{{Auth::user()->name}}</strong>!
-                </br> Workshop ini akan dimulai besok pukul {{ date('H:i', strtotime($workshops->jam_pelaksanaan)) }}
-                </br> Ini kode akses aplikasi Zoomnya : <strong>{{$workshops->kode}}</strong>
-                </br> Jangan lupa yaa!
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              @endif
+                <div class="alert alert-primary" role="alert">
+                  Halo <strong>{{Auth::user()->name}}</strong>!
+                  </br> Workshop ini akan dimulai besok pukul {{ date('H:i', strtotime($peserta->workshop->jam_pelaksanaan)) }}
+                  </br> Ini kode akses aplikasi Zoomnya : <strong>{{$peserta->workshop->kode}}</strong>
+                  </br> Jangan lupa yaa!
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                @endif
+                @if(\Carbon\Carbon::now()->format('Y m d') == \Carbon\Carbon::parse($peserta->workshop->tanggal_pelaksanaan)->format('Y m d'))
+                </br> Ini kode akses aplikasi Zoomnya : <strong class="alert alert-success">{{$peserta->workshop->kode}}</strong>
+                @endif
+                <br />
+                @if($peserta->feedback == null)
+                nothing
+                @else
+                <div class="alert alert-primary" role="alert">
+                  {{$peserta->feedback}}
+                </div>
+                @endif
               </p>
             </div>
           </div>

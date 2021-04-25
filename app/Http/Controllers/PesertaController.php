@@ -7,6 +7,7 @@ use App\Models\Peserta;
 use App\Models\User;
 use App\Models\Workshop;
 use App\Http\Requests\PesertaRequest;
+use Illuminate\Support\Facades\Auth;
 
 class PesertaController extends Controller
 {
@@ -41,7 +42,7 @@ class PesertaController extends Controller
         $peserta = Peserta::find($id);
         return view('admin.peserta.edit', ['peserta' => $peserta]);
     }
-    
+
     public function update(PesertaRequest $request, $id)
     {
         $peserta = Peserta::findOrFail($id);
@@ -60,21 +61,20 @@ class PesertaController extends Controller
         return view('admin.workshop.feedback-peserta', ['peserta' => $peserta]);
     }
 
-    public function feedback_update(PesertaRequest $request, $id)
+    public function feedback_update(Request $request, $id)
     {
         $peserta = Peserta::findOrFail($id);
-        $peserta->feedback = $request->input('feedback');
+        $peserta->feedback = $request->feedback;
         $peserta->update();
-        return redirect()->route('workshop-detail')->with('sukses', 'Feedback Terkirim!');
+        return redirect()->back()->with('sukses', 'Feedback Terkirim!');
     }
 
-        public function peserta_dashboard()
+    public function peserta_dashboard()
     {
-        $workshop = Workshop::all();
-        // foreach ($workshop as $workshops) {
+        $peserta = Peserta::with('workshop')->where('user_id', Auth::user()->id)->get();
+        // foreach ($pesertaas $workshops) {
         //     dd(Carbon::now()->format('Y m d') == Carbon::parse($workshops->tanggal_pelaksanaan)->format('Y m d'));
         // }
-        return view('peserta.dashboard-peserta', compact("workshop"));
+        return view('peserta.dashboard-peserta', compact("peserta"));
     }
-    
 }

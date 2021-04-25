@@ -43,7 +43,7 @@ class AuthController extends Controller
 
     public function register_process(RegisterRequest $request)
     {
-        
+
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
@@ -57,14 +57,14 @@ class AuthController extends Controller
 
     public function login()
     {
-        if(Auth::user())return redirect ('/');
+        if (Auth::user()) return redirect('/');
         Session::put('url.intended', URL::previous());
         return view('login');
     }
 
     public function register()
     {
-        if(Auth::user())return redirect ('/');
+        if (Auth::user()) return redirect('/');
         return view('register');
     }
     public function showLoginForm()
@@ -78,6 +78,6 @@ class AuthController extends Controller
     {
         Auth::logout();
 
-        return redirect('login')->with('success', 'Logout Success');
+        return redirect()->route('signin')->with('success', 'Logout Success');
     }
 }
