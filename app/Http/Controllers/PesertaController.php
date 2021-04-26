@@ -95,7 +95,7 @@ class PesertaController extends Controller
         $headers = array(
             'Content-type : application/msword',
         );
-        $format_nama = Carbon::now() + $name;
+        $format_nama = Carbon::now() . $name;
         return response()->download($file, $format_nama, $headers);
     }
 
