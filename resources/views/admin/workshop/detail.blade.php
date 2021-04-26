@@ -70,9 +70,9 @@
                                                         <a href="/feedback/{{$peserta->id}}" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-plus"></i> </a>
                                                     </td>
                                                     <td>
-                                                        <a href="{{url('download/'.$peserta->naskah)}}" class="btn btn-sm btn-block" style="
+                                                        <a href="{{route('download_naskah',$peserta->naskah)}}" class="btn btn-sm btn-block" style="
                                                         background-color: #7abaff;
-                                                        color: white;">Download</a> 
+                                                        color: white;">Download</a>
                                                     </td>
                                                     <td class="text-center">
                                                         <a href="#" class="delete btn btn-danger btn-sm btn-circle" peserta-id="{{$peserta->id}}"><i class="fas fa-trash-alt"></i></a>
