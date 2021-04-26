@@ -73,9 +73,26 @@ class PesertaController extends Controller
         return redirect()->route('workshop-detail',['id' => $workshop->id])->with('sukses', 'Feedback Terkirim!');
     }
 
-    public function naskah_peserta($id)
+    public function naskah_peserta(Request $request)
     {
-        # code...
+        $peserta = Peserta::all();
+        if ($request->hasFile('naskah')) {
+            $naskah = $request->file('naskah');
+            $filename = time() . '.' . $naskah->getClientOriginalExtension();
+            $request->file('naskah')->move('naskah-workshop/', $filename);
+            $peserta->naskah = $filename;
+        } $peserta->save;
+        return redirect()->back()->with('sukses', 'Data berhasil ditambah');
+    }
+
+    public function getDownload($name)
+    {
+        $file = public_path() . "/naskah-workshop/" . $name;
+        $headers = array(
+            'Content-type : application/msword',
+        );
+        $format_nama = Carbon::now() + $name;
+        return response()->download($file, $format_nama, $headers);
     }
 
     public function peserta_dashboard()

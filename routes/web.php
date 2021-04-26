@@ -46,6 +46,7 @@ Route::group(['middleware' => 'auth'], function () {
     Auth::routes(['verify' => true]);
     Route::middleware(['peserta', 'verified'])->group(function () {
         Route::get('/peserta/dashboard', [PesertaController::class, 'peserta_dashboard'])->name('peserta-dashboard');
+        Route::post('/peserta/naskah', [PesertaController::class, 'naskah_peserta'])->name('naskah_peserta');
         // Pendaftaran
         Route::get('/pendaftaran-details/{id}', [PendaftaranController::class, 'index'])->name('detail-pendaftaran');
         Route::post('/daftar-workshop', [PendaftaranController::class, 'create_proses'])->name('create_pendaftaran');
@@ -54,7 +55,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['middleware' => 'admin'], function () {
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin-dashboard');
-
         Route::prefix('workshop')->group(function () {
             Route::get('/', [WorkshopController::class, 'index'])->name('workshop');
             Route::post('/create', [WorkshopController::class, 'create'])->name('workshop-create');
@@ -73,13 +73,15 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('feedback/{peserta}', [PesertaController::class, 'feedback_peserta'])->name('feedback-peserta');
         Route::post('feedback/{peserta}/update', [PesertaController::class, 'feedback_update'])->name('feedback-update');
         Route::get('pembayaran/{id}', [PendaftaranController::class, 'pembayaran'])->name('pembayaran');
-
+        
         Route::prefix('peserta')->group(function () {
             Route::get('/', [PesertaController::class, 'index'])->name('peserta');
             Route::post('/create', [PesertaController::class, 'create'])->name('peserta-create');
             Route::get('/{peserta}/delete', [PesertaController::class, 'delete'])->name('peserta-delete');
             Route::get('/{id}/edit', [PesertaController::class, 'edit'])->name('peserta-edit');
             Route::post('/{id}/update', [PesertaController::class, 'update'])->name('peserta-update');
+            Route::get('/download/{naskah}', [PesertaController::class, 'getDownload'])->name('download_naskah');
+            
         });
     });
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');

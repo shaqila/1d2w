@@ -54,6 +54,18 @@ Dashboard Peserta
               @endif
               </p>
             </div>
+
+            <form action="/peserta/naskah" enctype="multipart/form-data" method="POST">
+              @csrf
+              <div class="form-group" {{$errors->has('naskah') ? 'has-errors': ''}}">
+                <label for="exampleInputAvatar">Naskah</label>
+                <input name="naskah" type="file" class="form-control" value="{{old('naskah')}}">
+                @if($errors->has('naskah'))
+                <span class="help-block">{{$errors->first('naskah')}}</span>
+                @endif
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
           </div>
         </div>
       </div>
