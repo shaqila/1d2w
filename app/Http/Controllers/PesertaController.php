@@ -13,7 +13,9 @@ class PesertaController extends Controller
 {
     public function index(Request $request)
     {
-        $peserta = Peserta::all();
+        $peserta = Peserta::orderBy('created_at', 'DESC')->get();
+        $workshop = Workshop::with(['peserta' => function ($query) {
+        }])->where('id',$peserta)->first();
         return view('admin.peserta.index', compact("peserta"));
     }
     public function create(PesertaRequest $request)
@@ -66,7 +68,14 @@ class PesertaController extends Controller
         $peserta = Peserta::findOrFail($id);
         $peserta->feedback = $request->feedback;
         $peserta->update();
-        return redirect()->back()->with('sukses', 'Feedback Terkirim!');
+        $workshop = Workshop::with(['peserta' => function ($query) {
+        }])->where('id', $id)->first();
+        return redirect()->route('workshop-detail',['id' => $workshop->id])->with('sukses', 'Feedback Terkirim!');
+    }
+
+    public function naskah_peserta($id)
+    {
+        # code...
     }
 
     public function peserta_dashboard()

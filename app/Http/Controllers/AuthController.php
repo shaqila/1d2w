@@ -52,10 +52,10 @@ class AuthController extends Controller
         $user->province_id = 0;
         $user->save();
 
-        return redirect('login')->with('success', 'Register Success');
+        return redirect('signin')->with('success', 'Register Success');
     }
 
-    public function login()
+    public function signin()
     {
         if (Auth::user()) return redirect('/');
         Session::put('url.intended', URL::previous());
@@ -72,7 +72,7 @@ class AuthController extends Controller
         if (!session()->has('url.intended')) {
             session(['url.intended' => url()->previous()]);
         }
-        return view('auth.login');
+        return view('login');
     }
     public function logout()
     {

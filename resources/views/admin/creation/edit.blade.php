@@ -9,30 +9,34 @@
                 {{session('sukses')}}
             </div>
             @endif
-                <div class="col-md-12">
-                    <div class="panel">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Edit Data Peserta</h3>
-                        </div>
-                        <div class="panel-body">
-                            <form action="{{route('creation-update',$karya->id)}}" method="POST" enctype="multipart/form-data">
-                                @csrf
-                                <div class="form-group">
-                                    <label for="exampleInputfirstname">Judul Karya</label>
-                                    <input name="nama_karya" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{$karya->nama_karya}}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPanggilan">Sinopsis</label>
-                                    <input name="deskripsi" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{$karya->deskripsi}}">
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="submit" class="btn btn-warning">Update</button>
-                                </div>
-                    
-                            </form>
-                        </div>
+            <div class="col-md-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Edit Data Peserta</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form action="{{route('creation-update',$karya->id)}}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-group">
+                                <label for="exampleInputfirstname">Judul Karya</label>
+                                <input name="nama_karya" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{$karya->nama_karya}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPanggilan">Sinopsis</label>
+                                <textarea name="deskripsi" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" row="3">{{$karya->deskripsi}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputfirstname">Level</label>
+                                <input name="level" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{$karya->level}}">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-warning">Update</button>
+                            </div>
+
+                        </form>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 </div>

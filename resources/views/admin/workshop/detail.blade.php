@@ -32,7 +32,7 @@
                                     Total Peserta : <span>{{$workshop->peserta->count()}}
                                     </div>
                                 </div>
-                                <div class="col-lg workshop-description m-3">
+                                <div class="col-lg-9 workshop-description mt-2 mx-4">
                                     <p>{{$workshop->deskripsi}}</p>
                                 </div>
                                 <div class="card-body">
@@ -66,7 +66,7 @@
                                                 @endif
                                                 </td>
                                                 <td class="text-center">
-                                                    <a href="/feedback/{{$peserta->id}}" class="btn btn-warning btn-sm btn-circle"><i class="far fa-edit"></i> </a>
+                                                    <a href="/feedback/{{$peserta->id}}" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-plus"></i> </a>
                                                 </td>
                                                 <td class="text-center">
                                                     <a href="#" class="delete btn btn-danger btn-sm btn-circle" peserta-id="{{$peserta->id}}"><i class="fas fa-trash-alt"></i></a>

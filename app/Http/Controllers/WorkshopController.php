@@ -6,13 +6,14 @@ use Illuminate\Http\Request;
 use App\Models\Workshop;
 use App\Http\Requests\WorkshopRequest;
 use App\Models\Peserta;
+use App\Models\Province;
 use Intervention\Image\Facades\Image;
 
 class WorkshopController extends Controller
 {
     public function index(Request $request)
     {
-        $workshop = Workshop::orderBy('tanggal_pelaksanaan', 'desc')->get();;
+        $workshop = Workshop::orderBy('tanggal_pelaksanaan', 'desc')->get();
         return view('admin.workshop.index', compact("workshop"));
     }
     public function create(WorkshopRequest $request)
@@ -42,14 +43,7 @@ class WorkshopController extends Controller
         return view('admin.workshop.edit', compact("workshop"));
     }
 
-    public function workshop_detail($id)
-    {
-        $workshop = Workshop::with(['peserta' => function ($query) {
-        }])->where('id', $id)->first();
-
-        return view('admin.workshop.detail', compact('workshop'));
-    }
-
+    
     public function update(WorkshopRequest $request, $id)
     {
         $request->id = $id;
@@ -71,5 +65,12 @@ class WorkshopController extends Controller
         }
         $workshop->save();
         return redirect('/workshop')->with('sukses', 'Data berhasil diupdate');
+    }
+    public function workshop_detail($id)
+    {
+        $workshop = Workshop::with(['peserta' => function ($query) {
+        }])->where('id', $id)->first();
+        $province = Province::all();
+        return view('admin.workshop.detail', compact('workshop'));
     }
 }
