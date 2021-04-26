@@ -13,8 +13,12 @@ Data Workshop
     <div class="main">
         <div class="main-content">
 
-            {{session('success')}}
-
+            @if(session('sukses'))
+            <div class="alert alert-success" roles="alert">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                {{session('sukses')}}
+            </div>
+            @endif
             @if(session('hapus'))
             <div class="alert alert-danger" roles="alert">
                 <button type="button" class="close" data-dismiss="alert">×</button>
