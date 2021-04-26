@@ -28,7 +28,7 @@ Workshop | One Day To Write
           <ul>
             <li><strong>Waktu Pelaksanaan</strong>: </br>{{Carbon\Carbon::parse($workshop->tanggal_pelaksanaan)->translatedFormat('l, d F Y')}} </br> Jam {{ date('H:i', strtotime($workshop->jam_pelaksanaan)) }} WIB</li>
             <li><strong>Batas Akhir Pendaftaran</strong>: </br>{{Carbon\Carbon::parse($workshop->batas_pendaftaran)->translatedFormat('l, d F Y')}}</li>
-            <li><strong>Kapasitas</strong>:</br> {{$workshop->jumlah_peserta}} Peserta</li>
+            <!-- <li><strong>Kapasitas</strong>:</br> {{$workshop->jumlah_peserta}} Peserta</li> -->
           </ul>
         </div>
         <div class="workshop-description mx-4">

@@ -1,11 +1,11 @@
 @extends('admin-layout.layout')
 
 @section('heading')
-Data Semua Peserta
+Data Semua Peserta (Total : <span>{{$peserta->count()}}</span> Peserta)
 @endsection
 
 @push('prepend-style')
-<link href="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet"/>
+<link href="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" />
 @endpush
 
 @section('content')
@@ -25,8 +25,8 @@ Data Semua Peserta
             </div>
             @endif
             <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                <!-- Button trigger modal -->
+                <!-- <div class="card-header py-3">
+                
                     <button
                         type="button"
                         class="btn btn-primary btn-sm btn-add"
@@ -35,38 +35,40 @@ Data Semua Peserta
                     >
                         <i class="fas fa-plus"></i>
                     </button>
-                </div>
+                </div> -->
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table 
-                            class="table table-bordered table-striped table-hover"
-                            id="dataTable"
-                            width="100%"
-                            cellspacing="0"
-                            >
-                                <thead>
-                                    <tr class="text-center">
-                                        <th>NO.</th>
-                                        <th>NAMA LENGKAP</th>
-                                        <th>PROFESI</th>
-                                        <th>NO. HANDPHONE</th>
-                                        <th>AKSI</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($peserta as $pesertas)
-                                    <tr>
-                                         <td>{{$loop->iteration}}</td>
-                                         <td>{{$pesertas->nama_lengkap}}</td>
-                                         <td>{{$pesertas->profesi}}</td>
-                                        <td>{{$pesertas->no_hp}}</td>
-                                        <td class="text-center">
-                                            <a href="/peserta/{{$pesertas->id}}/edit" class="icon"><i class="edit-icon far fa-edit"></i></a>
-                                            <a href="#" class="icon delete" peserta-id="{{$pesertas->id}}"><i class="edit-icon far fa-trash-alt"></i></a>
-                                        </td>
-                                        </tr>
-                                        @endforeach
-                                </tbody>
+                        <table class="table table-bordered table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr class="text-center">
+                                    <th>Waktu Daftar</th>
+                                    <th>Nama Lengkap</th>
+                                    <th>Profesi</th>
+                                    <th>No. Handphone</th>
+                                    <th>Mengikuti<br /> Workshop</th>
+                                    <th>Status<br /> Pembayaran</th>
+                                    <th>AKSI</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($peserta as $pesertas)
+                                <tr>
+                                    <td class="text-center">{{$pesertas->created_at}}</td>
+                                    <td class="text-center">{{$pesertas->nama_lengkap}}</td>
+                                    <td class="text-center">{{$pesertas->profesi}}</td>
+                                    <td class="text-center">{{$pesertas->no_hp}}</td>
+                                    <td>{{$pesertas->workshop->nama}}</td>
+                                    <td class="text-center">{{$pesertas->status}}
+                                        @if ($pesertas->status == "Belum Bayar")
+                                        <a href="{{ route('pembayaran', $pesertas->id) }}" class="btn btn-primary btn-block btn-sm text-white">Verifikasi</a>
+                                        @endif
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="#" class="delete btn btn-danger btn-sm btn-circle" peserta-id="{{$pesertas->id}}"><i class="fas fa-trash-alt"></i></a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -74,7 +76,7 @@ Data Semua Peserta
         </div>
     </div>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -122,11 +124,11 @@ Data Semua Peserta
                         <span class="help-block">{{$errors->first('profesi')}}</span>
                         @endif
                     </div>
-                    <div class="form-group {{$errors->has('domisili') ? 'has-errors': ''}}">
+                    <div class="form-group {{$errors->has('province_id') ? 'has-errors': ''}}">
                         <label for="exampleInputPassword1">Domisili</label>
-                        <input name="domisili" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{old('domisili')}}">
-                        @if($errors->has('domisili'))
-                        <span class="help-block">{{$errors->first('domisili')}}</span>
+                        <input name="province_id" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{old('province_id')}}">
+                        @if($errors->has('province_id'))
+                        <span class="help-block">{{$errors->first('province_id')}}</span>
                         @endif
                     </div>
                     <div class="form-group {{$errors->has('no_hp') ? 'has-errors': ''}}">
@@ -145,33 +147,33 @@ Data Semua Peserta
                 </form>
             </div>
         </div>
-    </div>
+    </div> -->
 
-    
+
 </section>
 @endsection
 
 @push('addon-script')
-    <script src="{{ asset('assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
-    <script>
-        $(document).ready(function() {
-            $('#dataTable').DataTable();
-        });
-        $('.delete').click(function() {
-            var peserta_id = $(this).attr('peserta-id');
-            swal({
-                    title: "Apakah anda yakin?",
-                    text: "Data dengan id " + peserta_id + " akan terhapus",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        window.location = "/peserta/" + peserta_id + "/delete";
-                    }
-                });
-        })
-    </script>
+<script src="{{ asset('assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+<script>
+    $(document).ready(function() {
+        $('#dataTable').DataTable();
+    });
+    $('.delete').click(function() {
+        var peserta_id = $(this).attr('peserta-id');
+        swal({
+                title: "Apakah anda yakin?",
+                text: "Data dengan id " + peserta_id + " akan terhapus",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    window.location = "/peserta/" + peserta_id + "/delete";
+                }
+            });
+    })
+</script>
 @endpush

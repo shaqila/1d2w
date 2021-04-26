@@ -18,13 +18,12 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/creation-details/{id}', [HomeController::class, 'detail_creation'])->name('detail_creation');
 Route::get('/workshop-details/{id}', [HomeController::class, 'detail_workshop'])->name('detail_workshop');
-Route::get('/pendaftaran-details/{id}', [PendaftaranController::class, 'index'])->name('detail-pendaftaran')->middleware('verified');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/tips', [HomeController::class, 'tips'])->name('tips');
 
-Route::get('/signin', [AuthController::class, 'login'])->name('signin');
+Route::get('/signin', [AuthController::class, 'signin'])->name('signin');
 Route::post('/login_process', [AuthController::class, 'login_process'])->name('login_process');
-Route::get('/signup', [AuthController::class, 'register'])->name('register');
+Route::get('/signup', [AuthController::class, 'register'])->name('signup');
 Route::post('/register_process', [AuthController::class, 'register_process'])->name('register_process');
 Route::get('/download/{pdf}', [HomeController::class, 'getDownload'])->name('download_pdf');
 Route::get('/email/verify', function () {
@@ -48,6 +47,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::middleware(['peserta', 'verified'])->group(function () {
         Route::get('/peserta/dashboard', [PesertaController::class, 'peserta_dashboard'])->name('peserta-dashboard');
         // Pendaftaran
+        Route::get('/pendaftaran-details/{id}', [PendaftaranController::class, 'index'])->name('detail-pendaftaran');
         Route::post('/daftar-workshop', [PendaftaranController::class, 'create_proses'])->name('create_pendaftaran');
         Route::get('/complete-pendaftaran', [PendaftaranController::class, 'show'])->name('complete-pendaftaran');
     });

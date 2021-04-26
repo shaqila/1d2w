@@ -19,7 +19,8 @@ class Peserta extends Model
         'province_id',
         'no_hp',
         'status',
-        'feedback'
+        'feedback',
+        'naskah'
     ];
 
     public function workshop()
@@ -30,5 +31,13 @@ class Peserta extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function getNaskah($name)
+    {
+        if (!$this->naskah) {
+            return asset('naskah-workshop/' . $name);
+        }
+        return asset('naskah-workshop/' . $this->naskah);
     }
 }

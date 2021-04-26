@@ -14,7 +14,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $workshop = Workshop::where('tanggal_pelaksanaan', '>', Carbon::yesterday())->get();
+        $workshop = Workshop::where('tanggal_pelaksanaan', '>', Carbon::now())->get();
         $karya = Karya::orderBy('created_at', 'DESC')->get();
         return view('layouts.pages.home', compact("workshop", "karya"));
     }

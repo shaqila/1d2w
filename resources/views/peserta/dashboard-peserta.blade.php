@@ -25,32 +25,33 @@ Dashboard Peserta
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title" style="text-transform:capitalize">{{$peserta->workshop->nama}}</h5>
-              <p class="card-text">
+              <p class="card-text"> Waktu Pelaksanaan :
                 @if(\Carbon\Carbon::now()->format('Y m d') != \Carbon\Carbon::parse($peserta->workshop->tanggal_pelaksanaan)->subDay(1)->format('Y m d'))
-                <strong>{{ Carbon\Carbon::parse($peserta->workshop->tanggal_pelaksanaan)->translatedFormat('l, d F Y') }}</strong>
+                <strong>{{ Carbon\Carbon::parse($peserta->workshop->tanggal_pelaksanaan)->translatedFormat('l, d F Y') }} - {{ date('H:i', strtotime($peserta->workshop->jam_pelaksanaan)) }} WIB</strong>
                 @else
-                <div class="alert alert-primary" role="alert">
-                  Halo <strong>{{Auth::user()->name}}</strong>!
-                  </br> Workshop ini akan dimulai besok pukul {{ date('H:i', strtotime($peserta->workshop->jam_pelaksanaan)) }}
-                  </br> Ini kode akses aplikasi Zoomnya : <strong>{{$peserta->workshop->kode}}</strong>
-            
-                  </br> Jangan lupa yaa!
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                @endif
-                @if(\Carbon\Carbon::now()->format('Y m d') == \Carbon\Carbon::parse($peserta->workshop->tanggal_pelaksanaan)->format('Y m d'))
-                </br> Ini kode akses aplikasi Zoomnya : <strong class="alert alert-success">{{$peserta->workshop->kode}}</strong>
-                @endif
-                <br />
+              <div class="alert alert-primary" style="margin-bottom:-10px" role="alert">
+                Workshop ini akan dimulai <strong>besok</strong> pukul <strong>{{ date('H:i', strtotime($peserta->workshop->jam_pelaksanaan))}} WIB</strong>
+                </br>
+                Ini kode akses aplikasi ZOOM : <strong>{{$peserta->workshop->kode}}</strong>
+              </div>
+              @endif
+              @if(\Carbon\Carbon::now()->format('Y m d') == \Carbon\Carbon::parse($peserta->workshop->tanggal_pelaksanaan)->format('Y m d'))
+              <div class="alert alert-danger" style="margin-bottom:-10px">
+                Workshop ini dilaksanakan hari ini pada pukul <strong>{{ date('H:i', strtotime($peserta->workshop->jam_pelaksanaan))}} WIB</strong>
+                </br>
+                Silahkan masuk Aplikasi ZOOM dengan Kode : <strong>{{$peserta->workshop->kode}}</strong>
+              </div>
+              @endif
+              <br />
+              </p>
+              <p class="card-text"> Feedback :
                 @if($peserta->feedback == null)
-                nothing
-                @else
-                <div class="alert alert-primary" role="alert">
-                  {{$peserta->feedback}}
-                </div>
-                @endif
+              <div>Feedback untuk Kamu dari Kami belum dibuat, ditunggu yaa!</div>
+              @else
+              <div class="alert alert-primary" role="alert">
+                {{$peserta->feedback}}
+              </div>
+              @endif
               </p>
             </div>
           </div>

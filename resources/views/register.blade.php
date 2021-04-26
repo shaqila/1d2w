@@ -70,7 +70,7 @@
                                 </div>
                                     <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
                             </form>
-                            <a href="{{route('login')}}" class="sign-text">
+                            <a href="{{route('signin')}}" class="sign-text">
                             <p><u>Already Have Account</u></p></a>
                         </div>
                 </div>

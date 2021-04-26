@@ -12,9 +12,9 @@ Data Workshop
 <section class="content">
     <div class="main">
         <div class="main-content">
-            
-                {{session('success')}}
-            
+
+            {{session('success')}}
+
             @if(session('hapus'))
             <div class="alert alert-danger" roles="alert">
                 <button type="button" class="close" data-dismiss="alert">×</button>
@@ -37,7 +37,7 @@ Data Workshop
                                     <th>Nama</br>Workshop</th>
                                     <th>Harga</th>
                                     <th>Waktu</br>Pelaksanaan</th>
-                                    <!-- <th>Batas Akhir</br>Pendaftaran</th> -->
+                                    <th>Jam</br>Pelaksanaan</th>
                                     <!-- <th>Kapasitas</br>Peserta</th> -->
                                     <th>Pendaftar</th>
                                     <th>Kode Classroom</th>
@@ -51,8 +51,8 @@ Data Workshop
                                     <td>{{$loop->iteration}}</td>
                                     <td><a href="{{route('workshop-detail',$workshops->id)}}">{{$workshops->nama}}</a></td>
                                     <td>@currency($workshops->harga)</td>
-                                    <td>{{Carbon\Carbon::parse($workshops->tanggal_pelaksanaan)->translatedFormat('l, d F Y')}} </br> {{ date('H:i', strtotime($workshops->jam_pelaksanaan)) }} WIB</td>
-                                    <!-- <td>{{$workshops->batas_pendaftaran}}</td> -->
+                                    <td>{{Carbon\Carbon::parse($workshops->tanggal_pelaksanaan)->translatedFormat('l, d F Y')}} </td>
+                                    <td>{{ date('H:i', strtotime($workshops->jam_pelaksanaan)) }} WIB</td>
                                     <!-- <td>{{$workshops->jumlah_peserta}} Peserta</td> -->
                                     <td>{{$workshops->peserta->count()}} Peserta</td>
                                     <td>{{$workshops->kode}}</td>

@@ -20,7 +20,7 @@ class PendaftaranController extends Controller
      */
     public function index($id)
     {
-        if (!Auth::user()) return redirect('login')->with('sukses', 'Harap Daftar Terlebih Dahulu');
+        if (!Auth::user()) return redirect('signin')->with('sukses', 'Harap Daftar Terlebih Dahulu');
         $user = User::get();
         $workshop = Workshop::where('id', $id)->first();
         $province = Province::all();
