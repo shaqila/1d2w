@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
           <div class="col-md-9 text-center">
             <div class="footer-site-logo mb-3">
-              <a href="{{url('home')}}">One Day To Write</a>
+              <a href="{{url('home')}}">One Day to Write</a>
             </div>
             <ul class="list-unstyled nav-links mb-4">
               <li><a href="#">About</a></li>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-Workshop | One Day To Write
+Workshop | One Day to Write
 @endsection
 
 @section('content')

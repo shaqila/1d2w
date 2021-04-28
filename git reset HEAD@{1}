@@ -1,0 +1,18 @@
+[33ma7b8234[m[33m ([m[1;36mHEAD -> [m[1;32mfeature_new[m[33m, [m[1;31morigin/feature_new[m[33m, [m[1;32mfeature/peserta[m[33m)[m HEAD@{0}: checkout: moving from feature/peserta to feature_new
+[33ma7b8234[m[33m ([m[1;36mHEAD -> [m[1;32mfeature_new[m[33m, [m[1;31morigin/feature_new[m[33m, [m[1;32mfeature/peserta[m[33m)[m HEAD@{1}: reset: moving to 6d5619003e3304f68fab92af019f47222106e644^
+[33mf52134b[m HEAD@{2}: pull origin master: Merge made by the 'recursive' strategy.
+[33m28f5fcd[m HEAD@{3}: commit (merge): a
+[33m32e44db[m[33m ([m[1;31morigin/feature/peserta[m[33m)[m HEAD@{4}: commit: feedback
+[33m1de09df[m HEAD@{5}: commit: naskah
+[33mfb5da51[m HEAD@{6}: commit: dashboard-peserta card
+[33md8d0d7a[m HEAD@{7}: pull origin master: Fast-forward
+[33m4459c04[m HEAD@{8}: commit: lupa apa
+[33mb678a81[m HEAD@{9}: commit: test
+[33maedbdaa[m HEAD@{10}: commit: UI
+[33m973cacf[m HEAD@{11}: commit: detail workshop
+[33m7ea50a0[m HEAD@{12}: commit: verifikasi status
+[33m9081ec6[m HEAD@{13}: reset: moving to HEAD
+[33m9081ec6[m HEAD@{14}: commit (merge): detail-workshop-peserta
+[33mf1c46d2[m HEAD@{15}: commit: as
+[33m799dbf7[m[33m ([m[1;32mmaster[m[33m)[m HEAD@{16}: checkout: moving from master to feature/peserta
+[33m799dbf7[m[33m ([m[1;32mmaster[m[33m)[m HEAD@{17}: clone: from https://github.com/shaqila/Odtw.git

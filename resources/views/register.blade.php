@@ -52,7 +52,7 @@
                 @endif
                 <div class="card card-signin">
                         <div class="card-body login-card-body">
-                            <p class="login-box-msg">One Day To Write</p>
+                            <p class="login-box-msg">One Day to Write</p>
 
                             <form class="form-signin" action="{{route('register_process')}}" method="post">
                                 @csrf

@@ -1,7 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-light navbar-store fixed-top navbar-fixed-top">
+<nav class="navi navbar navbar-expand-lg navbar-light navbar-store fixed-top navbar-fixed-top">
   <div class="container">
     <a class="navbar-brand" href="{{route('home')}}">
-      <img src="{{asset('LOGO-ODTW.png')}}" class="logo-odtw" alt="logo-odtw" />
+      <!-- <img src="{{asset('LOGO-ODTW.png')}}" class="logo-odtw" alt="logo-odtw" /> -->
+      <div class="brand-odtw">ODtW</div>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
