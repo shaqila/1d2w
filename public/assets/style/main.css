@@ -72,7 +72,7 @@ body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
         "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-        "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -11372,7 +11372,7 @@ a.text-dark:focus {
 .navbar-fixed-top.scrolled {
     -webkit-transition: background-color 200ms linear;
     transition: background-color 200ms linear;
-    background-color: #7abaffa6 !important;
+    background-color: #7abaff !important;
 }
 
 .page-home h5 {
@@ -11770,7 +11770,7 @@ a.text-dark:focus {
 
 }
 .page-dashboard .section-content .dashboard-content {
-      font-family: "Poppins", sans-serif;  
+      font-family: "Poppins", sans-serif;
     }
 
 .page-dashboard .section-content .dashboard-title {
@@ -11931,34 +11931,6 @@ a.text-dark:focus {
 /*--------------------------------------------------------------
 # workshop
 --------------------------------------------------------------*/
-.workshop #workshop-flters {
-    padding: 0;
-    margin: 0 auto 25px auto;
-    list-style: none;
-    text-align: center;
-    border-radius: 50px;
-}
-
-.workshop #workshop-flters li {
-    cursor: pointer;
-    display: inline-block;
-    padding: 10px 15px;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 1;
-    text-transform: uppercase;
-    color: #444444;
-    transition: all 0.3s ease-in-out;
-}
-
-.workshop #workshop-flters li:hover,
-.workshop #workshop-flters li.filter-active {
-    color: #48d1cc;
-}
-
-.workshop #workshop-flters li:last-child {
-    margin-right: 0;
-}
 
 .workshop .workshop-item {
     margin-bottom: 15px;
@@ -12016,9 +11988,12 @@ a.text-dark:focus {
 # workshop Details
 --------------------------------------------------------------*/
 .workshop-details {
-    padding-top: 40px;
-    margin-top: 50px;
+    
     font-family: "Poppins", sans-serif;
+    background: linear-gradient(0deg, #ffffff, #71bbec );
+}
+.workshop-detail {
+   padding-top: 90px;
 }
 
 .workshop-details .workshop-details-slider img {
@@ -12028,34 +12003,18 @@ a.text-dark:focus {
     border-top-right-radius: 5px;
 }
 
-/* .workshop-details .workshop-details-slider .swiper-pagination {
-  margin-top: 20px;
-  position: relative;
-}
-
-.workshop-details .workshop-details-slider .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: #fff;
-  opacity: 1;
-  border: 1px solid #16df7e;
-}
-
-.workshop-details .workshop-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #16df7e; }*/
 
 .workshop-details .workshop-info {
     padding: 30px;
-    box-shadow: 20px 0 30px rgba(95, 104, 123, 0.08);
-    border-radius: 8px;
+    box-shadow: 10px 0 30px rgba(255, 255, 255, 0.692);
+    border-radius: 5px;
+    background: white;
+    color: #7abaff;
 }
 
-.workshop-details .workshop-info h3 {
+.workshop-details .workshop-info h4 {
     font-size: 22px;
     font-weight: 700;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #eee;
 }
 
 .workshop-details .workshop-info ul {
@@ -12330,6 +12289,7 @@ body {
     -ms-align-items: center;
     -moz-align-items: center;
     -webkit-align-items: center;
+    background: linear-gradient(0deg, #ffffff, #71bbec );
 }
 .form-v10-content {
     background: #fff;
@@ -12991,4 +12951,10 @@ section {
   100% {
     transform: translate(85px, 0%);
   }
+}
+
+.about .page-content .section-success .checkout {
+    margin-top: -200px;
+    font-size: 20px;
+    
 }

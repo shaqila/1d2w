@@ -62,8 +62,6 @@ ODTW | One Day to Write
 
 </section><!-- End Hero -->
 
-
-
 <section id="workshop" class="workshop" data-aos="fade-up" data-aos-duration="2000">
   <div class="container">
     <div class="section-title">

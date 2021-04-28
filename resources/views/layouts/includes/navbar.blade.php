@@ -29,7 +29,7 @@
       </ul>
 
       @auth
-      <div class="btn-group dropdown">
+      <div class="btn-group dropdown ml-3">
         <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {{Auth::user()->name}}
         </button>

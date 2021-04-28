@@ -6,8 +6,8 @@ Workshop | One Day to Write
 
 @section('content')
 <section id="workshop-details" class="workshop-details">
-  <div class="container">
-    <div class="row gy-4">
+  <div class="container workshop-detail " data-aos="fade-up" data-aos-duration="2000">
+    <div class="row ">
       <div class="col-lg-4">
         <div class="workshop-details-slider ">
           <div class="poster">
@@ -15,23 +15,22 @@ Workshop | One Day to Write
           </div>
         </div>
         <div class="workshop-info">
-          <div class="harga" style="text-align:center">
-            <h3>@currency($workshop->harga)</h3>
-          </div>
           <a class="daftar-sekarang btn btn-lg btn-block" href="{{route('detail-pendaftaran', $workshop->id)}}" style="background-color: #7abaff; color: white; ">Daftar Workshop</a>
-          
         </div>
       </div>
       <div class="col-lg-8">
         <div class="workshop-info">
-          <h3>{{$workshop->nama}}</h3>
-          <ul>
-            <li><strong>Waktu Pelaksanaan</strong>: </br>{{Carbon\Carbon::parse($workshop->tanggal_pelaksanaan)->translatedFormat('l, d F Y')}} </br> Jam {{ date('H:i', strtotime($workshop->jam_pelaksanaan)) }} WIB</li>
-            <li><strong>Batas Akhir Pendaftaran</strong>: </br>{{Carbon\Carbon::parse($workshop->batas_pendaftaran)->translatedFormat('l, d F Y')}}</li>
-            <!-- <li><strong>Kapasitas</strong>:</br> {{$workshop->jumlah_peserta}} Peserta</li> -->
-          </ul>
+          <h2>{{$workshop->nama}}</h2>
+          <div class="col-lg-6 pl-0 my-4">
+            Harga: <h4>@currency($workshop->harga)</h4>
+          </div>
+          <div class="col-lg-8 pl-0">
+            Waktu Pelaksanaan:
+            <h4>{{Carbon\Carbon::parse($workshop->tanggal_pelaksanaan)->translatedFormat('l, d F Y')}} - {{ date('H:i', strtotime($workshop->jam_pelaksanaan)) }} WIB</h3>
+          </div>
         </div>
-        <div class="workshop-description mx-4">
+
+        <div class="workshop-info my-4">
           <h4>Tentang Workshop</h4>
           <p>{{$workshop->deskripsi}}</p>
         </div>
