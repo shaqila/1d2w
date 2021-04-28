@@ -7,6 +7,7 @@ use App\Models\Peserta;
 use App\Models\User;
 use App\Models\Workshop;
 use App\Http\Requests\PesertaRequest;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class PesertaController extends Controller
@@ -15,7 +16,7 @@ class PesertaController extends Controller
     {
         $peserta = Peserta::orderBy('created_at', 'DESC')->get();
         $workshop = Workshop::with(['peserta' => function ($query) {
-        }])->where('id',$peserta)->first();
+        }])->where('id', $peserta)->first();
         return view('admin.peserta.index', compact("peserta"));
     }
     public function create(PesertaRequest $request)
@@ -70,12 +71,32 @@ class PesertaController extends Controller
         $peserta->update();
         $workshop = Workshop::with(['peserta' => function ($query) {
         }])->where('id', $id)->first();
-        return redirect()->route('workshop-detail',['id' => $workshop->id])->with('sukses', 'Feedback Terkirim!');
+        return redirect()->route('workshop-detail', ['id' => $workshop->id])->with('sukses', 'Feedback Terkirim!');
     }
 
-    public function naskah_peserta($id)
+    public function naskah_peserta(Request $request)
     {
-        # code...
+
+        $peserta = Peserta::where('user_id', Auth::user()->id)->where('workshop_id', $request->workshop_id)->first();
+
+        if ($request->hasFile('naskah')) {
+            $naskah = $request->file('naskah');
+            $filename = time() . '.' . $naskah->getClientOriginalExtension();
+            $request->file('naskah')->move('naskah-workshop/', $filename);
+            $peserta->naskah = $filename;
+        }
+        $peserta->update();
+        return redirect()->back()->with('sukses', 'Data berhasil ditambah');
+    }
+
+    public function getDownload($name)
+    {
+        $file = public_path() . "/naskah-workshop/" . $name;
+        $headers = array(
+            'Content-type : application/msword',
+        );
+        $format_nama = Carbon::now() . $name;
+        return response()->download($file, $format_nama, $headers);
     }
 
     public function peserta_dashboard()

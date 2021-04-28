@@ -29,7 +29,7 @@
                                         <li><strong>Waktu Pelaksanaan </strong><br>{{$workshop->tanggal_pelaksanaan}}</li>
                                     </ul> -->
                                     <div class="count-peserta mx-3 mb-3" style="font-weight:bold">
-                                    Total Peserta : <span>{{$workshop->peserta->count()}}
+                                        Total Peserta : <span>{{$workshop->peserta->count()}}
                                     </div>
                                 </div>
                                 <div class="col-lg-9 workshop-description mt-2 mx-4">
@@ -38,44 +38,51 @@
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <table class="table table-bordered table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr class="text-center">
-                                                <th>Nama Peserta</th>
-                                                <th>Jenis Kelamin</th>
-                                                <th>Profesi</th>
-                                                <th>Domisili</th>
-                                                <th>No. Handphone</th>
-                                                <th>Status</th>
-                                                <th>Feedback</th>
-                                                <th>Aksi</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
+                                            <thead>
+                                                <tr class="text-center">
+                                                    <th>Nama Peserta</th>
+                                                    <th>Jenis Kelamin</th>
+                                                    <th>Profesi</th>
+                                                    <th>Domisili</th>
+                                                    <th>No. Handphone</th>
+                                                    <th>Status</th>
+                                                    <th>Feedback</th>
+                                                    <th>Naskah<br> Peserta</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
 
-                                            @foreach($workshop->peserta as $peserta)
+                                                @foreach($workshop->peserta as $peserta)
 
-                                            <tr>
-                                                <td class="text-center">{{$peserta->nama_lengkap}}</td>
-                                                <td class="text-center">{{$peserta->jenis_kelamin}}</td>
-                                                <td class="text-center">{{$peserta->profesi}}</td>
-                                                <td class="text-center">{{$peserta->user->province->nama_provinsi}}</td>
-                                                <td class="text-center">{{$peserta->no_hp}}</td>
-                                                <td class="text-center">{{$peserta->status}}
-                                                @if ($peserta->status == "Belum Bayar")
-                                                    <a href="{{ route('pembayaran', $peserta->id) }}" class="btn btn-primary btn-block btn-sm text-white">Verifikasi</a>
-                                                @endif
-                                                </td>
-                                                <td class="text-center">
-                                                    <a href="/feedback/{{$peserta->id}}" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-plus"></i> </a>
-                                                </td>
-                                                <td class="text-center">
-                                                    <a href="#" class="delete btn btn-danger btn-sm btn-circle" peserta-id="{{$peserta->id}}"><i class="fas fa-trash-alt"></i></a>
-                                                </td>
-                                            </tr>
-                                            @endforeach
+                                                <tr>
+                                                    <td class="text-center">{{$peserta->nama_lengkap}}</td>
+                                                    <td class="text-center">{{$peserta->jenis_kelamin}}</td>
+                                                    <td class="text-center">{{$peserta->profesi}}</td>
+                                                    <td class="text-center">{{$peserta->user->province->nama_provinsi}}</td>
+                                                    <td class="text-center">{{$peserta->no_hp}}</td>
+                                                    <td class="text-center">{{$peserta->status}}
+                                                        @if ($peserta->status == "Belum Bayar")
+                                                        <a href="{{ route('pembayaran', $peserta->id) }}" class="btn btn-primary btn-block btn-sm text-white">Verifikasi</a>
+                                                        @endif
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <a href="/feedback/{{$peserta->id}}" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-plus"></i> </a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="{{route('download_naskah',$peserta->naskah)}}" class="btn btn-sm btn-block" style="
+                                                        background-color: #7abaff;
+                                                        color: white;">Download</a>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <a href="#" class="delete btn btn-danger btn-sm btn-circle" peserta-id="{{$peserta->id}}"><i class="fas fa-trash-alt"></i></a>
+                                                    </td>
+                                                </tr>
+                                                @endforeach
 
-                                        </tbody>
-                                    </table>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -84,31 +91,30 @@
             </div>
         </div>
     </div>
-</div>
 
-@endsection
+    @endsection
 
-@push('addon-script')
-<script src="{{ asset('assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
-<script>
-    $(document).ready(function() {
-        $('#dataTable').DataTable();
-    });
-    $('.delete').click(function() {
-        var peserta_id = $(this).attr('peserta-id');
-        swal({
-                title: "Apakah anda yakin?",
-                text: "Data dengan id " + peserta_id + " akan terhapus",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willDelete) => {
-                if (willDelete) {
-                    window.location = "/workshop/" + workshop_id + "/delete";
-                }
-            });
-    })
-</script>
-@endpush
+    @push('addon-script')
+    <script src="{{ asset('assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#dataTable').DataTable();
+        });
+        $('.delete').click(function() {
+            var peserta_id = $(this).attr('peserta-id');
+            swal({
+                    title: "Apakah anda yakin?",
+                    text: "Data dengan id " + peserta_id + " akan terhapus",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        window.location = "/workshop/" + workshop_id + "/delete";
+                    }
+                });
+        })
+    </script>
+    @endpush

@@ -13,8 +13,12 @@ Data Workshop
     <div class="main">
         <div class="main-content">
 
-            {{session('success')}}
-
+            @if(session('sukses'))
+            <div class="alert alert-success" roles="alert">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                {{session('sukses')}}
+            </div>
+            @endif
             @if(session('hapus'))
             <div class="alert alert-danger" roles="alert">
                 <button type="button" class="close" data-dismiss="alert">×</button>
@@ -87,7 +91,7 @@ Data Workshop
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="/workshop/create" enctype="multipart/form-data" method="POST">
+                    <form action="{{route('workshop-create')}}" enctype="multipart/form-data" method="POST">
                         @csrf
                         <div class="form-group {{$errors->has('kode') ? 'has-errors': ''}}">
                             <label for="exampleInputEmail1">Kode</label>
@@ -105,7 +109,7 @@ Data Workshop
                         </div>
                         <div class="form-group {{$errors->has('deskripsi') ? 'has-errors': ''}}">
                             <label for="exampleInputEmail1">Deskripsi</label>
-                            <textarea name="deskripsi" class="form-control" id="exampleFormControlTextarea1" rows="3" value="{{old('deskripsi')}}"> </textarea>
+                            <textarea name="deskripsi" class="form-control" id="exampleFormControlTextarea1" rows="3"> </textarea>
                             @if($errors->has('deskripsi'))
                             <span class="help-block">{{$errors->first('deskripsi')}}</span>
                             @endif

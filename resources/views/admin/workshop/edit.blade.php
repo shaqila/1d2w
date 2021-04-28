@@ -52,7 +52,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">Poster</label>
-                                <input name="poster" class="form-control" type="file" id="formFile" value="{{$workshop->poster}}">
+                                <input name="poster" class="form-control" type="file" id="formFile">
                             </div>
 
                             <div class="modal-footer">
