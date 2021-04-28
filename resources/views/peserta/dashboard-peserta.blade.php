@@ -24,48 +24,49 @@ Dashboard Peserta
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title" style="text-transform:capitalize">{{$peserta->workshop->nama}}</h5>
-              <p class="card-text"> Waktu Pelaksanaan :
+              <h4 class="card-title" style="text-transform:capitalize">{{$peserta->workshop->nama}}</h4>
+              <p class="card-text " style="margin-bottom:-2px"> Waktu Pelaksanaan :
                 @if(\Carbon\Carbon::now()->format('Y m d') != \Carbon\Carbon::parse($peserta->workshop->tanggal_pelaksanaan)->subDay(1)->format('Y m d'))
                 <strong>{{ Carbon\Carbon::parse($peserta->workshop->tanggal_pelaksanaan)->translatedFormat('l, d F Y') }} - {{ date('H:i', strtotime($peserta->workshop->jam_pelaksanaan)) }} WIB</strong>
                 @else
-                <div class="alert alert-primary" style="margin-bottom:-10px" role="alert">
-                  Workshop ini akan dimulai <strong>besok</strong> pukul <strong>{{ date('H:i', strtotime($peserta->workshop->jam_pelaksanaan))}} WIB</strong>
-                  </br>
-                  Ini kode akses aplikasi ZOOM : <strong>{{$peserta->workshop->kode}}</strong>
-                </div>
-                @endif
-                @if(\Carbon\Carbon::now()->format('Y m d') == \Carbon\Carbon::parse($peserta->workshop->tanggal_pelaksanaan)->format('Y m d'))
-                <div class="alert alert-danger" style="margin-bottom:-10px">
-                  Workshop ini dilaksanakan hari ini pada pukul <strong>{{ date('H:i', strtotime($peserta->workshop->jam_pelaksanaan))}} WIB</strong>
-                  </br>
-                  Silahkan masuk Aplikasi ZOOM dengan Kode : <strong>{{$peserta->workshop->kode}}</strong>
-                </div>
-                @endif
-                <br />
+              <div class="alert alert-primary" style="margin-bottom:-10px" role="alert">
+                Workshop ini akan dimulai <strong>besok</strong> pukul <strong>{{ date('H:i', strtotime($peserta->workshop->jam_pelaksanaan))}} WIB</strong>
+                </br>
+                Ini kode akses aplikasi ZOOM : <strong>{{$peserta->workshop->kode}}</strong>
+              </div>
+              @endif
+              @if(\Carbon\Carbon::now()->format('Y m d') == \Carbon\Carbon::parse($peserta->workshop->tanggal_pelaksanaan)->format('Y m d'))
+              <div class="alert alert-danger" style="margin-bottom:-10px">
+                Workshop ini dilaksanakan hari ini pada pukul <strong>{{ date('H:i', strtotime($peserta->workshop->jam_pelaksanaan))}} WIB</strong>
+                </br>
+                Silahkan masuk Aplikasi ZOOM dengan Kode : <strong>{{$peserta->workshop->kode}}</strong>
+              </div>
+              @endif
+              <br />
               </p>
-              <p class="card-text"> Feedback :
+              <p class="card-text" style="margin-bottom:-2px; margin-top:-20px"> Feedback :
                 @if($peserta->feedback == null)
-                <div>Feedback untuk Kamu dari Kami belum dibuat, ditunggu yaa!</div>
-                @else
-                <div class="alert alert-primary" role="alert">
-                  {{$peserta->feedback}}
-                </div>
-                @endif
+              <div>Feedback untuk Kamu dari Kami belum dibuat, ditunggu yaa!</div>
+              @else
+              <div class="alert alert-primary" role="alert">
+                {{$peserta->feedback}}
+              </div>
+              @endif
               </p>
             </div>
 
             <form action="{{route('naskah_peserta')}}" enctype="multipart/form-data" method="POST">
               @csrf
-              <div class="form-group" {{$errors->has('naskah') ? 'has-errors': ''}}">
-                <label for="exampleInputAvatar">Naskah</label>
+              <div class="form-group col-12 ml-1" style="margin-top:-20px" {{$errors->has('naskah') ? 'has-errors': ''}}">
+                <label for="exampleInputAvatar">Kirim naskahmu di sini :</label>
                 <input name="naskah" type="file" class="form-control" value="{{old('naskah')}}">
-                <input name="workshop_id" type="text" class="form-control" value="{{$peserta->workshop->id}}">
                 @if($errors->has('naskah'))
                 <span class="help-block">{{$errors->first('naskah')}}</span>
                 @endif
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <div class="col-8 mb-4">
+                <button type="submit" class="btn btn-primary">Kirim</button>
+              </div>
             </form>
           </div>
         </div>

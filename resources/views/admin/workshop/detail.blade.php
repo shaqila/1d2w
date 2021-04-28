@@ -41,14 +41,13 @@
                                             <thead>
                                                 <tr class="text-center">
                                                     <th>Nama Peserta</th>
-                                                    <th>Jenis Kelamin</th>
+                                                    <th>L/P</th>
                                                     <th>Profesi</th>
                                                     <th>Domisili</th>
                                                     <th>No. Handphone</th>
                                                     <th>Status</th>
                                                     <th>Feedback</th>
-                                                    <th>Naskah<br> Peserta</th>
-                                                    <th>Aksi</th>
+                                                    <th>Naskah</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -78,9 +77,9 @@
                                                     <td class="text-center">
                                                         <a href="/feedback/{{$peserta->id}}" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-plus"></i> </a>
                                                     </td>
-                                                    <td class="text-center">
+                                                    <!-- <td class="text-center">
                                                         <a href="#" class="delete btn btn-danger btn-sm btn-circle" peserta-id="{{$peserta->id}}"><i class="fas fa-trash-alt"></i></a>
-                                                    </td>
+                                                    </td> -->
                                                 </tr>
                                                 @endforeach
 

@@ -57,7 +57,7 @@ Data Semua Peserta (Total : <span>{{$peserta->count()}}</span> Peserta)
                                     <td class="text-center">{{$pesertas->nama_lengkap}}</td>
                                     <td class="text-center">{{$pesertas->profesi}}</td>
                                     <td class="text-center">{{$pesertas->no_hp}}</td>
-                                    <td>{{$pesertas->workshop->nama}}</td>
+                                    <td class="text-center">{{$pesertas->workshop->nama}}</td>
                                     <td class="text-center">{{$pesertas->status}}
                                         @if ($pesertas->status == "Belum Bayar")
                                         <a href="{{ route('pembayaran', $pesertas->id) }}" class="btn btn-primary btn-block btn-sm text-white">Verifikasi</a>
