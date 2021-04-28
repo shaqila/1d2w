@@ -67,12 +67,16 @@
                                                         @endif
                                                     </td>
                                                     <td class="text-center">
-                                                        <a href="/feedback/{{$peserta->id}}" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-plus"></i> </a>
-                                                    </td>
-                                                    <td>
+                                                        @if($peserta->naskah == null)
+                                                        Belum Ada
+                                                        @else
                                                         <a href="{{route('download_naskah',$peserta->naskah)}}" class="btn btn-sm btn-block" style="
-                                                        background-color: #7abaff;
-                                                        color: white;">Download</a>
+                                                                background-color: #7abaff;
+                                                                color: white;">Download</a>
+                                                        @endif
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <a href="/feedback/{{$peserta->id}}" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-plus"></i> </a>
                                                     </td>
                                                     <td class="text-center">
                                                         <a href="#" class="delete btn btn-danger btn-sm btn-circle" peserta-id="{{$peserta->id}}"><i class="fas fa-trash-alt"></i></a>
