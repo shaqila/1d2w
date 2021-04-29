@@ -53,9 +53,7 @@ class WorkshopController extends Controller
         $workshop->deskripsi = $request->deskripsi;
         $workshop->harga = $request->harga;
         $workshop->tanggal_pelaksanaan = $request->tanggal_pelaksanaan;
-        $workshop->batas_pendaftaran = $request->batas_pendaftaran;
         $workshop->jam_pelaksanaan = $request->jam_pelaksanaan;
-        $workshop->jumlah_peserta = $request->jumlah_peserta;
         if ($request->hasFile('poster')) {
             $image = $request->file('poster');
             $filename = time() . '.' . $image->getClientOriginalExtension();

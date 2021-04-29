@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-Karya | One Day to Write
+{{$karya->nama_karya}} | One Day to Write
 @endsection
 
 @section('content')

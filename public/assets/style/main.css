@@ -11882,8 +11882,8 @@ a.text-dark:focus {
 
 .card {
     background: #fefefe;
-    -webkit-box-shadow: 0px 4px 15px #f1f1f8;
-    box-shadow: 0px 4px 15px #f1f1f8;
+    /* -webkit-box-shadow: 0px 4px 15px #f1f1f8;
+    box-shadow: 0px 4px 15px #f1f1f8; */
     border-radius: 8px;
     border: none;
     text-decoration: none !important;
@@ -12006,15 +12006,16 @@ a.text-dark:focus {
 
 .workshop-details .workshop-info {
     padding: 30px;
-    box-shadow: 10px 0 30px rgba(255, 255, 255, 0.692);
+    box-shadow: 5px 0 30px rgba(160, 166, 248, 0.692);
     border-radius: 5px;
     background: white;
-    color: #7abaff;
+    color: #3b6897;
 }
 
 .workshop-details .workshop-info h4 {
-    font-size: 22px;
+    font-size: 30px;
     font-weight: 700;
+
 }
 
 .workshop-details .workshop-info ul {
@@ -12051,7 +12052,7 @@ a.text-dark:focus {
 }
 
 .card-dashboard-karya .card-body {
-    padding: 13px;
+    padding: 7px;
 }
 
 .card-dashboard-karya .karya-thumbnail {

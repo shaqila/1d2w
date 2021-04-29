@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-Workshop | One Day to Write
+{{$workshop->nama}} | ODTW
 @endsection
 
 @section('content')

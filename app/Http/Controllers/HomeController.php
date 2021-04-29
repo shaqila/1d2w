@@ -15,8 +15,8 @@ class HomeController extends Controller
     public function index()
     {
         $workshop = Workshop::where('tanggal_pelaksanaan', '>', Carbon::now())->get();
-        $karya = Karya::orderBy('created_at', 'DESC')->get();
-        return view('layouts.pages.home', compact("workshop", "karya"));
+        // $karya = Karya::orderBy('created_at', 'DESC')->get();
+        return view('layouts.pages.home', compact("workshop"));
     }
     public function detail_workshop($id)
     {
@@ -50,5 +50,10 @@ class HomeController extends Controller
     public function tips()
     {
         return view('layouts.pages.tips');
+    }
+    public function page_karya()
+    {
+        $karya = Karya::orderBy('created_at', 'DESC')->get();
+        return view('layouts.pages.karya', compact("karya"));
     }
 }

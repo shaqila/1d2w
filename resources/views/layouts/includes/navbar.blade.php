@@ -12,8 +12,11 @@
         <li class="nav-item {{ '/' == request()->path() ? 'active' : '' }}">
           <a class="nav-link" href="{{route('home')}}">Home</a>
         </li>
+        <li class="nav-item {{ '/' == request()->path() ? 'active' : '' }}">
+          <a class="nav-link" href="{{route('page_karya')}}">Karya</a>
+        </li>
         <li class="nav-item {{ 'about' == request()->path() ? 'active' : '' }}">
-          <a class="nav-link" href="{{route('about')}}">About</a>
+            <a class="nav-link" href="{{route('about')}}">About</a>
         </li>
         <li class="nav-item {{ 'tips' == request()->path() ? 'active' : '' }}">
           <a class="nav-link" href="{{route('tips')}}">Tips</a>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-About | One Day to Write
+About | ODTW
 @endsection
 
 @section('content')

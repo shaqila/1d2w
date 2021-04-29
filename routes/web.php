@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/creation-details/{id}', [HomeController::class, 'detail_creation'])->name('detail_creation');
 Route::get('/workshop-details/{id}', [HomeController::class, 'detail_workshop'])->name('detail_workshop');
+Route::get('/page-karya' , [HomeController::class, 'page_karya'])->name('page_karya');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/tips', [HomeController::class, 'tips'])->name('tips');
 

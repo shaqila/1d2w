@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-ODTW | One Day to Write
+Home | ODTW
 @endsection
 
 @section('content')
@@ -94,29 +94,6 @@ ODTW | One Day to Write
   </div>
 </section>
 
-<section id="creation" class="creation" data-aos="fade-up" data-aos-duration="2000">
-  <div class="container">
-    <div class="section-title">
-      <span>Karya</span>
-      <h2> Karya</h2>
-    </div>
-
-    <div class="row">
-      @foreach($karya as $karyas)
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-duration="2000">
-        <a class="card card-dashboard-karya d-block" href="{{route('detail_creation',$karyas->id)}}">
-          <div class="card-body">
-            <div class="karya-thumbnail">
-              <img src="{{$karyas->getCover()}}" alt="" class="karya-image img-fluid" />
-            </div>
-            <div class="karya-title">{{$karyas->nama_karya}}</div>
-            <div class="karya-category">{{$karyas->level}}</div>
-          </div>
-        </a>
-      </div>
-      @endforeach
-    </div>
-</section>
 
 <section id="testimonials" class="testimonials" data-aos="fade-up" data-aos-duration="2000">
   <div class="container">
