@@ -16,4 +16,5 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
 <link rel="stylesheet" type="text/css" href="{{asset('assets/fonts/montserrat-font.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/fonts/Pacifico-Regular.ttf')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('assets/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css')}}">

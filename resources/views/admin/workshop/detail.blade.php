@@ -43,6 +43,8 @@
                                                     <th>Nama Peserta</th>
                                                     <th>L/P</th>
                                                     <th>Profesi</th>
+                                                    <th>Pendidikan</br>Terkahir</th>
+                                                    <th>Tanggal Lahir</th>
                                                     <th>Domisili</th>
                                                     <th>No. Handphone</th>
                                                     <th>Status</th>
@@ -58,6 +60,8 @@
                                                     <td class="text-center">{{$peserta->nama_lengkap}}</td>
                                                     <td class="text-center">{{$peserta->jenis_kelamin}}</td>
                                                     <td class="text-center">{{$peserta->profesi}}</td>
+                                                    <td class="text-center">{{$peserta->pendidikan_terakhir}}</td>
+                                                    <td class="text-center">{{$peserta->tanggal_lahir}}</td>
                                                     <td class="text-center">{{$peserta->user->province->nama_provinsi}}</td>
                                                     <td class="text-center">{{$peserta->no_hp}}</td>
                                                     <td class="text-center">{{$peserta->status}}

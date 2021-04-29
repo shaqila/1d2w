@@ -37,14 +37,27 @@
 							<i class="zmdi zmdi-chevron-down"></i>
 						</span>
 					</div>
-					<!-- <div class="form-group">
+					<div class="form-group">
 						<label class="date-input" required>Tanggal Lahir</label>
 						<div class="form-row">
-							<input class="form-control" type="date" value="today" id="date-input">
+							<input name="tanggal_lahir" class="form-control" type="date" value="today" id="date-input">
 						</div>
-					</div> -->
+					</div>
 					<div class="form-row">
 						<input type="text" name="profesi" class="input-text" id="no_hp" placeholder="Profesi" required>
+					</div>
+					<div class="form-row">
+						<select name="pendidikan_terakhir" required>
+							<option class="option" value="pendidikan_terakhir">Pendidikan Terakhir</option>
+							<option class="option" value="SD">SD</option>
+							<option class="option" value="SMP">SMP</option>
+							<option class="option" value="SMP">SMA</option>
+							<option class="option" value="SMP">Diploma</option>
+							<option class="option" value="SMP">Sarjana</option>
+						</select>
+						<span class="select-btn">
+							<i class="zmdi zmdi-chevron-down"></i>
+						</span>
 					</div>
 
 				</div>

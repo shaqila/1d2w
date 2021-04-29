@@ -16,6 +16,8 @@ class Peserta extends Model
         'nama_lengkap',
         'jenis_kelamin',
         'profesi',
+        'pendidikan_terakhir',
+        'tanggal_lahir',
         'province_id',
         'no_hp',
         'status',
