@@ -88,6 +88,15 @@ class PesertaController extends Controller
         $peserta->update();
         return redirect()->back()->with('sukses', 'Naskah Terkirim!');
     }
+    public function naskah_delete($peserta)
+    {
+        
+        $peserta = Peserta::where('id', $peserta)->update([
+            'naskah' => ''
+        ]);
+        $peserta->update();
+        return redirect()->back()>with('hapus', 'Data berhasil dihapus');
+    }
 
     public function getDownload($name)
     {
