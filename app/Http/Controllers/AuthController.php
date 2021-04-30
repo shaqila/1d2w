@@ -32,7 +32,7 @@ class AuthController extends Controller
             if ($user->role == 'peserta') {
                 return Redirect::to(Session::get('url.intended'));
             } else if ($user->role == 'admin') {
-                return redirect()->route('admin-dashboard')->with('success', 'Selamat Datang');
+                return redirect()->route('workshop')->with('success', 'Selamat Datang');
             } else {
                 return back()->with('success', 'Invalid Credentials');
             }

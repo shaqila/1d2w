@@ -18,9 +18,6 @@
         <li class="nav-item {{ 'about' == request()->path() ? 'active' : '' }}">
             <a class="nav-link" href="{{route('about')}}">About</a>
         </li>
-        <li class="nav-item {{ 'tips' == request()->path() ? 'active' : '' }}">
-          <a class="nav-link" href="{{route('tips')}}">Tips</a>
-        </li>
         @guest
         <li class="nav-item">
           <a class="nav-link" href="{{route('signup')}}">Sign Up</a>
@@ -38,7 +35,7 @@
         </button>
         <div class="dropdown-menu">
           @if(Auth::user()->role=='admin')
-          <a class="dropdown-item" href="{{route('admin-dashboard')}}">Dashboard</a>
+          <a class="dropdown-item" href="{{route('workshop')}}">Dashboard</a>
           @else
           <a class="dropdown-item" href="{{route('peserta-dashboard')}}">Dashboard</a>
           @endif

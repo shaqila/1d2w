@@ -48,8 +48,8 @@
                                                     <th>Domisili</th>
                                                     <th>No. Handphone</th>
                                                     <th>Status</th>
-                                                    <th>Feedback</th>
                                                     <th>Naskah</th>
+                                                    <th>Feedback</th>
                                                 </tr>
                                             </thead>
                                             <tbody>

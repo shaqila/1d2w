@@ -34,9 +34,9 @@ Home | ODTW
 
     <!-- Slide 1 -->
     <div class="carousel-item active">
-      <div class="carousel-container">
-        <h2 class="animate__animated animate__fadeInDown">One Day to Write</h2>
-        <p class="animate__animated fanimate__adeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+      <div class="carousel-container" data-aos="fade-up" data-aos-duration="2000">
+        <h2>One Day to Write</h2>
+        <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
         @guest
         <a href="{{route('signup')}}" class="btn-get-started animate__animated animate__flash">Sign Up Sekarang</a>
         @endguest

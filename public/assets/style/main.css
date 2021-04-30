@@ -5043,7 +5043,6 @@ input[type="button"].btn-block {
     padding-right: 0;
     padding-left: 0;
     color: #fff !important;
-    font-weight: bold;
 }
 
 .navbar-nav .dropdown-menu {
@@ -12141,9 +12140,7 @@ a.text-dark:focus {
 /*--------------------------------------------------------------
 # Testimonials
 --------------------------------------------------------------*/
-.testimonials {
-    background: linear-gradient(0deg, #ffffff, #71bbec );
-}
+
 .testimonials .testimonial-item {
     box-sizing: content-box;
     min-height: 10px;
@@ -12203,7 +12200,7 @@ a.text-dark:focus {
     height: 12px;
     background-color: #fff;
     opacity: 1;
-    border: 1px solid #4d76ff;
+    border: 1px solid #7abaff;
 }
 
 .testimonials .swiper-pagination .swiper-pagination-bullet-active {
@@ -12693,18 +12690,20 @@ section {
   /* letter-spacing: 2px; */
 }
 
-/* .section-title span {
-  position: absolute;
-  top: 30px;
-  color: #f1f4fa;
-  left: 0;
-  right: 0;
-  z-index: 1;
-  font-weight: 500;
-  font-size: 52px;
-  text-transform: uppercase;
-  line-height: 0;
-} */
+.section-title h2::before, .section-title h2::after {
+  content: '';
+  width: 50px;
+  height: 2px;
+  background: #3498db;
+  display: inline-block;
+}
+.section-title h2::before {
+  margin: 0 15px 10px 0;
+}
+
+.section-title h2::after {
+  margin: 0 0 10px 15px;
+}
 
 /*--------------------------------------------------------------
 # LOGIN
@@ -12802,7 +12801,7 @@ section {
 
 .tips{
     font-family: "Poppins", sans-serif;
-    
+    background: #f7fbfe;
 }
 
 .tips .content h3 {

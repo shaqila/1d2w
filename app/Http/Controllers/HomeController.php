@@ -47,10 +47,6 @@ class HomeController extends Controller
     {
         return view('layouts.pages.about');
     }
-    public function tips()
-    {
-        return view('layouts.pages.tips');
-    }
     public function page_karya()
     {
         $karya = Karya::orderBy('created_at', 'DESC')->get();

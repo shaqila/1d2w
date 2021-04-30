@@ -21,9 +21,6 @@
                 <a class="btn w-50 mt-2" href="{{route('peserta-dashboard')}}" style="background-color:#7abaff; color:white;">
                   Dashboard Saya
                 </a>
-                <a class="btn btn-signup w-50 mt-2" href="{{route('tips')}}">
-                  Butuh Bantuan
-                </a>
               </div>
             </div>
           </div>

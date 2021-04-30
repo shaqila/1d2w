@@ -27,8 +27,10 @@ class PesertaRequest extends FormRequest
             'nama_lengkap' => 'required',
             'jenis_kelamin' => 'required',
             'profesi' => 'required',
-            'domisili' => 'required',
+            'province_id' => 'required',
             'no_hp' => 'required',
+            'pendidikan_terakhir',
+            'tanggal_lahir',
         ];
     }
 }

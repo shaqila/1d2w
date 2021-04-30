@@ -100,7 +100,7 @@ Data Workshop
                             @endif
                         </div>
                         <div class="form-group {{$errors->has('nama') ? 'has-errors': ''}}">
-                            <label for="exampleInputEmail1">Nama</label>
+                            <label for="exampleInputEmail1">Judul</label>
                             <input name="nama" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{old('nama')}}">
                             @if($errors->has('nama'))
                             <span class="help-block">{{$errors->first('nama')}}</span>
