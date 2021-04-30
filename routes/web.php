@@ -85,9 +85,6 @@ Route::group(['middleware' => 'auth'], function () {
             Route::post('/{id}/update', [CreationController::class, 'update'])->name('creation-update');
             Route::get('/{karya}/delete', [CreationController::class, 'delete'])->name('creation-delete');
         });
-        Route::get('feedback/{peserta}', [PesertaController::class, 'feedback_peserta'])->name('feedback-peserta');
-        Route::post('feedback/{peserta}/update', [PesertaController::class, 'feedback_update'])->name('feedback-update');
-        Route::get('pembayaran/{id}', [PendaftaranController::class, 'pembayaran'])->name('pembayaran');
 
         Route::prefix('peserta')->group(function () {
             Route::get('/', [PesertaController::class, 'index'])->name('peserta');
@@ -97,6 +94,11 @@ Route::group(['middleware' => 'auth'], function () {
             Route::post('/{id}/update', [PesertaController::class, 'update'])->name('peserta-update');
             Route::get('/download/{naskah}', [PesertaController::class, 'getDownload'])->name('download_naskah');
         });
+
+        Route::get('feedback/{peserta}', [PesertaController::class, 'feedback_peserta'])->name('feedback-peserta');
+        Route::post('feedback/{peserta}/update', [PesertaController::class, 'feedback_update'])->name('feedback-update');
+        Route::get('pembayaran/{id}', [PendaftaranController::class, 'pembayaran'])->name('pembayaran');
+        Route::get('naskah/{peserta}/delete', [PesertaController::class, 'naskah_delete'])->name('naskah-delete');
     });
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
