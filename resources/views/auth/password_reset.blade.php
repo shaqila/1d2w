@@ -4,11 +4,17 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            @if(session('sukses'))
+            <div class="alert alert-success" roles="alert">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                {{session('sukses')}}
+            </div>
+            @endif
             <div class="card">
                 <div class="card-header">{{ __('Reset Password') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('password.update') }}">
+                    <form method="POST" action="{{ route('password_change', $token) }}">
                         @csrf
 
                         <div class="form-group row">
