@@ -12,13 +12,16 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Auth\Middleware\EnsureEmailIsVerified;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Password;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/creation-details/{id}', [HomeController::class, 'detail_creation'])->name('detail_creation');
 Route::get('/workshop-details/{id}', [HomeController::class, 'detail_workshop'])->name('detail_workshop');
-Route::get('/page-karya' , [HomeController::class, 'page_karya'])->name('page_karya');
+Route::get('/page-karya', [HomeController::class, 'page_karya'])->name('page_karya');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 
 Route::get('/signin', [AuthController::class, 'signin'])->name('signin');
@@ -41,6 +44,53 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 
     return redirect('/');
 })->middleware(['auth', 'signed'])->name('verification.verify');
+
+
+//password reset
+Route::get('/forgot-password', function () {
+    return view('auth.passwords.email');
+})->middleware('guest')->name('password.request');
+
+Route::post('/forgot-password', function (Request $request) {
+    $request->validate(['email' => 'required|email']);
+
+    $status = Password::sendResetLink(
+        $request->only('email')
+    );
+
+    return $status === Password::RESET_LINK_SENT
+        ? back()->with(['status' => __($status)])
+        : back()->withErrors(['email' => __($status)]);
+})->middleware('guest')->name('password.email');
+
+Route::get('/reset-password/{token}', function ($token) {
+    return view('auth.passwords.reset', ['token' => $token]);
+})->middleware('guest')->name('password.reset');
+
+Route::post('/reset-password', function (Request $request) {
+    $request->validate([
+        'token' => 'required',
+        'email' => 'required|email',
+        'password' => 'required|min:8|confirmed',
+    ]);
+
+    $status = Password::reset(
+        $request->only('email', 'password', 'password_confirmation', 'token'),
+        function ($user, $password) use ($request) {
+            $user->forceFill([
+                'password' => Hash::make($password)
+            ])->setRememberToken(Str::random(60));
+
+            $user->save();
+
+            event(new PasswordReset($user));
+        }
+    );
+
+    return $status == Password::PASSWORD_RESET
+        ? redirect()->route('login')->with('status', __($status))
+        : back()->withErrors(['email' => [__($status)]]);
+})->middleware('guest')->name('password.update');
 
 Route::group(['middleware' => 'auth'], function () {
     Auth::routes(['verify' => true]);
@@ -72,7 +122,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('feedback/{peserta}', [PesertaController::class, 'feedback_peserta'])->name('feedback-peserta');
         Route::post('feedback/{peserta}/update', [PesertaController::class, 'feedback_update'])->name('feedback-update');
         Route::get('pembayaran/{id}', [PendaftaranController::class, 'pembayaran'])->name('pembayaran');
-        
+
         Route::prefix('peserta')->group(function () {
             Route::get('/', [PesertaController::class, 'index'])->name('peserta');
             Route::post('/create', [PesertaController::class, 'create'])->name('peserta-create');
@@ -80,7 +130,6 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/{id}/edit', [PesertaController::class, 'edit'])->name('peserta-edit');
             Route::post('/{id}/update', [PesertaController::class, 'update'])->name('peserta-update');
             Route::get('/download/{naskah}', [PesertaController::class, 'getDownload'])->name('download_naskah');
-            
         });
     });
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
