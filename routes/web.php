@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/creation-details/{id}', [HomeController::class, 'detail_creation'])->name('detail_creation');
 Route::get('/workshop-details/{id}', [HomeController::class, 'detail_workshop'])->name('detail_workshop');
+Route::get('/page-karya' , [HomeController::class, 'page_karya'])->name('page_karya');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
-Route::get('/tips', [HomeController::class, 'tips'])->name('tips');
 
 Route::get('/signin', [AuthController::class, 'signin'])->name('signin');
 Route::post('/login_process', [AuthController::class, 'login_process'])->name('login_process');
@@ -54,7 +54,6 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::group(['middleware' => 'admin'], function () {
-        Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin-dashboard');
         Route::prefix('workshop')->group(function () {
             Route::get('/', [WorkshopController::class, 'index'])->name('workshop');
             Route::post('/create', [WorkshopController::class, 'create'])->name('workshop-create');

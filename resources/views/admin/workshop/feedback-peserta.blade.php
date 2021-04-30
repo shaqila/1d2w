@@ -11,6 +11,8 @@
             @endif
             <div class="col-md-12">
                 <div class="panel">
+                    <a href="{{route('workshop')}}" class="mb-5"><< Kembali ke Workshop</a>
+
                     <div class="panel-heading">
                         <h3 class="panel-title ml-2">Tulis Feedback untuk <em>{{$peserta->nama_lengkap}}</em></h3>
                     </div>

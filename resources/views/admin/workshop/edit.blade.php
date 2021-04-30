@@ -43,14 +43,6 @@
                                 <input name="jam_pelaksanaan" type="time" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{$workshop->jam_pelaksanaan}}">
                             </div>
                             <div class="mb-3">
-                                <label for="FormControlInput">Batas Akhir Pendaftaran</label>
-                                <input name="batas_pendaftaran" type="date" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{$workshop->batas_pendaftaran}}">
-                            </div>
-                            <div class="mb-3">
-                                <label for="FormControlInput">Jumlah Peserta</label>
-                                <input name="jumlah_peserta" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{$workshop->jumlah_peserta}}">
-                            </div>
-                            <div class="mb-3">
                                 <label for="formFile" class="form-label">Poster</label>
                                 <input name="poster" class="form-control" type="file" id="formFile">
                             </div>

@@ -46,6 +46,8 @@ class PendaftaranController extends Controller
         $peserta->jenis_kelamin = $request->jenis_kelamin;
         $peserta->user_id = Auth::user()->id;
         $peserta->profesi = $request->profesi;
+        $peserta->pendidikan_terakhir = $request->pendidikan_terakhir;
+        $peserta->tanggal_lahir = $request->tanggal_lahir;
         $peserta->province_id = $request->province_id;
         $peserta->no_hp = $request->no_hp;
         $peserta->workshop_id = $request->workshop_id;

@@ -41,14 +41,15 @@
                                             <thead>
                                                 <tr class="text-center">
                                                     <th>Nama Peserta</th>
-                                                    <th>Jenis Kelamin</th>
+                                                    <th>L/P</th>
                                                     <th>Profesi</th>
+                                                    <th>Pendidikan</br>Terkahir</th>
+                                                    <th>Tanggal Lahir</th>
                                                     <th>Domisili</th>
                                                     <th>No. Handphone</th>
                                                     <th>Status</th>
+                                                    <th>Naskah</th>
                                                     <th>Feedback</th>
-                                                    <th>Naskah<br> Peserta</th>
-                                                    <th>Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -59,6 +60,8 @@
                                                     <td class="text-center">{{$peserta->nama_lengkap}}</td>
                                                     <td class="text-center">{{$peserta->jenis_kelamin}}</td>
                                                     <td class="text-center">{{$peserta->profesi}}</td>
+                                                    <td class="text-center">{{$peserta->pendidikan_terakhir}}</td>
+                                                    <td class="text-center">{{$peserta->tanggal_lahir}}</td>
                                                     <td class="text-center">{{$peserta->user->province->nama_provinsi}}</td>
                                                     <td class="text-center">{{$peserta->no_hp}}</td>
                                                     <td class="text-center">{{$peserta->status}}
@@ -67,16 +70,20 @@
                                                         @endif
                                                     </td>
                                                     <td class="text-center">
-                                                        <a href="/feedback/{{$peserta->id}}" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-plus"></i> </a>
-                                                    </td>
-                                                    <td>
+                                                        @if($peserta->naskah == null)
+                                                        Belum Ada
+                                                        @else
                                                         <a href="{{route('download_naskah',$peserta->naskah)}}" class="btn btn-sm btn-block" style="
-                                                        background-color: #7abaff;
-                                                        color: white;">Download</a>
+                                                                background-color: #7abaff;
+                                                                color: white;">Download</a>
+                                                        @endif
                                                     </td>
                                                     <td class="text-center">
-                                                        <a href="#" class="delete btn btn-danger btn-sm btn-circle" peserta-id="{{$peserta->id}}"><i class="fas fa-trash-alt"></i></a>
+                                                        <a href="/feedback/{{$peserta->id}}" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-plus"></i> </a>
                                                     </td>
+                                                    <!-- <td class="text-center">
+                                                        <a href="#" class="delete btn btn-danger btn-sm btn-circle" peserta-id="{{$peserta->id}}"><i class="fas fa-trash-alt"></i></a>
+                                                    </td> -->
                                                 </tr>
                                                 @endforeach
 

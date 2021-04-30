@@ -71,7 +71,7 @@ class PesertaController extends Controller
         $peserta->update();
         $workshop = Workshop::with(['peserta' => function ($query) {
         }])->where('id', $id)->first();
-        return redirect()->route('workshop-detail', ['id' => $workshop->id])->with('sukses', 'Feedback Terkirim!');
+        return redirect()->back()->with('sukses', 'Feedback Terkirim!');
     }
 
     public function naskah_peserta(Request $request)
@@ -86,7 +86,7 @@ class PesertaController extends Controller
             $peserta->naskah = $filename;
         }
         $peserta->update();
-        return redirect()->back()->with('sukses', 'Data berhasil ditambah');
+        return redirect()->back()->with('sukses', 'Naskah Terkirim!');
     }
 
     public function getDownload($name)

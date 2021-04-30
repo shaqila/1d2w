@@ -57,7 +57,6 @@ Data Workshop
                                     <td>@currency($workshops->harga)</td>
                                     <td>{{Carbon\Carbon::parse($workshops->tanggal_pelaksanaan)->translatedFormat('l, d F Y')}} </td>
                                     <td>{{ date('H:i', strtotime($workshops->jam_pelaksanaan)) }} WIB</td>
-                                    <!-- <td>{{$workshops->jumlah_peserta}} Peserta</td> -->
                                     <td>{{$workshops->peserta->count()}} Peserta</td>
                                     <td>{{$workshops->kode}}</td>
                                     <td class="text-center"><img src="{{$workshops->getPoster()}}" alt="Image" class="img-fluid tm-gallery-img" style=" max-height: 150px;
@@ -101,7 +100,7 @@ Data Workshop
                             @endif
                         </div>
                         <div class="form-group {{$errors->has('nama') ? 'has-errors': ''}}">
-                            <label for="exampleInputEmail1">Nama</label>
+                            <label for="exampleInputEmail1">Judul</label>
                             <input name="nama" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{old('nama')}}">
                             @if($errors->has('nama'))
                             <span class="help-block">{{$errors->first('nama')}}</span>
@@ -133,20 +132,6 @@ Data Workshop
                             <input name="jam_pelaksanaan" type="time" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{old('jam_pelaksanaan')}}">
                             @if($errors->has('jam_pelaksanaan'))
                             <span class="help-block">{{$errors->first('jam_pelaksanaan')}}</span>
-                            @endif
-                        </div>
-                        <div class="form-group {{$errors->has('batas_pendaftaran') ? 'has-errors': ''}}">
-                            <label for="exampleInputPassword1">Batas Akhir Pendaftaran</label>
-                            <input name="batas_pendaftaran" type="date" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{old('batas_pendaftaran')}}">
-                            @if($errors->has('batas_pendaftaran'))
-                            <span class="help-block">{{$errors->first('batas_pendaftaran')}}</span>
-                            @endif
-                        </div>
-                        <div class="form-group {{$errors->has('jumlah_peserta') ? 'has-errors': ''}}">
-                            <label for="exampleInputPassword1">Jumlah Peserta</label>
-                            <input name="jumlah_peserta" type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp" value="{{old('jumlah_peserta')}}">
-                            @if($errors->has('jumlah_peserta'))
-                            <span class="help-block">{{$errors->first('jumlah_peserta')}}</span>
                             @endif
                         </div>
                         <div class="form-group" {{$errors->has('poster') ? 'has-errors': ''}}">
