@@ -66,7 +66,7 @@
                         <a href="{{route('signup')}}" class="sign-text">
                             <p><u>Sign Up New Account</u></p>
                         </a>
-                        <a href="{{route('signup')}}" class="sign-text">
+                        <a href="{{route('password_request')}}" class="sign-text">
                             <p><u>Forgot Password</u></p>
                         </a>
                     </div>

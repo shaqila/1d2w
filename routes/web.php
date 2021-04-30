@@ -49,48 +49,14 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 //password reset
 Route::get('/forgot-password', function () {
     return view('auth.passwords.email');
-})->middleware('guest')->name('password.request');
+})->middleware('guest')->name('password_request');
 
-Route::post('/forgot-password', function (Request $request) {
-    $request->validate(['email' => 'required|email']);
+Route::post('/forgot-password', [AuthController::class, 'processForgotPassword'])->name('process_forgot_password');
 
-    $status = Password::sendResetLink(
-        $request->only('email')
-    );
+Route::get('password-reset/{token}', [AuthController::class, 'showResetPassword'])->name('show_reset');
 
-    return $status === Password::RESET_LINK_SENT
-        ? back()->with(['status' => __($status)])
-        : back()->withErrors(['email' => __($status)]);
-})->middleware('guest')->name('password.email');
 
-Route::get('/reset-password/{token}', function ($token) {
-    return view('auth.passwords.reset', ['token' => $token]);
-})->middleware('guest')->name('password.reset');
-
-Route::post('/reset-password', function (Request $request) {
-    $request->validate([
-        'token' => 'required',
-        'email' => 'required|email',
-        'password' => 'required|min:8|confirmed',
-    ]);
-
-    $status = Password::reset(
-        $request->only('email', 'password', 'password_confirmation', 'token'),
-        function ($user, $password) use ($request) {
-            $user->forceFill([
-                'password' => Hash::make($password)
-            ])->setRememberToken(Str::random(60));
-
-            $user->save();
-
-            event(new PasswordReset($user));
-        }
-    );
-
-    return $status == Password::PASSWORD_RESET
-        ? redirect()->route('login')->with('status', __($status))
-        : back()->withErrors(['email' => [__($status)]]);
-})->middleware('guest')->name('password.update');
+Route::post('/reset-password/{token}', [AuthController::class, 'resetPassword'])->name('password_change');
 
 Route::group(['middleware' => 'auth'], function () {
     Auth::routes(['verify' => true]);

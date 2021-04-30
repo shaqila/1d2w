@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Peserta;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Auth\Notifications\ResetPassword as ResetPasswordNotification;
+use Illuminate\Support\Facades\Notification;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -59,4 +60,11 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Peserta::class);
     }
+
+    // public function sendPasswordResetNotification($token)
+    // {
+    //     $url = 'http://localhost:8000/reset-password/' . $token;
+
+    //     $this->notify(new ResetPasswordNotification($url));
+    // }
 }
