@@ -77,6 +77,7 @@
                                                                 background-color: #7abaff;
                                                                 color: white;">Download</a>
                                                         @endif
+                                                        <a href="#" class="delete btn btn-danger btn-sm btn-circle" peserta-id="{{$peserta->naskah}}"><i class="fas fa-trash-alt"></i></a>
                                                     </td>
                                                     <td class="text-center">
                                                         <a href="/feedback/{{$peserta->id}}" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-plus"></i> </a>
@@ -112,14 +113,14 @@
             var peserta_id = $(this).attr('peserta-id');
             swal({
                     title: "Apakah anda yakin?",
-                    text: "Data dengan id " + peserta_id + " akan terhapus",
+                    text: "Data naskah " + peserta_id + " akan terhapus",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
                 })
                 .then((willDelete) => {
                     if (willDelete) {
-                        window.location = "/workshop/" + workshop_id + "/delete";
+                        window.location = "/naskah/" + peserta_id + "/delete";
                     }
                 });
         })
