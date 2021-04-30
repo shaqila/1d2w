@@ -37,7 +37,7 @@ Home | ODTW
       <div class="carousel-container">
         <h2 class="animate__animated animate__fadeInDown">One Day to Write</h2>
         <p class="animate__animated fanimate__adeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-        @guest 
+        @guest
         <a href="{{route('signup')}}" class="btn-get-started animate__animated animate__flash">Sign Up Sekarang</a>
         @endguest
       </div>
@@ -62,10 +62,10 @@ Home | ODTW
 
 </section><!-- End Hero -->
 
-<section id="workshop" class="workshop" data-aos="fade-up" data-aos-duration="2000">
+<section id="workshop" class="workshop">
   <div class="container">
-    <div class="section-title">
-      <span>Workshop</span>
+    <div class="section-title" data-aos="fade-up" data-aos-duration="2000">
+      <!-- <span>Workshop</span> -->
       <h2>Workshop</h2>
     </div>
     <div class="row">
@@ -94,12 +94,38 @@ Home | ODTW
   </div>
 </section>
 
+<section id="tips" class="tips">
+  <div class="container">
+    <div class="row" data-aos="fade-up" data-aos-duration="2000">
+      <div class="col-lg-8 content">
+        <h3>Cara Pendaftaran</h3>
+        <!-- <p class="fst-italic">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore
+                    magna aliqua.
+                </p> -->
+        <ul class="ml-2">
+          <li><i class="bi bi-circle-fill"></i>Pilih Workshop yang ingin kamu ikuti</li>
+          <li><i class="bi bi-circle-fill"></i>Klik tombol "Daftar Sekarang" pada halaman Detail Workshop</li>
+          <li><i class="bi bi-circle-fill"></i>Lengkapi form data pendaftaran</li>
+          <li><i class="bi bi-circle-fill"></i>Lakukan pembayaran melalui transfer <strong>Bank BCA 08123131 a.n Shaqila Erbeliza</strong></li>
+          <li><i class="bi bi-circle-fill"></i>Klik tombol "Submit"</li>
+          <li><i class="bi bi-circle-fill"></i>Kirim konfirmasi pembayaran melalui <strong>Whatsapp</strong> pada nomor <strong>085157574711</strong></li>
+          <li><i class="bi bi-circle-fill"></i>Tunggu balasan konfirmasi dari Admin</li>
+        </ul>
+      </div>
+      <div class="col-lg mt-3" style="margin-left:-60px">
+        <img src="assets/img/regist.svg" class="img-fluid" alt="">
+      </div>
+    </div>
+  </div>
+</section>
 
-<section id="testimonials" class="testimonials" data-aos="fade-up" data-aos-duration="2000">
+<section id="testimonials" class="testimonials">
   <div class="container">
 
-    <div class="section-title">
-      <span>Kesan & Pesan</span>
+    <div class="section-title" data-aos="fade-up" data-aos-duration="2000">
+      <!-- <span>Kesan & Pesan</span> -->
       <h2>Kesan & Pesan</h2>
     </div>
 

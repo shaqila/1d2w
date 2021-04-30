@@ -12,6 +12,11 @@ Dashboard Peserta
 </nav>
 <div class="section-content section-dashboard-home" data-aos="fade-up">
   <div class="container-fluid">
+    @if(session('sukses'))
+            <div class="alert alert-success" roles="alert">
+                {{session('sukses')}}
+            </div>
+            @endif
     <div class="dashboard-heading">
       <h2 class="dashboard-title">Workshop Yang Saya Ikuti</h2>
     </div>
@@ -44,7 +49,7 @@ Dashboard Peserta
               @endif
               <br />
               </p>
-              <p class="card-text" style="margin-bottom:-2px; margin-top:-20px"> Feedback :
+              <p class="card-text" style="margin-bottom:-2px; margin-top:8px"> Feedback :
                 @if($peserta->feedback == null)
               <div>Feedback untuk Kamu dari Kami belum dibuat, ditunggu yaa!</div>
               @else
@@ -57,7 +62,7 @@ Dashboard Peserta
 
             <form action="{{route('naskah_peserta')}}" enctype="multipart/form-data" method="POST">
               @csrf
-              <div class="form-group col-12 ml-1" style="margin-top:-20px" {{$errors->has('naskah') ? 'has-errors': ''}}">
+              <div class="form-group col-12 ml-1" style="margin-top:-30px" {{$errors->has('naskah') ? 'has-errors': ''}}">
                 <label for="exampleInputAvatar">Kirim naskahmu di sini :</label>
                 <input name="naskah" type="file" class="form-control" value="{{old('naskah')}}">
                 @if($errors->has('naskah'))

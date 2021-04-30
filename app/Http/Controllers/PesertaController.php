@@ -86,7 +86,7 @@ class PesertaController extends Controller
             $peserta->naskah = $filename;
         }
         $peserta->update();
-        return redirect()->back()->with('sukses', 'Data berhasil ditambah');
+        return redirect()->back()->with('sukses', 'Naskah Terkirim!');
     }
 
     public function getDownload($name)

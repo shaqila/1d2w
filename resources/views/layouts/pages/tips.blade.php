@@ -5,7 +5,7 @@ Tips | ODTW
 @endsection
 
 @section('content')
-<section id="about" class="about">
+<section id="tips" class="tips">
     <div class="container">
         <div class="row" style="padding-top:100px" data-aos="fade-up" data-aos-duration="2000">
             <div class="col-lg-5 pt-5 ml-4 ">
@@ -13,11 +13,11 @@ Tips | ODTW
             </div>
             <div class="col-lg-6 pt-0 pt-lg-0 mx-3 content">
                 <h3>Cara Pendaftaran</h3>
-                <p class="fst-italic">
+                <!-- <p class="fst-italic">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                     dolore
                     magna aliqua.
-                </p>
+                </p> -->
                 <ul>
                     <li><i class="bi bi-circle-fill"></i>Pilih Workshop yang ingin kamu ikuti</li>
                     <li><i class="bi bi-circle-fill"></i>Klik tombol "Daftar Sekarang" pada halaman Detail Workshop</li>

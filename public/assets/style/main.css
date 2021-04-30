@@ -11339,7 +11339,7 @@ a.text-dark:focus {
 
 @media (max-width: 991.98px) {
     .navbar-store {
-        background-color: #fff !important;
+        background-color: #7abaff !important;
     }
 }
 
@@ -12013,8 +12013,8 @@ a.text-dark:focus {
 }
 
 .workshop-details .workshop-info h4 {
-    font-size: 30px;
-    font-weight: 700;
+    font-size: 24px;
+    font-weight: 500;
 
 }
 
@@ -12141,16 +12141,20 @@ a.text-dark:focus {
 /*--------------------------------------------------------------
 # Testimonials
 --------------------------------------------------------------*/
+.testimonials {
+    background: linear-gradient(0deg, #ffffff, #71bbec );
+}
 .testimonials .testimonial-item {
     box-sizing: content-box;
     min-height: 10px;
     font-family: "Poppins", sans-serif;
+    
 }
 
 .testimonials .testimonial-item h3 {
     font-size: 18px;
     font-weight: semibold;
-    margin: 0px 0 5px 35px;
+    margin: 5px 0 5px 35px;
     color: #50a3fc;
 }
 
@@ -12306,7 +12310,7 @@ body {
     -webkit-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
     margin: 95px 0;
     position: relative;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 .form-v10-content .form-detail {
     position: relative;
@@ -12344,7 +12348,6 @@ body {
 .form-v10-content .form-detail .form-right .form-row {
     position: relative;
     margin-bottom: 1px;
-    padding-left: 65px;
     color: #fff;
 }
 .form-v10-content .form-detail .form-right .form-row .value {
@@ -12354,8 +12357,8 @@ body {
 
 .form-v10-content .form-detail .form-right .form-bank {
     position: relative;
-    padding-left: 60px;
     color: #fff;
+    padding-bottom: 10px;
 }
 .form-v10-content .form-detail .form-right .form-bank .info {
     margin-top: 7px;
@@ -12365,6 +12368,16 @@ body {
     max-width: 90px;
     max-height: 90px;
 }
+@media (max-width: 575px){
+    .form-v10-content .form-detail .form-right .form-bank {
+        padding-left: 0;
+    }
+    .form-v10-content .form-detail .form-right .form-row .title{
+        padding-left: 0;
+        margin-left: 0 !important; 
+    } 
+}
+
 .form-v10-content .form-detail .form-group {
     display: flex;
     display: -webkit-flex;
@@ -12401,7 +12414,7 @@ body {
     -webkit-outline: none;
     -o-outline: none;
     -ms-outline: none;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 16px;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -12486,21 +12499,34 @@ body {
     -webkit-box-shadow: 0px 6px 17px 0px rgba(0, 0, 0, 0.15);
     width: 180px;
     border: none;
-    margin: 20px 0 50px 60px;
     cursor: pointer;
     color: #5ea6f8;
     font-weight: 700;
     font-size: 15px;
+    margin-bottom: 10%;
 }
+
 .form-v10-content .form-detail .form-right .register:hover {
     transform: translate(0, -3px);
     transition: 0.2s;
     text-decoration: none;
 }
-
-.form-v10-content .form-detail .form-right .form-row-last input {
-    padding: 12.5px;
+@media (max-width: 575px) {
+    .form-v10-content{
+        align-items:center !important;
+        text-align: center;
+    }
+    .form-v10-content .form-detail .form-right .register {
+       align-items: center !important;
+    }
 }
+@media (min-width: 576px) {
+    .form-v10-content{
+        align-items:center !important;
+        text-align: center;
+    }
+}
+
 .form-v10-content .form-detail .form-left input::-webkit-input-placeholder {
     /* Chrome/Opera/Safari */
     color: #666;
@@ -12633,13 +12659,8 @@ body {
     .form-v10-content .form-detail h2 {
         padding: 33px 30px 0px 30px;
     }
-
-    .form-v10-content .form-detail .form-right .form-row-last {
-        padding-left: 0;
-        text-align: center;
-        margin: 44px 0 30px;
-    }
 }
+    
 
 /*--------------------------------------------------------------
 # Sections General
@@ -12657,32 +12678,33 @@ section {
   text-align: center;
   padding: 30px 0;
   position: relative;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .section-title h2 {
-  font-size: 32px;
-  font-weight: 700;
-  text-transform: uppercase;
+  font-size: 40px;
+  font-weight: 600;
+  text-transform: capitalize;
   margin-bottom: 20px;
   padding-bottom: 0;
   color: #61acfc;
   position: relative;
   z-index: 2;
+  /* letter-spacing: 2px; */
 }
 
-.section-title span {
+/* .section-title span {
   position: absolute;
   top: 30px;
   color: #f1f4fa;
   left: 0;
   right: 0;
   z-index: 1;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 52px;
   text-transform: uppercase;
   line-height: 0;
-}
+} */
 
 /*--------------------------------------------------------------
 # LOGIN
@@ -12773,6 +12795,47 @@ section {
 .about .content p:last-child {
   margin-bottom: 0;
 }
+
+/*--------------------------------------------------------------
+# TIPS
+--------------------------------------------------------------*/
+
+.tips{
+    font-family: "Poppins", sans-serif;
+    
+}
+
+.tips .content h3 {
+  font-weight: 700;
+  font-size: 34px;
+  color: #7abaff;
+  text-shadow: 1px 1px rgb(61, 64, 100);
+  letter-spacing: 1px;
+}
+.tips .content h2 {
+    padding-top: 30px;
+    color: #5eb2fc;
+}
+
+.tips .content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.tips .content ul li {
+  padding-bottom: 10px;
+}
+
+.tips .content ul i {
+  font-size: 14px;
+  padding-right: 6px;
+  color: #7abaff;
+}
+
+.tips .content p:last-child {
+  margin-bottom: 0;
+}
+
 
 /*--------------------------------------------------------------
 # Hero Section
