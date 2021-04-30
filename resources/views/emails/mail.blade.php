@@ -1,4 +1,3 @@
-
 <!--Hello <strong>{{ $name }}</strong>,
 <p>
 
@@ -243,7 +242,7 @@
                                                                                                                                 <tbody>
                                                                                                                                     <tr>
                                                                                                                                         <td align="center" bgcolor="#ffbe00" class="inner-td" style="border-radius:6px; font-size:16px; text-align:center; background-color:inherit;">
-                                                                                                                                            <a href="" style="background-color:#7abaff; border:1px solid #7abaff; border-color:#7abaff; border-radius:0px; border-width:1px; color:#000000; display:inline-block; font-size:14px; font-weight:normal; letter-spacing:0px; line-height:normal; padding:12px 40px 12px 40px; text-align:center; text-decoration:none; border-style:solid; font-family:inherit;" target="_blank">Reset Password</a>
+                                                                                                                                            <a href="{{$url}}" style="background-color:#7abaff; border:1px solid #7abaff; border-color:#7abaff; border-radius:0px; border-width:1px; color:#000000; display:inline-block; font-size:14px; font-weight:normal; letter-spacing:0px; line-height:normal; padding:12px 40px 12px 40px; text-align:center; text-decoration:none; border-style:solid; font-family:inherit;" target="_blank">Reset Password</a>
                                                                                                                                         </td>
                                                                                                                                     </tr>
                                                                                                                                 </tbody>
