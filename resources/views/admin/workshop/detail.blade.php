@@ -14,6 +14,12 @@
                 {{session('sukses')}}
             </div>
             @endif
+            @if(session('hapus'))
+            <div class="alert alert-danger" roles="alert">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                {{session('hapus')}}
+            </div>
+            @endif
 
             <div class="col-md-12">
                 <div class="panel">
@@ -81,11 +87,11 @@
                                                         @endif
                                                     </td>
                                                     <td class="text-center">
-                                                    @if($peserta->feedback == null)
+                                                        @if($peserta->feedback == null)
                                                         <a href="/feedback/{{$peserta->id}}" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-plus"></i> </a>
-                                                    @else
-                                                    Sudah Dikirim
-                                                    @endif
+                                                        @else
+                                                        Sudah Dikirim
+                                                        @endif
                                                     </td>
                                                     <td class="text-center">
                                                         @if($peserta->revisi == null)
