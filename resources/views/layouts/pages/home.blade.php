@@ -71,7 +71,7 @@ Home | ODTW
     <div class="row">
       @foreach($workshop as $workshops)
       <div class="card-workshop col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-duration="2000">
-        <a class="component-workshop d-block" href="{{route('detail_workshop',$workshops->id)}}">
+        <a class="component-workshop d-block" href="{{route('detail_workshop',$workshops->slug)}}">
           <div class="workshop-thumbnail">
             <img src="{{$workshops->getPoster()}}" alt="Image" class="workshop-image" />
           </div>

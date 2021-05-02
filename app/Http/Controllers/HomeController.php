@@ -20,12 +20,12 @@ class HomeController extends Controller
     }
     public function detail_workshop($id)
     {
-        $workshop = Workshop::where('id', $id)->first();
+        $workshop = Workshop::where('slug', $id)->first();
         return view('layouts.pages.workshop-details', compact("workshop"));
     }
     public function detail_creation($id)
     {
-        $karya = Karya::findOrfail($id);
+        $karya = Karya::where('slug', $id)->first();
         return view('layouts.pages.creation-details', compact("karya"));
     }
 

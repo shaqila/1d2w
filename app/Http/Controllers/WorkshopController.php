@@ -45,7 +45,7 @@ class WorkshopController extends Controller
         return view('admin.workshop.edit', compact("workshop"));
     }
 
-    
+
     public function update(WorkshopRequest $request, $id)
     {
         $request->id = $id;
