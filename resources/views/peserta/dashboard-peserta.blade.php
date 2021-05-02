@@ -27,6 +27,14 @@ Dashboard Peserta
       {{session('sukses')}}
     </div>
     @endif
+    @if(session('error'))
+    <div class="alert alert-danger" roles="alert">
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      {{session('error')}}
+    </div>
+    @endif
+
+
     <div class="dashboard-heading">
       <h2 class="dashboard-title">Workshop Yang Saya Ikuti</h2>
       <p style="margin-top:-15px">*Workshop akan muncul setelah pembayaran terkonfirmasi.</p>
@@ -46,17 +54,17 @@ Dashboard Peserta
                 @if(\Carbon\Carbon::now()->format('Y m d') != \Carbon\Carbon::parse($peserta->workshop->tanggal_pelaksanaan)->subDay(1)->format('Y m d'))
                 <strong>{{ Carbon\Carbon::parse($peserta->workshop->tanggal_pelaksanaan)->translatedFormat('l, d F Y') }} - {{ date('H:i', strtotime($peserta->workshop->jam_pelaksanaan)) }} WIB</strong>
                 @else
-              <div class="alert alert-primary" style="margin-bottom:-10px" role="alert">
+              <div class="alert alert-primary" style="margin-bottom:-20px" role="alert">
                 Workshop ini akan dimulai <strong>besok</strong> pukul <strong>{{ date('H:i', strtotime($peserta->workshop->jam_pelaksanaan))}} WIB</strong>
                 </br>
-                Ini kode akses aplikasi ZOOM : <strong>{{$peserta->workshop->kode}}</strong>
+                Ini kode akses Kelas: <strong>{{$peserta->workshop->kode}}</strong>
               </div>
               @endif
               @if(\Carbon\Carbon::now()->format('Y m d') == \Carbon\Carbon::parse($peserta->workshop->tanggal_pelaksanaan)->format('Y m d'))
               <div class="alert alert-danger" style="margin-bottom:-20px">
                 Workshop ini dilaksanakan hari ini pada pukul <strong>{{ date('H:i', strtotime($peserta->workshop->jam_pelaksanaan))}} WIB</strong>
                 </br>
-                Silahkan masuk Aplikasi ZOOM dengan Kode : <strong>{{$peserta->workshop->kode}}</strong>
+                Silahkan masuk Kelas dengan Kode : <strong>{{$peserta->workshop->kode}}</strong>
               </div>
               @endif
               <br />
@@ -75,14 +83,11 @@ Dashboard Peserta
             @if($peserta->naskah == null)
             <form action="{{route('naskah_peserta')}}" enctype="multipart/form-data" method="POST">
               @csrf
-              <div class="col-9 ml-1 mb-3" style="margin-top:-20px" {{$errors->has('naskah') ? 'has-errors': ''}}">
+              <div class="col-9 ml-1 mb-3" style="margin-top:-20px">
                 <label for="formFileSm" class="form-label">Upload Naskah</label>
-                <input name="naskah" class="form-control form-control-sm" id="formFileSm" type="file" value="{{old('naskah')}}">
+                <input name="naskah" class="form-control form-control-sm" id="naskah" type="file" value="{{old('naskah')}}">
                 <input type="hidden" name="workshop_id" value="{{$peserta->workshop->id}}" readonly />
-                @if($errors->has('naskah'))
-                <span class="help-block">{{$errors->first('naskah')}}</span>
-                @endif
-                <button style="background-color: #7abaff;color: white; margin-top:10px" type="submit" class="btn btn-sm">Kirim Naskah</button>
+                <button style="background-color: #7abaff;color: white; margin-top:10px" type="submit" id="upload_naskah" class="btn btn-sm">Kirim Naskah</button>
               </div>
             </form>
             @endif
@@ -91,11 +96,11 @@ Dashboard Peserta
               @csrf
               <div class="col-9 ml-1 mb-3" style="margin-top:-20px">
                 <label for="formFileSm" class="form-label">Upload <strong>Revisi</strong></label>
-                <input name="revisi" class="form-control form-control-sm" id="formFileSm" type="file" value="{{old('revisi')}}">
+                <input name="revisi" class="form-control form-control-sm" id="revisi" type="file" value="{{old('revisi')}}">
                 <input type="hidden" name="workshop_id" value="{{$peserta->workshop->id}}" readonly />
-                <button style="background-color: #7abaff;color: white; margin-top:10px" type="submit" class="btn btn-sm">Kirim Revisi Naskah</button>
+                <button style="background-color: #7abaff;color: white; margin-top:10px" type="submit" id="upload_revisi" class="btn btn-sm">Kirim Revisi Naskah</button>
               </div>
-            @endif
+              @endif
           </div>
         </div>
       </div>
@@ -112,6 +117,28 @@ Dashboard Peserta
   $("#menu-toggle").click(function(e) {
     e.preventDefault();
     $("#wrapper").toggleClass("toggled");
+  });
+</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#upload_revisi').bind("click", function() {
+      var imgVal = $('#revisi').val();
+      if (imgVal == '') {
+        alert("Silahkan Pilih File Kamu");
+        return false;
+      }
+    });
+  });
+</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#upload_naskah').bind("click", function() {
+      var imgVal = $('#naskah').val();
+      if (imgVal == '') {
+        alert("Silahkan Pilih File Kamu");
+        return false;
+      }
+    });
   });
 </script>
 @endpush
