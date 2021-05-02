@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
-use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
@@ -11,6 +11,7 @@ use Illuminate\Support\Carbon;
 class Workshop extends Model
 {
     use HasFactory;
+    use Sluggable;
 
     protected $table = 'workshop';
     protected $fillable = ['kode', 'slug', 'nama', 'deskripsi', 'harga', 'tanggal_pelaksanaan', 'jam_pelaksanaan', 'poster'];
@@ -39,15 +40,12 @@ class Workshop extends Model
         return $this->hasMany(Peserta::class);
     }
 
-
-
-
-    // public function sluggable(): array
-    // {
-    //     return [
-    //         'slug' => [
-    //             'source' => 'nama'
-    //         ]
-    //     ];
-    // }
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'nama'
+            ]
+        ];
+    }
 }
