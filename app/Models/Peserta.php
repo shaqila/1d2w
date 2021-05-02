@@ -22,7 +22,8 @@ class Peserta extends Model
         'no_hp',
         'status',
         'feedback',
-        'naskah'
+        'naskah',
+        'revisi'
     ];
 
     public function workshop()
@@ -41,5 +42,13 @@ class Peserta extends Model
             return asset('naskah-workshop/' . $name);
         }
         return asset('naskah-workshop/' . $this->naskah);
+    }
+
+    public function getRevisi($name)
+    {
+        if (!$this->revisi) {
+            return asset('revisi-workshop/' . $name);
+        }
+        return asset('revisi-workshop/' . $this->revisi);
     }
 }

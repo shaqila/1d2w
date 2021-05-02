@@ -110,7 +110,7 @@ Home | ODTW
           <li><i class="bi bi-circle-fill"></i>Lengkapi form data pendaftaran</li>
           <li><i class="bi bi-circle-fill"></i>Lakukan pembayaran melalui transfer <strong>Bank BCA 08123131 a.n Shaqila Erbeliza</strong></li>
           <li><i class="bi bi-circle-fill"></i>Klik tombol "Submit"</li>
-          <li><i class="bi bi-circle-fill"></i>Kirim konfirmasi pembayaran melalui <strong>Whatsapp</strong> pada nomor <strong>085157574711</strong></li>
+          <li><i class="bi bi-circle-fill"></i>Kirim konfirmasi pembayaran melalui <strong>Whatsapp</strong> pada nomor <strong>082299919198</strong></li>
           <li><i class="bi bi-circle-fill"></i>Tunggu balasan konfirmasi dari Admin</li>
         </ul>
       </div>

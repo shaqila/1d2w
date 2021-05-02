@@ -62,12 +62,6 @@ class CreationController extends Controller
     }
     public function update(Request $request, $id)
     {
-        // $workshop->update($request->all());
-        // if ($request->hasFile('avatar')) {
-        //     $request->file('avatar')->move('images/', $request->file('avatar')->getClientOriginalName());
-        //     $peserta->avatar = $request->file('avatar')->getClientOriginalName();
-        //     $peserta->save();
-        // }
         $karya = Karya::find($id);
         $karya->nama_karya = $request->input('nama_karya');
         $karya->deskripsi = $request->input('deskripsi');

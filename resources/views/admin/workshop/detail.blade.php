@@ -10,6 +10,7 @@
         <div class="container-fluid">
             @if(session('sukses'))
             <div class="alert alert-success" roles="alert">
+                <button type="button" class="close" data-dismiss="alert">×</button>
                 {{session('sukses')}}
             </div>
             @endif
@@ -50,6 +51,7 @@
                                                     <th>Status</th>
                                                     <th>Naskah</th>
                                                     <th>Feedback</th>
+                                                    <th>Revisi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -77,10 +79,22 @@
                                                                 background-color: #7abaff;
                                                                 color: white;">Download</a>
                                                         @endif
-                                                        <a href="#" class="delete btn btn-danger btn-sm btn-circle" peserta-id="{{$peserta->naskah}}"><i class="fas fa-trash-alt"></i></a>
                                                     </td>
                                                     <td class="text-center">
+                                                    @if($peserta->feedback == null)
                                                         <a href="/feedback/{{$peserta->id}}" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-plus"></i> </a>
+                                                    @else
+                                                    Sudah Dikirim
+                                                    @endif
+                                                    </td>
+                                                    <td class="text-center">
+                                                        @if($peserta->revisi == null)
+                                                        Belum Ada
+                                                        @else
+                                                        <a href="{{route('download_revisi',$peserta->revisi)}}" class="btn btn-sm btn-block" style="
+                                                                background-color: #7abaff;
+                                                                color: white;">Download</a>
+                                                        @endif
                                                     </td>
                                                     <!-- <td class="text-center">
                                                         <a href="#" class="delete btn btn-danger btn-sm btn-circle" peserta-id="{{$peserta->id}}"><i class="fas fa-trash-alt"></i></a>
@@ -109,20 +123,20 @@
         $(document).ready(function() {
             $('#dataTable').DataTable();
         });
-        $('.delete').click(function() {
-            var peserta_id = $(this).attr('peserta-id');
-            swal({
-                    title: "Apakah anda yakin?",
-                    text: "Data naskah " + peserta_id + " akan terhapus",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        window.location = "/naskah/" + peserta_id + "/delete";
-                    }
-                });
-        })
+        // $('.delete').click(function() {
+        //     var peserta_id = $(this).attr('peserta-id');
+        //     swal({
+        //             title: "Apakah anda yakin?",
+        //             text: "Data naskah " + peserta_id + " akan terhapus",
+        //             icon: "warning",
+        //             buttons: true,
+        //             dangerMode: true,
+        //         })
+        //         .then((willDelete) => {
+        //             if (willDelete) {
+        //                 window.location = "/naskah/" + peserta_id + "/delete";
+        //             }
+        //         });
+        // })
     </script>
     @endpush
