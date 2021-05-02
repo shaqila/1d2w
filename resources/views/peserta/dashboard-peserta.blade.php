@@ -4,6 +4,15 @@
 Dashboard Peserta
 @endsection
 
+@push('prepend-style')
+<link href="{{asset('assets/vendor/bootstrap-5.0.0-beta3-dist/css/bootstrap.min.css')}}" rel="stylesheet">
+@endpush
+
+@push('prepend-script')
+<script src="{{asset('assets/vendor/bootstrap-5.0.0-beta3-dist/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('assets/vendor/bootstrap-5.0.0-beta3-dist/js/bootstrap.bundle.min.js')}}"></script>
+@endpush
+
 @section('content')
 <nav class="navbar navbar-store navbar-expand-lg navbar-light fixed-top" data-aos="fade-down">
   <button class="btn d-md-none mr-auto mr-2" id="menu-toggle" style="background-color:#7abaff; color:white">
@@ -66,20 +75,27 @@ Dashboard Peserta
             @if($peserta->naskah == null)
             <form action="{{route('naskah_peserta')}}" enctype="multipart/form-data" method="POST">
               @csrf
-              <div class="form-group col-12 ml-1" style="margin-top:-20px" {{$errors->has('naskah') ? 'has-errors': ''}}">
-                <label for="exampleInputAvatar">Kirim naskahmu di sini :</label>
-                <input name="naskah" type="file" class="form-control" value="{{old('naskah')}}">
+              <div class="col-9 ml-1 mb-3" style="margin-top:-20px" {{$errors->has('naskah') ? 'has-errors': ''}}">
+                <label for="formFileSm" class="form-label">Upload Naskah</label>
+                <input name="naskah" class="form-control form-control-sm" id="formFileSm" type="file" value="{{old('naskah')}}">
                 <input type="hidden" name="workshop_id" value="{{$peserta->workshop->id}}" readonly />
                 @if($errors->has('naskah'))
                 <span class="help-block">{{$errors->first('naskah')}}</span>
                 @endif
-              </div>
-              <div class="col-8 mb-4">
-                <button type="submit" class="btn btn-primary">Kirim</button>
+                <button style="background-color: #7abaff;color: white; margin-top:10px" type="submit" class="btn btn-sm">Kirim Naskah</button>
               </div>
             </form>
             @endif
-
+            @if($peserta->naskah != null && $peserta->revisi == null)
+            <form action="{{route('revisi_peserta')}}" enctype="multipart/form-data" method="POST">
+              @csrf
+              <div class="col-9 ml-1 mb-3" style="margin-top:-20px">
+                <label for="formFileSm" class="form-label">Upload <strong>Revisi</strong></label>
+                <input name="revisi" class="form-control form-control-sm" id="formFileSm" type="file" value="{{old('revisi')}}">
+                <input type="hidden" name="workshop_id" value="{{$peserta->workshop->id}}" readonly />
+                <button style="background-color: #7abaff;color: white; margin-top:10px" type="submit" class="btn btn-sm">Kirim Revisi Naskah</button>
+              </div>
+            @endif
           </div>
         </div>
       </div>

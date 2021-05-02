@@ -51,9 +51,9 @@
 							<option class="option" value="pendidikan_terakhir">Pendidikan Terakhir</option>
 							<option class="option" value="SD">SD</option>
 							<option class="option" value="SMP">SMP</option>
-							<option class="option" value="SMP">SMA</option>
-							<option class="option" value="SMP">Diploma</option>
-							<option class="option" value="SMP">Sarjana</option>
+							<option class="option" value="SMA">SMA</option>
+							<option class="option" value="Diploma">Diploma</option>
+							<option class="option" value="Sarjana">Sarjana</option>
 						</select>
 						<span class="select-btn">
 							<i class="zmdi zmdi-chevron-down"></i>

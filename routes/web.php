@@ -63,6 +63,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::middleware(['peserta', 'verified'])->group(function () {
         Route::get('/peserta/dashboard', [PesertaController::class, 'peserta_dashboard'])->name('peserta-dashboard');
         Route::post('/peserta/naskah', [PesertaController::class, 'naskah_peserta'])->name('naskah_peserta');
+        Route::post('/peserta/revisi', [PesertaController::class, 'revisi_peserta'])->name('revisi_peserta');
         // Pendaftaran
         Route::get('/pendaftaran-details/{id}', [PendaftaranController::class, 'index'])->name('detail-pendaftaran');
         Route::post('/daftar-workshop', [PendaftaranController::class, 'create_proses'])->name('create_pendaftaran');
@@ -92,13 +93,14 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/{peserta}/delete', [PesertaController::class, 'delete'])->name('peserta-delete');
             Route::get('/{id}/edit', [PesertaController::class, 'edit'])->name('peserta-edit');
             Route::post('/{id}/update', [PesertaController::class, 'update'])->name('peserta-update');
-            Route::get('/download/{naskah}', [PesertaController::class, 'getDownload'])->name('download_naskah');
+            Route::get('/download/{naskah}', [PesertaController::class, 'getNaskah'])->name('download_naskah');
+            Route::get('/revisi/{revisi}', [PesertaController::class, 'getRevisi'])->name('download_revisi');
         });
 
         Route::get('feedback/{peserta}', [PesertaController::class, 'feedback_peserta'])->name('feedback-peserta');
         Route::post('feedback/{peserta}/update', [PesertaController::class, 'feedback_update'])->name('feedback-update');
         Route::get('pembayaran/{id}', [PendaftaranController::class, 'pembayaran'])->name('pembayaran');
-        Route::get('naskah/{peserta}/delete', [PesertaController::class, 'naskah_delete'])->name('naskah-delete');
+        
     });
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });

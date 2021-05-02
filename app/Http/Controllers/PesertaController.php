@@ -88,24 +88,49 @@ class PesertaController extends Controller
         $peserta->update();
         return redirect()->back()->with('sukses', 'Naskah Terkirim!');
     }
-    public function naskah_delete($peserta)
-    {
-        
-        $peserta = Peserta::where('id', $peserta)->update([
-            'naskah' => ''
-        ]);
-        $peserta->update();
-        return redirect()->back()>with('hapus', 'Data berhasil dihapus');
-    }
 
-    public function getDownload($name)
+    public function revisi_peserta(Request $request)
+    {
+
+        $peserta = Peserta::where('user_id', Auth::user()->id)->where('workshop_id', $request->workshop_id)->first();
+
+        if ($request->hasFile('revisi')) {
+            $revisi = $request->file('revisi');
+            $filename = time() . '.' . $revisi->getClientOriginalExtension();
+            $request->file('revisi')->move('revisi-workshop/', $filename);
+            $peserta->revisi = $filename;
+        }
+        $peserta->update();
+        return redirect()->back()->with('sukses', 'Revisi Naskah Terkirim!');
+    }
+    // public function naskah_delete($peserta)
+    // {
+        
+    //     $peserta = Peserta::where('id', $peserta)->update([
+    //         'naskah' => ''
+    //     ]);
+    //     $peserta->update();
+    //     return redirect()->back()>with('hapus', 'Data berhasil dihapus');
+    // }
+
+    public function getNaskah($name)
     {
         $file = public_path() . "/naskah-workshop/" . $name;
         $headers = array(
             'Content-type : application/msword',
         );
         $format_nama = Carbon::now() . $name;
-        return response()->download($file, $format_nama, $headers);
+        return response()->download($file, $format_nama, $headers)->deleteFileAfterSend(true);
+    }
+
+    public function getRevisi($name)
+    {
+        $filePath = public_path() . "/revisi-workshop/" . $name;
+        $headers = array(
+            'Content-type : application/msword',
+        );
+        $format_nama = Carbon::now() . $name;
+        return response()->download($filePath, $format_nama, $headers)->deleteFileAfterSend(true);
     }
 
     public function peserta_dashboard()
