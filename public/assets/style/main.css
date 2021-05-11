@@ -2952,6 +2952,7 @@ textarea.form-control.is-invalid {
     text-decoration: none;
     background: #7abaff;
     border: 2px solid #7abaff;
+    color: #fff !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -5003,14 +5004,6 @@ input[type="button"].btn-block {
     white-space: nowrap;
 }
 
-.navbard-brand,
-.brand-odtw {
-    font-family: 'Pacifico', cursive;
-    font-size: 28px;
-    color: #fff;
-    /* -webkit-text-stroke: 1px black; */
-}
-
 .navbar-brand,
 .logo-odtw {
     width: 45px;
@@ -5042,12 +5035,14 @@ input[type="button"].btn-block {
 .navbar-nav .nav-link {
     padding-right: 0;
     padding-left: 0;
-    color: #fff !important;
+    color: #7abaff !important;
+    font-weight: bold;
+    font-size: 14px;
 }
 
 .navbar-nav .dropdown-menu {
     position: static;
-    float: none;
+    float: left;
 }
 
 .navbar-text {
@@ -11338,7 +11333,13 @@ a.text-dark:focus {
 
 @media (max-width: 991.98px) {
     .navbar-store {
-        background-color: #7abaff !important;
+        background-color: #e9f1f7 !important;
+    }
+    .navi .nav-link {
+        margin-left: 20px;
+    }
+    .navi .nav-link:last-child{
+        margin-bottom: 5px;
     }
 }
 
@@ -11371,7 +11372,7 @@ a.text-dark:focus {
 .navbar-fixed-top.scrolled {
     -webkit-transition: background-color 200ms linear;
     transition: background-color 200ms linear;
-    background-color: #7abaff !important;
+    background-color: #e9f1f7 !important;
 }
 
 .page-home h5 {
@@ -12362,8 +12363,8 @@ body {
     padding-top: 5px;
 }
 .form-v10-content .form-detail .form-right .form-bank .logo-bank {
-    max-width: 90px;
-    max-height: 90px;
+    max-width: 100px;
+    max-height: 100px;
 }
 @media (max-width: 575px){
     .form-v10-content .form-detail .form-right .form-bank {
@@ -12381,7 +12382,7 @@ body {
 }
 .form-v10-content .form-detail .form-left .form-group .date-input {
     color: grey;
-    padding-left: 60px;
+    margin-left: 15px;
 }
 .form-v10-content .form-detail .form-left .form-group #date-input {
     margin-left: auto;
@@ -12713,11 +12714,13 @@ section {
     background: #6fa1ff;
     background: linear-gradient(to right, rgb(63, 144, 250), rgb(171, 221, 255));
     font-family: "Poppins", sans-serif;
-}
-
-.card-signin{
+    margin-bottom: 50px;
     margin-top: 100px;
 }
+
+/* .card-signin{
+    margin-top: 100px;
+} */
 .login-card-body {
     border: 0;
     border-radius: 1rem;
@@ -12801,7 +12804,7 @@ section {
 
 .tips{
     font-family: "Poppins", sans-serif;
-    background: #f7fbfe;
+    background: #e9f1f7;
 }
 
 .tips .content h3 {
@@ -13020,4 +13023,20 @@ section {
     margin-top: -200px;
     font-size: 20px;
     
+}
+
+.navi .btn-auth{
+    color: #fff;
+    background-color: #7abaff;
+    border-color: #7abaff;
+}
+.navi .btn-auth:hover{
+    color: #fff;
+    background-color: #71aef0;
+    border-color: #71aef0;
+}
+.navi .btn-auth:focus{
+    color: #fff;
+    background-color: #71aef0;
+    border-color: #71aef0;
 }

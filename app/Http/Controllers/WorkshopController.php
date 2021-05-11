@@ -34,8 +34,8 @@ class WorkshopController extends Controller
     public function delete($workshop)
     {
         $workshop = Workshop::where('id', $workshop)->first();
-        $image_path = public_path() . '/img-workshop/' . $workshop->poster;
-        unlink($image_path);
+        $poster_path = public_path() . '/img-workshop/' . $workshop->poster;
+        unlink($poster_path);
         $workshop->delete();
         return redirect()->route('workshop')->with('hapus', 'Data berhasil dihapus');
     }

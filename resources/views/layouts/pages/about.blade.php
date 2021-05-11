@@ -11,24 +11,24 @@ About | ODTW
       <div class="col-lg-5 mx-4">
         <img src="assets/img/typewriter.svg" class="img-fluid" alt="">
       </div>
-      <div class="col-lg-6 pt-4 pt-lg-0 mx-2 content">
+      <div class="col-lg-6 pt-lg-0 mx-2 content">
         <h3>One Day to Write (ODTW)</h3>
-        <p class="fst-italic">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-          dolore
-          magna aliqua.
+
+        <p> “One Day to Write” adalah wadah dan komunitas literasi yang didirikan pada tahun 2015 oleh Lala Elmira (penulis dan dosen Bahasa Inggris UI).
+
+          Hingga kini ODTW sudah berkeliling secara online dan offline ke lebih dari 100 sekolah se-INDONESIA.
+
+          ODTW juga sudah menelurkan lebih dari 100 buku kumcer, salah satunya adalah “Best Friends Forever” karya penulis teman-teman tuli, hasil kerjasama ODTW x Bestari dengan Surya Sahetapy di tahun 2017.
+
+          Sejak Maret 2020, ODTW mulai mantap untuk mengadakan workshop secara online. Alhamdulillah telah lahir 16 program online yang menghasilkan puluhan kumpulan karya.
         </p>
-        <ul>
-          <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
-          <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
-          <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-            irure dolor in reprehenderit in voluptate trideta storacalaperda</li>
-        </ul>
         <p>
-          Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-          voluptate
-          velit esse cillum dolore eu fugiat nulla pariatur.
+          Ingin tau kegiatan ODTW lebih lanjut?
+          Silakan cek ragam fitur dalam website kami dan jangan lupa mem-follow Instagram <a href="http://instagram.com/onedaytowrite/" target="_blank">@onedaytowrite</a> juga ya.
+
+          Terima kasih 😊🙏🏻
         </p>
+
       </div>
     </div>
   </div>

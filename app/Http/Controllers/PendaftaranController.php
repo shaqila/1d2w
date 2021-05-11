@@ -22,7 +22,7 @@ class PendaftaranController extends Controller
     {
         if (!Auth::user()) return redirect('signin')->with('sukses', 'Harap Daftar Terlebih Dahulu');
         $user = User::get();
-        $workshop = Workshop::where('id', $id)->first();
+        $workshop = Workshop::where('slug', $id)->first();
         $province = Province::all();
         return view('peserta.pendaftaran', compact("user", "workshop", 'province'));
     }

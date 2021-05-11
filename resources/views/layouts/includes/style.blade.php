@@ -1,3 +1,4 @@
+<link rel="icon" href="{{ asset('LOGO-ODTW.png') }}">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 <link href="{{asset('assets/style/main.css')}}" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />
@@ -14,6 +15,4 @@
 <link href="{{asset('assets/fonts/icomoon/style.css')}}" rel="stylesheet">
 <link href="{{ asset('assets/vendor/toastr/toastr.min.css') }}" rel="stylesheet" />
 <link rel="preconnect" href="https://fonts.gstatic.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
-<link rel="stylesheet" type="text/css" href="{{asset('assets/fonts/Pacifico-Regular.ttf')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('assets/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css')}}">

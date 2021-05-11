@@ -1,8 +1,7 @@
 <nav class="navi navbar navbar-expand-lg navbar-light navbar-store fixed-top navbar-fixed-top">
   <div class="container">
     <a class="navbar-brand" href="{{route('home')}}">
-      <!-- <img src="{{asset('LOGO-ODTW.png')}}" class="logo-odtw" alt="logo-odtw" /> -->
-      <div class="brand-odtw">ODtW</div>
+      <img src="{{asset('LOGO-ODTW.png')}}" class="logo-odtw" alt="logo-odtw" />
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -12,7 +11,7 @@
         <li class="nav-item {{ '/' == request()->path() ? 'active' : '' }}">
           <a class="nav-link" href="{{route('home')}}">Home</a>
         </li>
-        <li class="nav-item {{ '/' == request()->path() ? 'active' : '' }}">
+        <li class="nav-item {{ '/page-karya' == request()->path() ? 'active' : '' }}">
           <a class="nav-link" href="{{route('page_karya')}}">Karya</a>
         </li>
         <li class="nav-item {{ 'about' == request()->path() ? 'active' : '' }}">
@@ -30,7 +29,7 @@
 
       @auth
       <div class="btn-group dropdown ml-3">
-        <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button type="button" class="btn btn-auth dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {{Auth::user()->name}}
         </button>
         <div class="dropdown-menu">

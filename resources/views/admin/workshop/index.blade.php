@@ -42,9 +42,8 @@ Data Workshop
                                     <th>Harga</th>
                                     <th>Waktu</br>Pelaksanaan</th>
                                     <th>Jam</br>Pelaksanaan</th>
-                                    <!-- <th>Kapasitas</br>Peserta</th> -->
                                     <th>Pendaftar</th>
-                                    <th>Kode Classroom</th>
+                                    <th>Kode Kelas</th>
                                     <th>Poster</th>
                                     <th>AKSI</th>
                                 </tr>
@@ -76,8 +75,6 @@ Data Workshop
                 </div>
             </div>
         </div>
-    </div>
-    </div>
     </div>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
