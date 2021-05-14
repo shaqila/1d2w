@@ -36,7 +36,12 @@ Home | ODTW
     <div class="carousel-item active">
       <div class="carousel-container" data-aos="fade-up" data-aos-duration="2000">
         <h2>One Day to Write</h2>
-        <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+
+        <h5 style="color: white; margin-top: -10px">
+          <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+           menulis bukan sekedar bercerita 
+          <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+        </h5>
         @guest
         <a href="{{route('signup')}}" class="btn-get-started animate__animated animate__flash">Sign Up Sekarang</a>
         @endguest
@@ -108,14 +113,14 @@ Home | ODTW
           <li><i class="bi bi-circle-fill"></i>Pilih Workshop yang ingin kamu ikuti</li>
           <li><i class="bi bi-circle-fill"></i>Klik tombol "Daftar Sekarang" pada halaman Detail Workshop</li>
           <li><i class="bi bi-circle-fill"></i>Lengkapi form data pendaftaran</li>
-          <li><i class="bi bi-circle-fill"></i>Lakukan pembayaran melalui transfer <strong>Bank BCA 08123131 a.n Shaqila Erbeliza</strong></li>
+          <li><i class="bi bi-circle-fill"></i>Lakukan pembayaran melalui transfer pada Bank yang tercantum</li>
           <li><i class="bi bi-circle-fill"></i>Klik tombol "Submit"</li>
           <li><i class="bi bi-circle-fill"></i>Kirim konfirmasi pembayaran melalui <strong>Whatsapp</strong> pada nomor <strong>082299919198</strong></li>
           <li><i class="bi bi-circle-fill"></i>Tunggu balasan konfirmasi dari Admin</li>
         </ul>
       </div>
-      <div class="col-lg mt-3" style="margin-left:-60px">
-        <img src="assets/img/regist.svg" class="img-fluid" alt="">
+      <div class="col-lg mt-5 ml-2" style="margin-left:-60px">
+        <img src="assets/img/regist2.svg" class="img-fluid" alt="">
       </div>
     </div>
   </div>
@@ -125,8 +130,7 @@ Home | ODTW
   <div class="container">
 
     <div class="section-title" data-aos="fade-up" data-aos-duration="2000">
-      <!-- <span>Kesan & Pesan</span> -->
-      <h2>Kesan & Pesan</h2>
+      <h2>Kesan</h2>
     </div>
 
     <div class="testimonials-slider swiper-container" data-aos="fade-up" data-aos-duration="2000">
@@ -162,29 +166,6 @@ Home | ODTW
           </div>
         </div>
 
-        <!-- <div class="swiper-slide">
-            <div class="testimonial-item">
-              <p>
-                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                “Hai, saya Elvis (@efanizar). 
-                Wiken kemarin saya ikut workshop menulis kelas adults secara online 
-                di @onedaytowrite yang dibimbing oleh kak @lala.elmira selama 2 hari. 
-                Sebagai penulis cerita pendek pemula, kelas tingkat dasar ini sangat 
-                membantu saya untuk bisa memulai menulis cerita pendek yang ringan. 
-                Kita diperkenalkan dengan flash fiction dan ciri-cirinya, lalu diberi 
-                tugas untuk membuat flash fiction. Kita juga dibimbing gimana 
-                menghubungkan judul dengan konflik yang kita angkat di cerita serta 
-                gimana menghidupkan cerita dan menguatkan tokoh melalui dialog. 
-                Di akhir kelas, kita ditantang untuk membuat cerita pendek. Nantikan 
-                kumpulan cerita pendek kita yang akan diterbitkan oleh @ellunarpublish_. 
-                Pasti seru bacanya.
-                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-              </p>
-              <h3>Elvis</h3>
-              <h4>Adults Level</h4>
-            </div>
-          </div> -->
-
         <div class="swiper-slide">
           <div class="testimonial-item">
             <p>
@@ -199,22 +180,6 @@ Home | ODTW
             <h4>Teens Level</h4>
           </div>
         </div>
-
-        <!-- <div class="swiper-slide">
-            <div class="testimonial-item">
-              <p>
-                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                Alhamdulillah, ODTW memberikan workshop novella kids,aku ucapkan terima kasih banyak! 🌺
-                Aku belum pernah melihat komunitas sekeren ini sebelumnya,rasa senang dan kaget tercampur aduk ketika aku mengikuti workshop online yang diadakan oleh komunitas One Day to Write 🌈
-                Sekali lagi,aku ucapkan terima kasih kepada mentor-mentor ODTW yang sudah membimbing aku dan teman-teman selama workshop menulis online ini 🌇
-                Aku berharap ODTW tetap semangat berbagi ilmu untuk anak anak Indonesia 💖
-                Salam semangat dan ceria,
-                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-              </p>
-              <h3>Sasha</h3>
-              <h4>Kids Level</h4>
-            </div>
-          </div> -->
 
         <div class="swiper-slide">
           <div class="testimonial-item">

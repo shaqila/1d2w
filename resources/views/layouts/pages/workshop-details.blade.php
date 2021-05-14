@@ -15,7 +15,7 @@
           </div>
         </div>
         <div class="workshop-info">
-          <a class="daftar-sekarang btn btn-lg btn-block" href="{{route('detail-pendaftaran', $workshop->id)}}" style="background-color: #7abaff; color: white; ">Daftar Workshop</a>
+          <a class="daftar-sekarang btn btn-lg btn-block" href="{{route('detail-pendaftaran', $workshop->slug)}}" style="background-color: #7abaff; color: white; ">Daftar Workshop</a>
         </div>
       </div>
       <div class="col-lg-8">

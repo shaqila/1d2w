@@ -7,9 +7,10 @@
          </div>
 
          <div class="social mb-3">
-           <h6>Sosial Media</h6>
+           <h6>Kontak Kami</h6>
            <ul class="list-unstyled">
-             <li class="in"><a href="https://www.instagram.com/onedaytowrite/"><span class="icon-instagram"></span></a></li>
+             <li class="in"><a href="https://www.instagram.com/onedaytowrite/" target="_blank"><span class="icon-instagram"></span></a></li>
+             <li class="in"><a href="https://wa.me/6282299919198" target="_blank"><span class="icon-whatsapp" style="color: green;"></span></a></li>
            </ul>
          </div>
 

@@ -7,6 +7,7 @@
     <title>ODTW | Log in</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{{ asset('LOGO-ODTW.png') }}">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />
@@ -56,10 +57,10 @@
                         <form class="form-signin" action="{{route('login_process')}}" method="post">
                             @csrf
                             <div class="input-group mb-3">
-                                <input type="email" name="email" class="form-control" placeholder="Email">
+                                <input type="email" name="email" class="form-control" placeholder="Email" required>
                             </div>
                             <div class="input-group mb-3">
-                                <input type="password" name="password" class="form-control" placeholder="Password">
+                                <input type="password" name="password" class="form-control" placeholder="Password" required>
                             </div>
                             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
                         </form>

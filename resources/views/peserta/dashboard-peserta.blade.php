@@ -1,7 +1,7 @@
 @extends('peserta.sidebar')
 
 @section('title')
-Dashboard Peserta
+Dashboard Peserta | ODTW
 @endsection
 
 @push('prepend-style')
@@ -50,6 +50,7 @@ Dashboard Peserta
           <div class="col-md-8">
             <div class="card-body">
               <h4 class="card-title" style="text-transform:capitalize">{{$peserta->workshop->nama}}</h4>
+              <p class="card-text " style="margin-bottom:-2px">Nama Peserta : <strong>{{$peserta->nama_lengkap}}</strong></p>
               <p class="card-text " style="margin-bottom:-2px"> Waktu Pelaksanaan :
                 @if(\Carbon\Carbon::now()->format('Y m d') != \Carbon\Carbon::parse($peserta->workshop->tanggal_pelaksanaan)->subDay(1)->format('Y m d'))
                 <strong>{{ Carbon\Carbon::parse($peserta->workshop->tanggal_pelaksanaan)->translatedFormat('l, d F Y') }} - {{ date('H:i', strtotime($peserta->workshop->jam_pelaksanaan)) }} WIB</strong>
@@ -101,6 +102,7 @@ Dashboard Peserta
                 <button style="background-color: #7abaff;color: white; margin-top:10px" type="submit" id="upload_revisi" class="btn btn-sm">Kirim Revisi Naskah</button>
               </div>
               @endif
+
           </div>
         </div>
       </div>

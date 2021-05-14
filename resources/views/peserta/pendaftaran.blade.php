@@ -38,9 +38,9 @@
 						</span>
 					</div>
 					<div class="form-group">
-						<label class="date-input" required>Tanggal Lahir</label>
 						<div class="form-row">
-							<input name="tanggal_lahir" class="form-control" type="date" value="today" id="date-input">
+							<label class="date-input" required>Tanggal Lahir</label>
+							<input name="tanggal_lahir" class="form-control" type="date" value="2002-02-09" id="date-input">
 						</div>
 					</div>
 					<div class="form-row">
@@ -76,7 +76,7 @@
 
 						<div class="form-bank">
 							<img src="{{asset('assets/img/logo_bank_BCA.png')}}" alt="bca" class="logo-bank">
-							<p class="info">Shaqila Erbeliza </br> <strong>1812828230</strong></p>
+							<p class="info" style="letter-spacing: 1px; font-size: 18px"><strong>Elmira Nidya</strong></br> 8810296985</p>
 						</div>
 						<div class="form-row-last ">
 							<input type="submit" name="register" class="register" value="SUBMIT">

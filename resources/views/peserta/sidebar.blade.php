@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-
   <title>@yield('title')</title>
 
   <!-- Style -->
@@ -29,18 +28,18 @@
           <a href="{{route('logout')}}" class="list-group-item list-group-item-action">Logout</a>
         </div>
       </div>
-        <!-- Page Content-->
-        @yield('content')
-      </div>
+      <!-- Page Content-->
+      @yield('content')
     </div>
-    
-    <!-- Footer -->
-    @include('layouts.includes.footer')
+  </div>
 
-    <!-- Script-->
-    @stack('prepend-script')
-    @include('layouts.includes.script')
-    @stack ('addon-script')
+  <!-- Footer -->
+  @include('layouts.includes.footer')
+
+  <!-- Script-->
+  @stack('prepend-script')
+  @include('layouts.includes.script')
+  @stack ('addon-script')
 
 </body>
 
