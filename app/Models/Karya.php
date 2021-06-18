@@ -16,7 +16,7 @@ class Karya extends Model
     public function getPdf($name)
     {
         if (!$this->pdf) {
-            return asset('pdf-workshop/' . $name);
+            echo "empty";
         }
         return asset('pdf-workshop/' . $this->pdf);
     }
