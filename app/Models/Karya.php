@@ -13,7 +13,7 @@ class Karya extends Model
     protected $table = 'karya';
     protected $fillable = ['id', 'nama_karya', 'level', 'deskripsi', 'cover', 'pdf'];
 
-    public function getPdf($name)
+    public function getPdf()
     {
         if (!$this->pdf) {
             echo "empty";

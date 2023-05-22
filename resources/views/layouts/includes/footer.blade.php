@@ -10,12 +10,12 @@
            <h6>Kontak Kami</h6>
            <ul class="list-unstyled">
              <li class="in"><a href="https://www.instagram.com/onedaytowrite/" target="_blank"><span class="icon-instagram"></span></a></li>
-             <li class="in"><a href="https://wa.me/6282299919198" target="_blank"><span class="icon-whatsapp" style="color: green;"></span></a></li>
+             <li class="in"><a href="https://wa.me/6280800000" target="_blank"><span class="icon-whatsapp" style="color: green;"></span></a></li>
            </ul>
          </div>
 
          <div class="copyright">
-           <p class="mb-2"><small>&copy; 2021 OneDayToWrite. </small></p>
+           <p class="mb-2"><small>&copy; {{date('Y')}} OneDayToWrite. </small></p>
          </div>
 
 

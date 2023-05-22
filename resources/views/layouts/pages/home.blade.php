@@ -115,7 +115,7 @@ Home | ODTW
           <li><i class="bi bi-circle-fill"></i>Lengkapi form data pendaftaran</li>
           <li><i class="bi bi-circle-fill"></i>Lakukan pembayaran melalui transfer pada Bank yang tercantum</li>
           <li><i class="bi bi-circle-fill"></i>Klik tombol "Submit"</li>
-          <li><i class="bi bi-circle-fill"></i>Kirim konfirmasi pembayaran melalui <strong>Whatsapp</strong> pada nomor <strong>082299919198</strong></li>
+          <li><i class="bi bi-circle-fill"></i>Kirim konfirmasi pembayaran melalui <strong>Whatsapp</strong> pada nomor <strong>0800000000</strong></li>
           <li><i class="bi bi-circle-fill"></i>Tunggu balasan konfirmasi dari Admin</li>
         </ul>
       </div>

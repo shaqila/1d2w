@@ -34,7 +34,7 @@
       </div>
 
     </div>
-    <embed src="{{$karya->getPdf()}}" width="100%" height="500" type="application/pdf" style="pointer-events:none;">
+    <!-- <embed src="{{$karya->getPdf()}}" width="100%" height="500" type="application/pdf" style="pointer-events:none;"> -->
   </div>
 </section>
 @endsection

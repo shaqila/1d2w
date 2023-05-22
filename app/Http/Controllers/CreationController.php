@@ -71,10 +71,11 @@ class CreationController extends Controller
     public function delete($karya)
     {
         $karya = Karya::where('id', $karya)->first();
-        $image_path = public_path() . '/cover-karya/' . $karya->cover;
-        $pdf_path = public_path() . '/pdf-workshop/' . $karya->pdf;
-        unlink($image_path);
-        unlink($pdf_path);
+        // $image_path = public_path() . '/cover-karya/' . $karya->cover;
+        // $pdf_path = public_path() . '/pdf-workshop/' . $karya->pdf;
+        
+        // unlink($image_path);
+        // unlink($pdf_path);
         $karya->delete();
         return redirect('/creation')->with('hapus', 'Data berhasil dihapus');
     }
